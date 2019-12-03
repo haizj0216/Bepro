@@ -1,0 +1,7 @@
+<!--pages/question/question.wxml-->
+<view>
+  <van-col wx:for="{{ images[index] }}" wx:key="index" custom-class="col" span="6">
+    <van-icon name="{{ item }}" size="32px" custom-class="icon" />
+    <view class="text">{{ item }}</view>
+  </van-col>
+</view>

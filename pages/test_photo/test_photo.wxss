@@ -1,0 +1,26 @@
+/* pages/test_photo/test_photo.wxss */
+
+.title {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.desc1 {
+  text-align: center;
+}
+
+.desc2 {
+  font-size: 14px;
+  text-align: center;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+}
+.next {
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+  font-size: 14px;
+}
