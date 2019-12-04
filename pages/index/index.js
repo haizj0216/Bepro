@@ -12,7 +12,7 @@ Page({
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../test_photo/test_photo'
+      url: '../test_baseinfo/test_1'
     })
   },
   onLoad: function () {
