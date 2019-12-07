@@ -1,0 +1,36 @@
+<!--pages/home/home.wxml-->
+<view class="container-fill">
+  <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px">
+    <view class="section section01 {{scrollindex==0?'active':''}}">
+      <view class="container_1">
+        <view class="image">
+          <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574795394631&di=53306d97ef2aceb99a54c1894d831bff&imgtype=0&src=http%3A%2F%2Ftu.ossfiles.cn%3A9186%2Fgroup2%2FM00%2F3C%2F6A%2FrBgICV1ctY6AUOA4AABDJUylN18751.jpg' mode='widthFix'></image>
+        </view>
+        
+          <view class="title">
+            <text>BEPRO</text>
+          </view>
+          <view class="title_desc">
+            <text>全新精准定制护肤系统</text>
+          </view>
+        <view style='textsize=20px; textcolor=#876' class="next" bindtap="bindViewTap">下滑探索</view>
+      </view>
+    </view>
+    <view class="section section02 {{scrollindex==1?'active':''}}" style="background: #00CC66;">
+      <text class="section-maintitle">页面2</text>
+      <text class="section-subtitle">我的页面”2</text>
+    </view>
+    <view class="section section03 {{scrollindex==2?'active':''}}" style="background: #33CCCC;">
+      <text class="section-maintitle">页面3</text>
+      <text class="section-subtitle">我的页面”3</text>
+    </view>
+    <view class="section section04 {{scrollindex==3?'active':''}}" style="background: #6699FF;">
+      <text class="section-maintitle">页面4</text>
+      <text class="section-subtitle">我的页面”4</text>
+    </view>
+    <view class="section section05 {{scrollindex==4?'active':''}}" style="background: #9966FF;">
+      <text class="section-maintitle">无缝对接双创服5</text>
+      <text class="section-subtitle">我的页面”5</text>
+    </view>
+  </view>
+</view>

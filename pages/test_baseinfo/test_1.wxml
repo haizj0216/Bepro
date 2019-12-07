@@ -9,11 +9,30 @@
 
   <view class="name">b.您的性别
   </view>
-  <radio-group>
-    <radio class="sex_female"> 女性</radio>
-    <radio class="sex_male"> 男性</radio>
-  </radio-group>
+  <view class="radio_group">
+    <radio-group>
+      <radio class="sex_female"> 女性</radio>
+      <radio class="sex_male"> 男性</radio>
+    </radio-group>
+  </view>
   <view class="name">c.您的年龄
+  </view>
+  <!-- <view class="radio_group">
+    <radio-group>
+      <radio class="sex_female"> 小于20</radio>
+      <radio class="sex_female"> 21-35</radio>
+      <radio class="sex_female"> 36-45</radio>
+      <radio class="sex_female"> 46-55</radio>
+      <radio class="sex_female"> 大于55</radio>
+    </radio-group>
+  </view> -->
+  <slider class="slider" max="4" step="1" selected-color="#000000" backgroundColor="#000000" blockSize="10px"></slider>
+  <view class="age">
+    <view class="age_text">小于20</view>
+    <view class="age_text">21-35</view>
+    <view class="age_text">36-45</view>
+    <view class="age_text">46-55</view>
+    <view class="age_text">大于55</view>
   </view>
   <view class="name">d.您的居住地
   </view>

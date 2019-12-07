@@ -9,5 +9,6 @@
   <view class="image">
     <van-uploader name="1" file-list="{{ fileList1 }}" bind:after-read="afterRead" bind:delete="delete" max-count="{{ 1 }}" bind:click-preview="clickPreview" />
   </view>
+  <view class="skinanalyze" bindtap="skinanalyze">开始检测</view>
   <view class="next" bindtap="toTest2">提交更新></view>
 </view>

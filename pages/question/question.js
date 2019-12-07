@@ -6,44 +6,79 @@ Page({
    */
   data: {
     images: [{
+      id: 1,
       name: "干燥",
-      img: "../../images/keyboard_0_new.png"
+      img: "../../images/keyboard_0_new.png",
+      checked: false,
     }, {
+      id: 2,
       name: "泛红",
-      img: "../../images/keyboard_1_new.png"
+      img: "../../images/keyboard_1_new.png",
+      checked: false,
     }, {
+      id: 3,
       name: "容易出油",
-      img: "../../images/keyboard_2_new.png"
+      img: "../../images/keyboard_2_new.png",
+      checked: false,
     }, {
+      id: 4,
       name: "毛孔显著",
-      img: "../../images/keyboard_3_new.png"
+      img: "../../images/keyboard_3_new.png",
+      checked: false,
     }, {
+      id: 5,
       name: "肤质粗糙",
-      img: "../../images/keyboard_4_new.png"
+      img: "../../images/keyboard_4_new.png",
+      checked: false,
     }, {
+      id: 6,
       name: "痘痘肌",
-      img: "../../images/keyboard_5_new.png"
+      img: "../../images/keyboard_5_new.png",
+      checked: false,
     }, {
+      id: 7,
       name: "暗沉",
-      img: "../../images/keyboard_6_new.png"
+      img: "../../images/keyboard_6_new.png",
+      checked: false,
     }, {
+      id: 8,
       name: "色斑",
-      img: "../../images/keyboard_7_new.png"
+      img: "../../images/keyboard_7_new.png",
+      checked: false,
     }, {
+      id: 9,
       name: "黑眼圈",
-      img: "../../images/keyboard_8_new.png"
+      img: "../../images/keyboard_8_new.png",
+      checked: false,
     }, {
+      id: 10,
       name: "皱纹",
-      img: "../../images/keyboard_9_new.png"
+      img: "../../images/keyboard_9_new.png",
+      checked: false,
     }, {
+      id: 11,
       name: "松弛",
-      img: "../../images/keyboard_10_new.png"
+      img: "../../images/keyboard_10_new.png",
+      checked: false,
     }, {
+      id: 12,
       name: "松弛",
-      img: "../../images/keyboard_11_new.png"
+      img: "../../images/keyboard_11_new.png",
+      checked: false,
     }],
-    texts: ["紧绷","舒适", "泛油"],
-    
+    texts: [{
+      id: 1,
+      name: "紧绷",
+      checked: false
+    }, {
+      id: 2,
+      name: "舒适",
+      checked: false
+    }, {
+      id: 3,
+      name: "泛油",
+      checked: false
+    }],
   },
 
   /**
@@ -107,5 +142,40 @@ Page({
     this.setData({
       active: event.detail.index
     });
-  }
+  },
+
+  setChecked(event) {
+    let id = event.currentTarget.dataset.id;
+    for (let i = 0; i < this.data.images.length; i++) {
+      if (this.data.images[i].id == id) {
+        if (this.data.images[i].checked == false) {
+          this.data.images[i].checked = true;
+        } else {
+          this.data.images[i].checked = false;
+        }
+      }
+    }
+    this.setData({
+      images: this.data.images,
+    })
+  },
+  setSelected(event) {
+    let id = event.currentTarget.dataset.id;
+    for (let i = 0; i < this.data.texts.length; i++) {
+      if (this.data.texts[i].id == id) {
+        this.data.texts[i].checked = true;
+      } else {
+        this.data.texts[i].checked = false;
+      }
+    }
+    this.setData({
+      texts: this.data.texts,
+    })
+  },
+
+  toNext: function () {
+    wx.navigateTo({
+      url: '../sleep/sleep'
+    })
+  },
 })

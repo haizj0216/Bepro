@@ -24,3 +24,7 @@
   text-align: right;
   font-size: 14px;
 }
+
+.skinanalyze{
+  text-align: center
+}

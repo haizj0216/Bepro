@@ -1,0 +1,5 @@
+/* pages/sleep/sleep.wxss */
+.title {
+  margin-top: 40px;
+  text-align: center;
+}

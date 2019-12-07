@@ -1,0 +1,17 @@
+/* pages/element/element.wxss */
+
+.page{
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.person {
+  margin-left: 50p;
+  margin-top: 5px;
+  font-size: 14px;
+}

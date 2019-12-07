@@ -65,7 +65,10 @@ Page({
   },
 
   oversize() {
-    wx.showToast({ title: '文件超出大小限制', icon: 'none' });
+    wx.showToast({
+      title: '文件超出大小限制',
+      icon: 'none'
+    });
   },
 
   beforeRead(event) {
@@ -97,17 +100,53 @@ Page({
   },
 
   delete(event) {
-    const { index, name } = event.detail;
+    const {
+      index,
+      name
+    } = event.detail;
     const fileList = this.data[`fileList${name}`];
     fileList.splice(index, 1);
-    this.setData({ [`fileList${name}`]: fileList });
+    this.setData({
+      [`fileList${name}`]: fileList
+    });
   },
-  toTest2: function () {
+  toTest2: function() {
     wx.navigateTo({
       url: '../question/question'
     })
   },
 
-  clickPreview() { }
+  skinanalyze() {
+    wx.request({
+      url: 'https://api-cn.faceplusplus.com/facepp/v1/skinanalyze?api_key=JYYPRM-kN-WY69UKEvx16R3COm2yqZim&api_secret=p6OCDBZd5bl2U1X-p8BLDuNUCNdFYN0N&image_url=https://5b0988e595225.cdn.sohucs.com/images/20180501/dc952082bdb542e6b1effea9e62410af.png',
+      header: {
+        'content-type': 'multipart/form-data'
+      },
+      method: 'POST',
+      dataType: 'json',
+      // data:{
+      //   api_key:'JYYPRM-kN-WY69UKEvx16R3COm2yqZim',
+      //   api_secret:'p6OCDBZd5bl2U1X-p8BLDuNUCNdFYN0N',
+      //   image_url:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575624974981&di=de114370f310f4ee225c8cf0c73cb59f&imgtype=0&src=http%3A%2F%2Fupload.ct.youth.cn%2F2015%2F0831%2F1440999645254.jpg'
+      // },
+      success: function(res) {
+        console.log(res.data)
+        if (res.data.code == 0) {
+
+        }
+      }
+
+    })
+  },
+
+  saveAnalysis() {
+    wx.setStorage({
+      key: 'analysis',
+      data: '',
+    })
+  },
+
+
+  clickPreview() {}
 
 })
