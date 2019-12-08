@@ -35,5 +35,11 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+
+  goQuestionnaire: function () {
+    wx.navigateTo({
+      url: '/pages/test_baseinfo/test_1',
+    })
   }
 })

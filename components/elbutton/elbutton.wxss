@@ -1,0 +1,34 @@
+/* components/elbutton/elbutton.wxss */
+button::after {
+    border: 0;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    flex-direction: column;
+}
+
+.normal {
+    background: rgb(51,51,51);
+    color: #fff;
+    width: 600rpx;
+    height: 92rpx;
+    font-size: 28rpx;
+}
+
+.plain {
+    background: #fff;
+    color: rgb(51,51,51);
+    border: solid 1px rgb(51,51,51);
+    width: 600rpx;
+    height: 92rpx;
+    font-size: 28rpx;
+}
+
+.button-tip {
+    font-size: 16rpx;
+    margin-top: -25rpx;
+}

@@ -1,0 +1,4 @@
+<!--pages/test_record/record.wxml-->
+<view>
+  <no-data pageName="空购物车"></no-data>
+</view>

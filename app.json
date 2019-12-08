@@ -8,14 +8,51 @@
     "pages/question/question",
     "pages/sleep/sleep",
     "pages/element/element",
-    "pages/analysis/analysis"
+    "pages/analysis/analysis",
+    "pages/my/my",
+    "components/noData/noData",
+    "pages/cart/cart",
+    "components/elbutton/elbutton",
+    "pages/test_record/record"
   ],
+  "tabBar": {
+    "selecctedColor": "#ffffff",
+    "backgroundColor": "#eeeeee",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/images/icon_homework_normal.png",
+        "selectedIconPath": "/images/icon_homework_selected.png"
+      },
+      {
+        "pagePath": "pages/test_record/record",
+        "text": "测试",
+        "iconPath": "/images/icon_rank_normal.png",
+        "selectedIconPath": "/images/icon_rank_selected.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "/images/icon_tab_ocr_normal.png",
+        "selectedIconPath": "/images/icon_tab_ocr_selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/icon_me_normal.png",
+        "selectedIconPath": "/images/icon_me_selected.png"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "BEPRO",
     "navigationBarTextStyle": "white"
   },
+  "debug": true,
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

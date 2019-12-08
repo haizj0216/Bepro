@@ -1,0 +1,7 @@
+<!--components/noData/noData.wxml-->
+<view class="no-data-container">
+  <image class="no-data-icon" src="https://cdn.effortless.cn/assets/icons/no-record.png"></image>
+  <view class="no-data">暂无您的数据</view>
+  <view class="no-data-des">填写问卷，即可获取您的精准护发方案！</view>
+  <el-button bindbtntap="goQuestionnaire" myClass="do-report" text="填写诊断问卷，即刻获取精准推荐"></el-button>
+</view>

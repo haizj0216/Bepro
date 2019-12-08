@@ -50,7 +50,7 @@ VantComponent({
     data: {
         lists: [],
         computedPreviewSize: '',
-        isInCount: true,
+        isInCount: true
     },
     methods: {
         formatFileList() {
@@ -62,7 +62,7 @@ VantComponent({
         },
         setComputedPreviewSize(val) {
             this.setData({
-                computedPreviewSize: addUnit(val),
+                computedPreviewSize: addUnit(val)
             });
         },
         startUpload() {

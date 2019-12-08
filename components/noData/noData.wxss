@@ -1,0 +1,26 @@
+/* components/noData/noData.wxss */
+.no-data-container {
+    text-align: center;
+}
+
+.no-data-icon {
+    width: 180rpx;
+    height: 220rpx;
+    margin-top: 280rpx;
+}
+
+.no-data {
+    color: rgb(103,106,113);
+    font-size: 32rpx;
+    margin-top: 94rpx;
+}
+
+.no-data-des {
+    color: rgb(103,106,113);
+    font-size: 22rpx;
+    margin-top: 20rpx;
+}
+
+.do-report {
+    margin-top: 200rpx;
+}
