@@ -1,0 +1,95 @@
+<view class="order-item">
+    <view class="flex-space-between order-item-head">
+        <view class="order-item-head-text">我的订单</view>
+    </view>
+    <view class="order-item-body" style="max-height: {{close?0:10000}}px">
+        <view class="flex-space-between">
+            <view class="order-no">
+        订单编号：{{data.order_num}}
+        <text bindtap="copyOrderId" class="copyOrderId" data-order-id="{{data.order_num}}">复制订单号</text>
+            </view>
+            <view class="order-status">{{data.statusText}}</view>
+        </view>
+        <el-order-product-item product="{{item}}" wx:for="{{data.productSnapshotList}}" wx:key="product_{{index}}"></el-order-product-item>
+        <view class="flex-space-between">
+            <view class="order-total-text">商品总额</view>
+            <view class="order-total">￥{{data.pay_price}}</view>
+        </view>
+        <view class="order-company-address" wx:if="{{data.status===5&&data.after_sale_status===100}}">
+            <text>请将售后产品寄往以下地址：
+          江苏省无锡市宜兴市环科园中
+          节能产业园15号楼三楼
+          effortless，18521531144
+        </text>
+        </view>
+        <block wx:else>
+            <view class="order-address-line">
+                <view class="order-address-line-key">收货人</view>
+                <view class="order-address-line-value">{{data.address.user_name}} {{data.address.phone}}</view>
+            </view>
+            <view class="order-address-line">
+                <view class="order-address-line-key">地址</view>
+                <view class="order-address-line-value">{{data.fullAddress}}</view>
+            </view>
+            <view class="order-address-line">
+                <view class="order-address-line-key">下单时间</view>
+                <view class="order-address-line-value">{{data.createTime}}</view>
+            </view>
+            <view class="order-address-line">
+                <view class="open-tick">如需开票，请联系客服</view>
+            </view>
+        </block>
+        <view class="order-btns">
+            <el-button bindbtntap="payNow" data-order-id="{{data.id}}" myClass="order-btn" text="立即支付" wx:if="{{data.status===1}}"></el-button>
+            <el-button bindbtntap="changeAddress" data-order-id="{{data.id}}" myClass="order-btn" text="修改地址" wx:if="{{data.status===2}}"></el-button>
+            <el-button bindbtntap="receiveModalShow" data-order-id="{{data.id}}" myClass="order-btn" text="确认收货" wx:if="{{data.status===4}}"></el-button>
+            <el-button bindbtntap="goExpress" data-address="{{data.fullAddress}}" data-order-id="{{data.id}}" data-order-num="{{data.order_num}}" myClass="order-btn" text="查看物流" wx:if="{{data.status===4}}"></el-button>
+            <el-button bindbtntap="goAfterUse" btnTip="10元代金券" data-order-id="{{data.id}}" myClass="order-btn-plain" text="用后反馈" wx:if="{{!!data.can_feedback}}"></el-button>
+            <el-button bindbtntap="goReturn" data-order-id="{{data.id}}" myClass="order-btn" text="申请售后" wx:if="{{!!data.can_after_sale}}"></el-button>
+            <el-button bindbtntap="modalVisible" data-order-id="{{data.id}}" data-show="{{true}}" myClass="order-btn" text="填入邮寄单号" wx:if="{{data.status===5&&data.after_sale_status===100}}"></el-button>
+            <view class="sub-btn" wx:if="{{data.status===6}}">
+        已退款
+      </view>
+            <view class="sub-btn" wx:if="{{data.after_sale_status===50||data.after_sale_status===75}}">
+        申请审核中
+      </view>
+            <view class="sub-btn" wx:if="{{data.after_sale_status===300||data.after_sale_status===350||data.after_sale_status===400}}">
+        等待{{data.after_sale_type===1?'退款':'换货'}}
+      </view>
+            <view class="sub-btn" wx:if="{{data.after_sale_status===500&&data.final_status!==550}}">
+        已{{data.after_sale_type===1?'退款':'换货'}}
+      </view>
+        </view>
+    </view>
+</view>
+<modal id="modal">
+    <view class="modal-body">
+        <view class="modal-title">填入邮寄单号</view>
+        <view class="modal-input">
+            <el-input bindinput="changeExpressNo" placeholder="请填写邮寄单号" value="{{expressNo}}"></el-input>
+            <el-input bindinput="changeExpressCom" placeholder="请填写快递公司名称" value="{{expressCom}}"></el-input>
+        </view>
+        <view class="modal-btns">
+            <el-button bindbtntap="modalVisible" buttonType="plain" data-show="{{false}}" myClass="modal-btn" text="取消"></el-button>
+            <el-button bindbtntap="requestSend" myClass="modal-btn" text="确认"></el-button>
+        </view>
+    </view>
+</modal>
+<modal bindonclose="zeroModalHide" id="zeroModal">
+    <view class="zero-modal-body">
+        <view class="zero-modal-title">是否确认支付</view>
+        <view class="zero-modal-btns">
+            <el-button bindbtntap="zeroModalHide" buttonType="plain" data-cancel="{{true}}" myClass="zero-modal-btn" text="取消"></el-button>
+            <el-button bindbtntap="zeroPay" myClass="zero-modal-btn" text="确认"></el-button>
+        </view>
+    </view>
+</modal>
+<modal id="confirmReceive">
+    <view class="zero-modal-body">
+        <view class="zero-modal-title">是否确认收货</view>
+        <view class="zero-modal-btns">
+            <el-button bindbtntap="receiveModalHide" buttonType="plain" data-cancel="{{true}}" myClass="zero-modal-btn" text="取消"></el-button>
+            <el-button bindbtntap="confirmReceive" myClass="zero-modal-btn" text="确认"></el-button>
+        </view>
+    </view>
+</modal>

@@ -1,1 +1,95 @@
 /* pages/my/my.wxss */
+page {
+    background-color: rgb(243,244,244);
+}
+
+.no-order-list {
+    text-align: center;
+    margin-top: 234rpx;
+}
+
+.no-order-image {
+    width: 222rpx;
+    height: 236rpx;
+}
+
+.no-order-text {
+    color: rgb(103,106,113);
+    font-size: 32rpx;
+    margin-top: 56rpx;
+}
+
+.no-order-des {
+    color: rgb(103,106,113);
+    font-size: 22rpx;
+    margin-top: 20rpx;
+}
+
+.check-out-products {
+    margin-top: 200rpx;
+}
+
+.profile {
+    padding: 34rpx 70rpx;
+    background-color: #fff;
+    display: flex;
+}
+
+.basic {
+    text-align: center;
+}
+
+.avatar {
+    width: 92rpx;
+    height: 92rpx;
+}
+
+.name {
+    color: rgb(51,51,51);
+    font-size: 24rpx;
+    letter-spacing: 3rpx;
+    font-weight: bolder;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.tab {
+    margin-left: 60rpx;
+    text-align: center;
+}
+
+.tab-icon {
+    width: 92rpx;
+    height: 92rpx;
+}
+
+.tab-name {
+    font-size: 22rpx;
+    color: rgb(103,106,113);
+}
+
+.order-list {
+}
+
+.contact {
+    background: #fff;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: #000000;
+    display: block;
+}

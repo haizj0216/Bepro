@@ -1,0 +1,4 @@
+<view catchtap="onChange" class="checkbox">
+    <image class="check" src="https://cdn.effortless.cn/assets/icons/checkbox-ed.png" wx:if="{{checked}}"></image>
+    <image class="check" src="https://cdn.effortless.cn/assets/icons/checkbox-un.png" wx:else></image>
+</view>

@@ -1,2 +1,40 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="me">
+    <view class="profile">
+        <view class="basic">
+            <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+            <view class="name">{{userInfo.nickName}}</view>
+        </view>
+        <view class="tabs">
+            <view bindtap="goCoupon" class="tab">
+                <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/coupon.png?q=1"></image>
+                <view class="tab-name">我的优惠券</view>
+            </view>
+            <view bindtap="goReWard" class="tab">
+                <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/gift.png?q=1"></image>
+                <view class="tab-name">我的积分</view>
+            </view>
+            <view bindtap="goContact" class="tab">
+                <button class="contact" openType="contact">
+                    <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/chat.png?q=1"></image>
+                    <view class="tab-name" style="margin-top: 12rpx;">咨询客服</view>
+                </button>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{!hasDoneQ&&orderList.length===0}}">
+        <no-data pageName="空我"></no-data>
+    </view>
+    <view wx:if="{{loading}}"></view>
+    <block wx:else>
+        <view class="no-order-list" wx:if="{{!orderList.length}}">
+            <image class="no-order-image" src="https://cdn.effortless.cn/assets/icons/order-empty.png"></image>
+            <view class="no-order-text">没有任何订单信息</view>
+            <view class="no-order-des">健康生活从头开始，effortless给您带来惊喜！</view>
+            <el-button bindbtntap="goRecommendProduct" myClass="check-out-products" text="查看适合我的产品"></el-button>
+        </view>
+        <view class="order-list" wx:else>
+            <order-item bindreload="orderReload" data="{{item}}" wx:for="{{orderList}}" wx:key="orderItem_{{index}}"></order-item>
+        </view>
+    </block>
+</view>

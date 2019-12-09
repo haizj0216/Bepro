@@ -47,9 +47,8 @@
             </view>
           </view>
         </view>
-
-        <el-button bindbtntap="goQuestionnaire" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
       </view>
+      <el-button bindbtntap="goQuestionnaire" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
     </view>
 
 
@@ -59,6 +58,6 @@
     </view>
 
 
-    
+
   </view>
 </view>

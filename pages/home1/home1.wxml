@@ -1,0 +1,83 @@
+<!--pages/home1/home1.wxml-->
+<swiper bindchange="onSwiperChange" class="swiper" duration="{{300}}" vertical="true">
+  <swiper-item class="swiper-item" key="1">
+    <image class="image" src="{{image_1}}" mode='widthFix'></image>
+    <view class="container_1">
+      <view class="title">
+        <text>BEPRO</text>
+      </view>
+      <view class="title_desc">
+        <text>全新精准定制护肤系统</text>
+      </view>
+      <view class="next" bindtap="goNext">下滑探索</view>
+      <image class="array_down" src="/images/down_arrow.png"></image>
+    </view>
+  </swiper-item>
+
+
+  <swiper-item class="swiper-item" key="2">
+    <image class="image" src="{{image_2}}" mode='widthFix'></image>
+    <!-- <view class="view_margin">
+      <text style="font-size:12px;border-bottom:1px #000 solid">个人因素</text>
+      <view class="home_grids">
+        <view wx:for="{{image_person}}" wx:key="item.name" class="home_grid">
+          <view class='grid_item'>
+            <image class="image_item" src="{{item.img}}" mode="aspectFit"></image>
+            <view class="text_item">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+
+      <text style="font-size:12px;border-bottom:1px #000 solid">环境因素</text>
+      <view class="home_grids">
+        <view wx:for="{{image_environment}}" wx:key="item.name" class="home_grid">
+          <view class='grid_item'>
+            <image class="image_item" src="{{item.img}}" mode="aspectFit"></image>
+            <view class="text_item">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <text style="font-size:12px;border-bottom:1px #000 solid">生活方式</text>
+      <view class="home_grids">
+        <view wx:for="{{image_life_style}}" wx:key="item.name" class="home_grid">
+          <view class='grid_item'>
+            <image class="image_item" src="{{item.img}}" mode="aspectFit"></image>
+            <view class="text_item">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <view class="item3-body">
+      <block wx:for="{{des}}" wx:key="des_{{index}}">
+        <view class="item3-body-title">
+          {{item.title}}
+          <view style="width: 125rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
+        </view>
+        <view class="item3-body-items">
+          <view class="item3-body-item" wx:for="{{item.icons}}" wx:for-index="i" wx:for-item="iconItem" wx:key="iconItem_${{i}}">
+            <image class="item3-body-item-image" src="{{iconItem.img}}"></image>
+            <view class="item3-body-item-text">{{iconItem.name}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <el-button bindbtntap="goQuestionnaire" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
+    <view class="arrow-container arrow-container-mini">
+      <view class="arrow-text">了解更多</view>
+      <image class="arrow" src="https://cdn.effortless.cn/assets/icons/arrow-down.png"></image>
+    </view>
+  </swiper-item>
+  <swiper-item key="3">
+    <image class="image" src="{{image_3}}" mode='widthFix'></image>
+    <view class="item6-content">
+      <view class="item6-title">严选成分 不为赋予概念而复杂配方</view>
+      <view class="item6-des">选用EWG值1-2等级原料</view>
+      <view class="item6-des">全球顶级原料厂家背书</view>
+      <view>
+        <image class="brand-icons" src="https://cdn.effortless.cn/assets/images/brand-icons.png?t=11111"></image>
+      </view>
+    </view>
+
+  </swiper-item>
+
+</swiper>

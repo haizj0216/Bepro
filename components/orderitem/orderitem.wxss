@@ -1,0 +1,215 @@
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item {
+    background: #fff;
+    margin-top: 32rpx;
+    padding: 0 24rpx;
+}
+
+.order-item-head {
+    background-color: rgb(51,51,51);
+    padding: 24rpx 32rpx;
+}
+
+.order-item-head-text {
+    color: #fff;
+    font-size: 32rpx;
+    letter-spacing: 3rpx;
+}
+
+.order-item-head-arrow {
+    width: 24rpx;
+    height: 14rpx;
+}
+
+.order-item-body {
+    padding: 30rpx;
+}
+
+.order-no {
+    color: rgb(103,106,113);
+    font-size: 22rpx;
+    margin-bottom: 30rpx;
+}
+
+.order-status {
+    color: rgb(51,51,51);
+    font-size: 24rpx;
+    letter-spacing: 3rpx;
+    font-weight: bold;
+}
+
+.order-item-product-item {
+    margin-top: 24rpx;
+}
+
+.order-item-product-item-image {
+    width: 108rpx;
+    height: 108rpx;
+}
+
+.order-item-product-item-basic {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 108rpx;
+}
+
+.order-item-product-item-basic-name {
+    color: rgba(33,33,33,0.8);
+    font-size: 24rpx;
+    font-weight: bold;
+}
+
+.order-item-product-item-basic-des {
+    color: rgb(158,158,158);
+    font-size: 20rpx;
+}
+
+.order-item-product-item-basic-quantity {
+    color: rgba(33,33,33,0.8);
+    font-size: 20rpx;
+}
+
+.order-item-product-item-price {
+    color: rgba(33,33,33,0.8);
+    font-size: 24rpx;
+    font-weight: bold;
+    padding-right: 20rpx;
+}
+
+.order-total-text {
+    color: rgba(33,33,33,0.8);
+    font-size: 28rpx;
+    margin-top: 44rpx;
+    margin-bottom: 22rpx;
+}
+
+.order-total {
+    color: rgb(56,56,56);
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.order-address-line {
+    display: flex;
+    margin-top: 18rpx;
+}
+
+.order-address-line-key {
+    color: rgba(33,33,33,0.8);
+    font-size: 20rpx;
+    font-weight: 500;
+    min-width: 80rpx;
+}
+
+.order-address-line-value {
+    color: rgb(103,106,113);
+    font-size: 22rpx;
+    margin-left: 16rpx;
+}
+
+.order-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 54rpx;
+}
+
+.order-btn {
+    width: 230rpx;
+    height: 72rpx;
+    margin-left: 40rpx;
+    font-size: 28rpx;
+}
+
+.order-btn-plain {
+    width: 220rpx;
+    height: 72rpx;
+    background: #fff;
+    color: rgb(51,51,51);
+    border: solid 1rpx rgb(51,51,51);
+    margin-left: 40rpx;
+    font-weight: 500;
+}
+
+.sub-btn {
+    font-size: 28rpx;
+    color: rgb(37,37,37);
+    margin-left: 40rpx;
+    font-weight: bold;
+}
+
+.transition-body {
+    transition: all 300ms ease;
+    overflow: hidden;
+    max-height: 1000px;
+}
+
+.modal-body {
+    padding: 50rpx 60rpx;
+}
+
+.modal-title {
+    color: rgb(56,56,56);
+    font-size: 34rpx;
+    font-weight: 500;
+}
+
+.modal-input {
+    margin-top: 40rpx;
+}
+
+.modal-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 80rpx;
+}
+
+.modal-btn {
+    width: 200rpx!important;
+    margin-left: 30rpx!important;
+}
+
+.open-tick {
+    color: rgb(165,156,151);
+    font-size: 20rpx;
+}
+
+.copyOrderId {
+    color: rgb(165,156,151);
+    font-size: 16rpx;
+    margin-left: 16rpx;
+}
+
+.zero-modal-body {
+    padding: 50rpx 60rpx;
+    width: 655rpx;
+    box-sizing: border-box;
+}
+
+.zero-modal-title {
+    color: rgb(56,56,56);
+    font-size: 34rpx;
+    font-weight: 500;
+}
+
+.zero-modal-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 80rpx;
+}
+
+.zero-modal-btn {
+    width: 200rpx!important;
+    margin-left: 30rpx!important;
+}
+
+.order-company-address {
+    color: rgba(33,33,33,0.8);
+    font-size: 22rpx;
+    line-height: 36rpx;
+}

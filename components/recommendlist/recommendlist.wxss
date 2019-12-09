@@ -1,0 +1,62 @@
+.page {
+    padding-left: 32rpx;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20rpx;
+    padding-right: 34rpx;
+    align-items: center;
+}
+
+.title {
+    color: rgb(56,56,56);
+    font-size: 34rpx;
+    letter-spacing: 4rpx;
+    font-weight: bolder;
+    margin-left: 34rpx;
+}
+
+.title-solution {
+    border: solid 2rpx rgb(51,51,51);
+    color: rgb(51,51,51);
+    padding: 6rpx 10rpx;
+    margin-top: 10rpx;
+    height: 70rpx;
+}
+
+.title-solution-s {
+    font-size: 20rpx;
+    text-align: right;
+}
+
+.title-solution-no {
+    font-size: 32rpx;
+    font-weight: bolder;
+}
+
+.all-select {
+    display: flex;
+    align-items: center;
+    margin-top: 40rpx;
+}
+
+.all-select-text {
+    color: rgb(77,77,77);
+    font-size: 24rpx;
+    margin-left: 28rpx;
+}
+
+.add-to-cart {
+    background: #000;
+    color: #fff;
+    border-radius: 0;
+    width: 618rpx;
+    margin-top: 120rpx;
+    margin-left: 66rpx;
+    margin-bottom: 66rpx;
+    font-size: 28rpx;
+    padding: 26rpx 0;
+    line-height: unset;
+}
