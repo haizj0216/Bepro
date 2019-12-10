@@ -1,0 +1,13 @@
+<view bindtap="goProduct" class="order-item-product-item">
+    <el-select catchtap="onProductSelectChange" selected="{{product.selected}}" wx:if="{{showSelect}}"></el-select>
+    <image class="order-item-product-item-image {{showSelect?'image-left':''}}" src="{{product.logo}}?x-oss-process=style/_200x200"></image>
+    <view class="order-item-product-item-basic" style="height: {{showCount?140:108}}rpx">
+        <view class="order-item-product-item-basic-name">{{product.name}}</view>
+        <view class="order-item-product-item-basic-des">{{product.sub_title}}</view>
+        <view class="order-item-product-item-basic-quantity" wx:if="{{!showCount}}">x{{product.quantity}}</view>
+        <view style="display: flex;" wx:else>
+            <counter bindchange="onCounterChange" max="{{product.quantity}}" min="{{1}}" value="{{product.num}}"></counter>
+        </view>
+    </view>
+    <view class="order-item-product-item-price">￥{{product.price}}</view>
+</view>

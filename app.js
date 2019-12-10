@@ -22,8 +22,8 @@ var a = require("./utils/lib/sensorsdata.min.js");
 a.setPara({
   name: "sensors",
   server_url: "https://effortless.datasink.sensorsdata.cn/sa?project=production&token=7d63dfff847af3ce",
-  appid: "wx30d1c3281e1437fa",
   show_log: !1,
+  appid: "wx116ea4af222398ac",
   allow_amend_share_path: !0
 }), a.init();
 

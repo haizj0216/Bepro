@@ -1,4 +1,7 @@
 // pages/test_baseinfo/test_1.js
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+var qqmapsdk;
+
 Page({
 
   /**
@@ -22,7 +25,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    qqmapsdk = new QQMapWX({
+      key: 'XITBZ-3SBLG-4R3QN-IXXPJ-TD5TE-QUFPR'
+    });
+    wx.getSetting({
+      success: (res) => {
+        console.log(JSON.stringify(res))
 
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+          wx.showModal({
+            title: '请求授权当前位置',
+            content: '需要获取您的地理位置，请确认授权',
+            success: function(res) {
+              if (res.cancel) {
+                wx.showToast({
+                  title: '拒绝授权',
+                  icon: 'none',
+                  duration: 1000
+                })
+              } else if (res.confirm) {
+                wx.openSetting({
+                  success: function(dataAu) {
+                    if (dataAu.authSetting["scope.userLocation"] == true) {
+                      this.gettitude();
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+
+
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'none',
+                        duration: 1000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] == undefined) {
+          this.gettitude();
+        } else {
+          this.gettitude();
+
+        }
+      }
+    })
   },
 
   /**
@@ -36,7 +88,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    wx.authorize({
+      scope: 'scope.userLocation',
+      success: (res) => {
 
+      },
+    })
   },
 
   /**
@@ -75,7 +132,7 @@ Page({
   },
 
   data: {
-    region: ['北京市', '北京市', '朝阳区'],
+    region: ['', '', ''],
     customItem: '全部',
   },
 
@@ -97,6 +154,46 @@ Page({
     } = event.currentTarget.dataset;
     this.setData({
       [key]: event.detail
+    });
+  },
+
+  gettitude: function() {
+    let vm = this;
+    wx.getLocation({
+      type: 'wgs84',
+      altitude: true,
+      success: function(res) {
+        console.log(res);
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        vm.getlocal(latitude, longitude);
+      },
+      fail: function(res) {
+        console.log(res);
+      },
+      complete: function(res) {},
+    })
+  },
+
+  getlocal: function(latitude, longitude) {
+    let vm = this;
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: latitude,
+        longitude: longitude
+      },
+      success: function(res) {
+        console.log(res);
+        let province = res.result.address_component.province;
+        let city = res.result.address_component.city;
+        let district = res.result.address_component.district;
+        vm.setData({
+          region:[province, city, district]
+        });
+      },
+      fail: function(e) {
+        console.log(e);
+      }
     });
   },
 })

@@ -1,0 +1,15 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.check {
+    width: 28rpx;
+    height: 30rpx;
+}
+
+.label {
+    font-size: 28rpx;
+    color: rgba(33,33,33,0.8);
+    margin-left: 34rpx;
+}

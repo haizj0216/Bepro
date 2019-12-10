@@ -1,0 +1,61 @@
+<view class="item" wx:if="{{disabledSlide}}">
+    <view bindtap="onProductSelectChange" class="item-select" wx:if="{{showSelect}}">
+        <el-select selected="{{product.selected}}"></el-select>
+    </view>
+    <view catchtap="goProductDetail" class="item-detail" style="border-bottom: {{withoutEndline?'none':'solid 1rpx #DADCDB'}};">
+        <view class="item-image-item">
+            <image class="item-image" src="{{product.logo}}?x-oss-process=style/_200x200"></image>
+            <view class="item-recommend" wx:if="{{product.is_recommond}}">当月推荐</view>
+        </view>
+        <view>
+            <view class="item-name">{{product.name}}</view>
+            <view class="item-des">
+                <text decode="{{true}}"></text>{{product.sub_title}} · {{product.volume}}<text decode="{{true}}"></text>
+            </view>
+            <view class="item-effort">
+          {{product.description}}
+        </view>
+            <view class="item-bottom">
+                <view class="item-bottom-flex" wx:if="{{showCounter}}">
+                    <counter bindchange="onCounterChange" min="{{minQuantity}}" value="{{product.quantity}}"></counter>
+                    <view class="out-of-stock" wx:if="{{product.disable}}">缺货</view>
+                </view>
+                <view class="item-bottom-price">￥{{product.price}}</view>
+                <view class="item-bottom-price" wx:if="{{showNum}}">x{{product.quantity}}</view>
+            </view>
+        </view>
+        <image class="item-arrow" src="https://cdn.effortless.cn/assets/icons/arrow-right.png" wx:if="{{showArrow}}"></image>
+    </view>
+</view>
+<van-swipe-cell bindclick="delProduct" disabled="{{disabledSlide}}" rightWidth="{{65}}" wx:else>
+    <view class="item">
+        <view bindtap="onProductSelectChange" class="item-select" wx:if="{{showSelect}}">
+            <el-select selected="{{product.selected}}"></el-select>
+        </view>
+        <view catchtap="goProductDetail" class="item-detail" style="border-bottom: {{withoutEndline?'none':'solid 1rpx #DADCDB'}};">
+            <view class="item-image-item">
+                <image class="item-image" src="{{product.logo}}?x-oss-process=style/_200x200"></image>
+                <view class="item-recommend" wx:if="{{product.is_recommond}}">当月推荐</view>
+            </view>
+            <view>
+                <view class="item-name">{{product.name}}</view>
+                <view class="item-des">
+                    <text decode="{{true}}"></text>{{product.sub_title}} · {{product.volume}}<text decode="{{true}}"></text>
+                </view>
+                <view class="item-effort">
+          {{product.description}}
+        </view>
+                <view class="item-bottom">
+                    <view class="item-bottom-flex" wx:if="{{showCounter}}">
+                        <counter bindchange="onCounterChange" max="{{maxQuantity}}" min="{{minQuantity}}" value="{{product.quantity}}"></counter>
+                        <view class="out-of-stock" wx:if="{{product.disable}}">缺货</view>
+                    </view>
+                    <view class="item-bottom-price">￥{{product.price}}</view>
+                    <view class="item-bottom-price" wx:if="{{showNum}}">x{{product.quantity}}</view>
+                </view>
+            </view>
+            <image class="item-arrow" src="https://cdn.effortless.cn/assets/icons/arrow-right.png" wx:if="{{showArrow}}"></image>
+        </view>
+    </view>
+    <view class="del-item" slot="right">删除</view>
+</van-swipe-cell>
