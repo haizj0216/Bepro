@@ -1,4 +1,6 @@
 <!--pages/test_baseinfo/test_1.wxml-->
+<header showBack="{{true}}"></header>
+<body></body>
 <view>
   <view class="title">
     <text>1/基本信息</text>
@@ -40,5 +42,5 @@
     <view class="picker">{{region[0]}} {{region[1]}} {{region[2]}} </view>
   </picker>
   <view class="line"></view>
-  <view class="next" bindtap="toTest2">提交更新></view>
+  <view class="next" bindtap="toTest2">下一步></view>
 </view>

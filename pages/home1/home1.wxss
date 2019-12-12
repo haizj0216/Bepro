@@ -750,9 +750,9 @@ page {
 }
 
 .title {
-  size: 30px;
+  width: 400rpx;
+  height: 100rpx;
   margin-top: 50px;
-  text-align: center;
 }
 
 .image {
@@ -771,7 +771,7 @@ page {
 
 .next {
   position: fixed;
-  bottom: 30px;
+  bottom: 74px;
   z-index: -1;
   font-size: 12px;
   color: #bbb;
@@ -781,7 +781,7 @@ page {
 
 .array_down {
   position: fixed;
-  bottom: 10px;
+  bottom: 54px;
   height: 10px;
   width: 15px;
   animation: arrow 1s infinite ease-in-out;

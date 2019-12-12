@@ -1,4 +1,6 @@
 <!--pages/question/question.wxml-->
+<header showBack="{{true}}"></header>
+<body></body>
 <view>
   <view class="title">3/问题描述</view>
   <view class="question_1">a.以下哪些肌肤问题正在困扰你</view>
@@ -16,6 +18,6 @@
       <view class="text2">{{item.name}}</view>
     </view>
   </view>
-  <view class="next" bindtap="toNext">提交更新></view>
+  <view class="next" bindtap="toNext">下一步></view>
 
 </view>

@@ -1,0 +1,9 @@
+<cover-view class="head-container">
+  <cover-view class="safe-area" style="height: {{statusBarHeight}}px"></cover-view>
+  <cover-view class="head" style="height: {{capsuleHeight}}px">
+    <cover-view bindtap="goBack" class="back-container" wx:if="{{showBack}}">
+      <cover-image catchtap="goBack" class="back" src="https://cdn.effortless.cn/assets/images/back.png"></cover-image>
+    </cover-view>
+    <cover-image class="title-text" src="/images/logo.png"></cover-image>
+  </cover-view>
+</cover-view>

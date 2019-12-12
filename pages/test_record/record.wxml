@@ -1,4 +1,5 @@
 <!--pages/test_record/record.wxml-->
+
 <view wx:if="{{!hasDoneQ}}">
   <no-data pageName="空档案页"></no-data>
 </view>

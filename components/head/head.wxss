@@ -1,0 +1,43 @@
+.head-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+}
+
+.safe-area {
+    background: black;
+    height: 44px;
+}
+
+.head {
+    background: black;
+    height: 44px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.back-container {
+    padding: 30rpx 40rpx;
+}
+
+.back {
+    height: 34rpx;
+    width: 20rpx;
+    display: block;
+}
+
+.title {
+    flex: 1;
+    display: flex;
+    margin-left: -50rpx;
+}
+
+.title-text {
+    width: 270rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

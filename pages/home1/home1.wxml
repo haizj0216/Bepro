@@ -1,10 +1,12 @@
 <!--pages/home1/home1.wxml-->
+<header showBack="{{false}}"></header>
+<body></body>
 <swiper bindchange="onSwiperChange" class="swiper" duration="{{300}}" vertical="true">
   <swiper-item class="swiper-item" key="1">
     <image class="image" src="{{image_1}}" mode='widthFix'></image>
     <view class="container_1">
-      <view class="title">
-        <text>BEPRO</text>
+      <view >
+        <image class="title" src="/images/logo_black.png" mode=""></image>
       </view>
       <view class="title_desc">
         <text>全新精准定制护肤系统</text>

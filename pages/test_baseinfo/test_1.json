@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "header": "../../../../components/head/head",
+    "body": "../../../../components/body/body",
     "van-radio":"@vant/weapp/radio"
   }
 }

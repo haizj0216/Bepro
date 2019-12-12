@@ -1,2 +1,16 @@
 <!--pages/analysis/analysis.wxml-->
-<text>pages/analysis/analysis.wxml</text>
+<header showBack="{{true}}"></header>
+
+<body></body>
+<view class="title">
+  <text style="font-size:30px;border-bottom:1px #000 solid">肤质解读</text>
+</view>
+<block wx:for="{{faceresult}}" wx:for-item="itemresult">
+  <view class="item-body-items">
+    <view class="item-body-item" wx:for="{{itemresult}}" wx:for-index="i" wx:for-item="iconItem" wx:key="iconItem_${{i}}">
+      <image class="item-body-item-image" src="{{iconItem.icon}}"></image>
+      <view class="item-body-item-text">{{iconItem.name}}</view>
+      <view class='{{iconItem.score==0?"red":"" || iconItem.score==1?"green":"" || iconItem.score==2?"yellow":"" }}'></view>
+    </view>
+  </view>
+</block>

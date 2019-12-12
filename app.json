@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/sleep/sleep",
     "pages/home1/home1",
     "pages/home/home",
     "pages/index/index",
@@ -7,7 +8,6 @@
     "pages/test_baseinfo/test_1",
     "pages/test_photo/test_photo",
     "pages/question/question",
-    "pages/sleep/sleep",
     "pages/element/element",
     "pages/analysis/analysis",
     "pages/my/my",
@@ -51,7 +51,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "BEPRO",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   },
   "permission": {
     "scope.userLocation": {
