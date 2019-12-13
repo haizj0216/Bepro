@@ -1,4 +1,6 @@
 <!--pages/cart/cart.wxml-->
+<header showBack="{{false}}"></header>
+<body></body>
 <view>
   <no-data pageName="空购物车"></no-data>
 </view>

@@ -1,4 +1,6 @@
 // pages/analysis/analysis.js
+const app = getApp()
+
 Page({
 
   /**
@@ -44,13 +46,16 @@ Page({
       }]
     ],
     analysisresult: "",
+    userInfo: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    setData({
+      userInfo: app.globalData.userInfo
+    })
   },
 
   /**

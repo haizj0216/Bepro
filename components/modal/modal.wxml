@@ -1,0 +1,9 @@
+<view class="modal" wx:if="{{show}}">
+    <view animation="{{maskAnimation}}" class="modal-mask"></view>
+    <view class="modal-container">
+        <view animation="{{modalAnimation}}" class="modal-content">
+            <image bindtap="hide" class="modal-close" data-status="close" src="https://cdn.effortless.cn/assets/icons/close.png" wx:if="{{showClose}}"></image>
+            <slot></slot>
+        </view>
+    </view>
+</view>

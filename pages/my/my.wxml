@@ -1,4 +1,6 @@
 <!--pages/my/my.wxml-->
+<header showBack="{{false}}"></header>
+<body></body>
 <view class="me">
     <view class="profile">
         <view class="basic">

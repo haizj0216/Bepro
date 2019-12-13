@@ -1,6 +1,6 @@
 module.exports = {
     cdn: "xxx",
-    apiHost: "https://dev.effortless.cn/effortless-0.0.1/",
+    apiHost: "",
     apiUrl: {
         formId: "wx/user/form_id",
         login: "wx/user/login",

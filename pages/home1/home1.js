@@ -9,107 +9,90 @@ Page({
     image_2: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575788793957&di=f3b89a85603ec395cbf368eeb51e5af9&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F14%2F75%2F45%2F69A58PICv2i_1024.jpg",
     image_3: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575788793957&di=f3b89a85603ec395cbf368eeb51e5af9&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F14%2F75%2F45%2F69A58PICv2i_1024.jpg",
 
-    image_person: [{
-      name: "性别",
-      img: "../../images/keyboard_0_new.png",
-    }, {
-      name: "年龄",
-      img: "../../images/keyboard_1_new.png",
-    }, {
-      name: "皮肤类型",
-      img: "../../images/keyboard_2_new.png",
-    }, {
-      name: "干燥",
-      img: "../../images/keyboard_3_new.png",
-    }],
-
-    image_environment: [{
-      name: "湿度",
-      img: "../../images/keyboard_4_new.png",
-    }, {
-      name: "温度",
-      img: "../../images/keyboard_5_new.png",
-    }, {
-      name: "UV",
-      img: "../../images/keyboard_6_new.png",
-    }, {
-      name: "空气质量",
-      img: "../../images/keyboard_7_new.png",
-    }],
-
-    image_life_style: [{
-      name: "护肤习惯",
-      img: "../../images/keyboard_8_new.png",
-    }, {
-      name: "化妆频率",
-      img: "../../images/keyboard_9_new.png",
-    }, {
-      name: "运动频率",
-      img: "../../images/keyboard_10_new.png",
-    }, {
-      name: "压力水平",
-      img: "../../images/keyboard_11_new.png",
-    }],
+    home_3:[
+      {
+        name:"无香精",
+        img:"/images/home_3_xiangjing.png",
+      },
+      {
+        name: "无激素",
+        img: "/images/home_3_wujishu.png",
+      },
+      {
+        name: "无色素",
+        img: "/images/home_3_wuseshu.png",
+      },
+      {
+        name: "无酒精",
+        img: "/images/home_3_wujiujing.png",
+      },
+      {
+        name: "无荧光剂",
+        img: "/images/home_3_wuyinguangji.png",
+      },
+      {
+        name: "无塑料微粒",
+        img: "/images/home_3_wushuliao.png",
+      }
+    ],
 
     des: [{
       icons: [{
         name: "性别",
         icon: "p-1",
-        img: "../../images/keyboard_11_new.png",
+        img: "../../images/home_2_sex.png",
 
       }, {
         name: "年龄",
         icon: "p-2",
-        img: "../../images/keyboard_11_new.png",
+          img: "../../images/home_2_age.png",
       }, {
-        name: "头皮类型",
+        name: "皮肤类型",
         icon: "p-3",
-        img: "../../images/keyboard_11_new.png",
+          img: "../../images/home_2_skin_class.png",
       }, {
-        name: "发质类型",
+        name: "皮肤问题",
         icon: "p-4",
-        img: "../../images/keyboard_11_new.png",
+          img: "../../images/home_2_skin_q.png",
       }],
       title: "个人因素"
     }, {
       icons: [{
-        name: "水质硬度",
-        icon: "p-5",
-        img: "../../images/keyboard_11_new.png",
-      }, {
-        name: "pH值",
-        icon: "p-6",
-        img: "../../images/keyboard_11_new.png",
-      }, {
         name: "温度",
-        icon: "p-7",
-        img: "../../images/keyboard_11_new.png",
+        icon: "p-5",
+        img: "../../images/home_2_tem.png",
       }, {
         name: "湿度",
+        icon: "p-6",
+          img: "../../images/home_2_shidu.png",
+      }, {
+        name: "日晒强度",
+        icon: "p-7",
+          img: "../../images/home_2_sun.png",
+      }, {
+        name: "空气质量",
         icon: "p-8",
-        img: "../../images/keyboard_11_new.png",
+          img: "../../images/home_2_air.png",
       }],
       title: "环境因素"
     }, {
       icons: [{
-        name: "造型习惯",
-        icon: "p-9",
-        img: "../../images/keyboard_11_new.png",
-      }, {
-        name: "洗护习惯",
+        name: "护肤习惯",
         icon: "p-10",
-        img: "../../images/keyboard_11_new.png",
+        img: "../../images/home_2_skin_p.png",
       }, {
         name: "运动频率",
         icon: "p-11",
-        img: "../../images/keyboard_11_new.png",
+          img: "../../images/home_2_sport.png",
       }, {
         name: "压力水平",
         icon: "p-12",
-        img: "../../images/keyboard_11_new.png",
+          img: "../../images/home_2_y.png",
       }],
       title: "生活方式"
     }],
+    userInfo: {},
+    hasUserInfo: false,
   },
 
   /**
@@ -117,6 +100,33 @@ Page({
    */
   onLoad: function(options) {
     wx.hideTabBar();
+
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -130,7 +140,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
   },
 
   /**

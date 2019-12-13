@@ -1,8 +1,24 @@
 /* pages/analysis/analysis.wxss */
 
 .title {
-  margin-left: 50rpx;
-  margin-top: 50rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.head_layout{
+display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+}
+.head {
+  width: 100rpx;
+  height: 100rpx;
+  overflow:hidden;  
+  border-radius: 50%;
+  
 }
 
 .item-body-items {
@@ -43,7 +59,7 @@
   background-color: red;
 }
 
-.green{
+.green {
   margin-left: 15rpx;
   width: 20rpx;
   height: 20rpx;
@@ -51,10 +67,15 @@
   background-color: greenyellow;
 }
 
-.yellow{
+.yellow {
   margin-left: 15rpx;
   width: 20rpx;
   height: 20rpx;
   border-radius: 50%;
   background-color: yellow;
+}
+
+.analysis_text {
+  margin: 30rpx;
+  font-size: 20rpx;
 }

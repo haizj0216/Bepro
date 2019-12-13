@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/sleep/sleep",
     "pages/home1/home1",
     "pages/home/home",
     "pages/index/index",
@@ -14,8 +13,9 @@
     "components/noData/noData",
     "pages/cart/cart",
     "components/elbutton/elbutton",
+    "pages/sleep/sleep",
     "pages/test_record/record"
-  ],
+  ],  
   "tabBar": {
     "selecctedColor": "#ffffff",
     "backgroundColor": "#eeeeee",

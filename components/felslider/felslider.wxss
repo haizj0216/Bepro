@@ -1,0 +1,76 @@
+.slider-container {
+    position: relative;
+    height: 18px;
+}
+
+.slider {
+    margin: 10px 0;
+    position: absolute;
+    width: 100%;
+    top: -2rpx;
+    transform: translateY(-50%);
+    z-index: 99;
+}
+
+.dots-container {
+    position: absolute;
+    z-index: 9;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+}
+
+.dot-container {
+    flex: 1;
+}
+
+.dot {
+    width: 11rpx;
+    height: 11rpx;
+    background-color: #c1c1c1;
+    border-radius: 100%;
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.text {
+    font-size: 24rpx;
+    color: rgb(177,177,177);
+    flex: 1;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-active {
+    color: rgb(51,51,51);
+}
+
+.mock-block {
+    height: 60rpx;
+    width: 50rpx;
+    position: absolute;
+    top: 0;
+    margin-top: -20rpx;
+}
+
+.mock-left {
+    left: 0;
+    margin-left: -50rpx;
+}
+
+.mock-right {
+    right: 0;
+    margin-right: -50rpx;
+}

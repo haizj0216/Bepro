@@ -1,0 +1,14 @@
+<view class="slider-container">
+    <view bindtap="upToMin" class="mock-block mock-left"></view>
+    <view class="dots-container">
+        <view class="dot-container" wx:if="{{index!==values.length-1}}" wx:for="{{values}}" wx:key="item">
+            <view class="dot"></view>
+        </view>
+    </view>
+    <view class="dot dots-container" style="right: 0;"></view>
+    <slider activeColor="rgb(193, 193, 193)" backgroundColor="#c1c1c1" bindchange="bindchange" blockColor="rgb(179, 167, 162)" blockSize="18" class="slider" max="{{max}}" min="{{min}}" step="{{step}}" value="{{value}}"></slider>
+    <view bindtap="upToMax" class="mock-block mock-right"></view>
+</view>
+<view class="text-container">
+    <text class="text {{item.p===0?'text-left':item.p===2?'text-right':''}}" style="margin-left: {{index===1?-20:index===2?-10:0}}rpx; margin-right: {{index===3?-30:0}}rpx" wx:for="{{texts}}" wx:key="item">{{item.text}}</text>
+</view>

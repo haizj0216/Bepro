@@ -1,0 +1,2 @@
+<view class="star-empty" wx:if="{{empty}}"></view>
+<view class="star-full" wx:else></view>

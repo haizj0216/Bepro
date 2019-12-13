@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "header": "../../../../components/head/head",
+    "body": "../../../../components/body/body",
     "no-data": "../../components/noData/noData",
     "recommend-list": "../../components/recommendlist/recommendlist",
     "el-button": "../../../../components/elbutton/elbutton"

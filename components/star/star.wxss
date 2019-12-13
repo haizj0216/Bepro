@@ -1,0 +1,18 @@
+.star-empty {
+    width: 40rpx;
+    height: 44rpx;
+    background-position: 0 0;
+    transform: scale(0.5);
+    background-image: url('https://cdn.effortless.cn/assets/icons/star.png');
+    margin: 0 -5rpx;
+}
+
+.star-full {
+    width: 40rpx;
+    height: 44rpx;
+    background-repeat: no-repeat;
+    background-position: -40rpx 0;
+    transform: scale(0.5);
+    background-image: url('https://cdn.effortless.cn/assets/icons/star.png');
+    margin: 0 -5rpx;
+}

@@ -1,5 +1,6 @@
 <!--pages/test_record/record.wxml-->
-
+<header showBack="{{false}}"></header>
+<body></body>
 <view wx:if="{{!hasDoneQ}}">
   <no-data pageName="空档案页"></no-data>
 </view>

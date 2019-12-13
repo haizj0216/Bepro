@@ -6,6 +6,7 @@ Page({
    */
   data: {
     fileList1: [],
+    image:""
   },
 
   /**
@@ -132,21 +133,43 @@ Page({
       success: function(res) {
         console.log(res.data)
         if (res.data.code == 0) {
-
+          saveAnalysis(res.data.result);
         }
       }
 
     })
   },
 
-  saveAnalysis() {
+  saveAnalysis(result) {
     wx.setStorage({
       key: 'analysis',
-      data: '',
+      data: result,
     })
   },
 
+  chooseimage:function(){
+    var that = this;
+    wx.chooseImage({
+      count:1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function(res) {
+        var tempFilePaths = res.tempFilePaths;
+        if(tempFilePaths.length > 0) {
+          that.setData({
+            image:tempFilePaths[0]
+          });
+        }
+      },
+    })
+  },
 
-  clickPreview() {}
+  uploadimage(){
+    wx.uploadFile({
+      url: '',
+      filePath: 'image',
+      name: '',
+    })
+  }
 
 })

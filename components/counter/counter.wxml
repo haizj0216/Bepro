@@ -1,0 +1,5 @@
+<view class="counter">
+    <view catchtap="sub" class="sub-add" style="border-left: none;">-</view>
+    <text class="number">{{value}}</text>
+    <view catchtap="add" class="sub-add" style="border-right: none">+</view>
+</view>

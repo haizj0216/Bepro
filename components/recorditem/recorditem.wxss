@@ -1,0 +1,63 @@
+.card {
+    margin-top: 4rpx;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(37,37,37);
+    font-size: 26rpx;
+    padding: 15rpx 0;
+    padding-right: 40rpx;
+    box-sizing: border-box;
+    font-weight: bolder;
+    background: rgb(244,242,241);
+}
+
+.card-header-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 30rpx;
+}
+
+.card-header-flex {
+    display: flex;
+    align-items: center;
+    margin-left: 50rpx;
+    font-weight: bolder;
+    font-size: 26rpx;
+}
+
+.card-header-end {
+    display: flex;
+    align-items: center;
+}
+
+.card-line {
+    width: 25rpx;
+    height: 3rpx;
+    background: #676A71;
+    margin-left: 20rpx;
+}
+
+.card-header-text {
+    letter-spacing: 4rpx;
+}
+
+.transition-body {
+    transition: all 300ms ease;
+    overflow: hidden;
+    max-height: 0px;
+}
+
+.plus {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 20rpx;
+}
+
+.sub {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 20rpx;
+}

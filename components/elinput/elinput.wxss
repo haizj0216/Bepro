@@ -1,0 +1,33 @@
+.input-container {
+    display: flex;
+    border-bottom: solid 1px #C1C1C1;
+    padding-top: 4rpx;
+    align-items: center;
+    width: 100%;
+}
+
+.label {
+    font-size: 28rpx;
+    color: rgba(33,33,33,0.8);
+    font-weight: bold;
+    margin-right: 30rpx;
+    min-width: 112rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.placeholder {
+    font-size: 24rpx;
+    color: rgb(177,177,177);
+}
+
+.input-text {
+    font-size: 28rpx;
+    flex: 1;
+    height: 70rpx;
+}
+
+.arrow-down {
+    width: 20rpx;
+    height: 10rpx;
+}

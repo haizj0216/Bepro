@@ -1,0 +1,73 @@
+<view class="page">
+    <view class="profile">
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        <view class="name">
+            <text>{{userInfo.nickName}}
+发质档案</text>
+        </view>
+        <view class="basic vertical-center">
+            <text>{{qResult.q2}}</text>
+            <view class="vertical-line"></view>
+            <text>{{qResult.q3}}</text>
+            <view class="vertical-line"></view>
+            <text>{{qResult.q4[0]}}</text>
+        </view>
+    </view>
+    <view style="height: 812px" wx:if="{{loading}}"></view>
+    <block wx:else>
+        <view class="pie-chart-container">
+            <view class="chart-container" style="margin-top: -30rpx;">
+                <image class="chart-container-image" src="https://cdn.effortless.cn/assets/pie/{{item.name}}-{{item.img}}@2x.png" wx:for="{{chartData}}" wx:key="{{index}}"></image>
+                <image alt="" class="chart-container" src="https://cdn.effortless.cn/assets/pie/Stroke 11@2x.png"></image>
+            </view>
+        </view>
+        <view bindtap="goUpdateProfile" class="edit-profile" data-clear-first="{{true}}" wx:if="{{!recordPage}}">
+            <image class="edit" src="https://cdn.effortless.cn/assets/icons/pencil.png"></image>
+      更新问卷
+    </view>
+        <view class="card-container" style="margin-top: {{!recordPage?0:'-40rpx'}}">
+            <record-item defaultClose="{{recordPage}}" icon="{{result.icon}}" showClose="{{recordPage}}" style="margin-top: -54rpx;" title="{{result.name}}" wx:for="{{results}}" wx:for-item="result" wx:key="result_{{index}}">
+                <view class="card-wrapper" slot="content">
+                    <view class="card-body">
+                        <view bindtap="showModal" class="card-body-item" data-item="{{item}}" wx:for="{{result.items}}" wx:for-index="rIndex" wx:key="result_{{rIndex}}">
+                            <view class="card-body-item-value" style="{{index===2&&rIndex===0?'font-size: 34rpx;':''}}">
+                                <text>{{item.value}}<text class="card-body-item-unit" wx:if="{{item.value!=='n/a'}}">{{item.level}}</text>
+                                </text>
+                            </view>
+                            <view class="card-body-item-header" style="{{index===2&&rIndex===0?'margin-top: 8rpx;':''}}">
+                {{item.key}}
+                <image class="question" src="https://cdn.effortless.cn/assets/icons/q.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="card-tip" wx:if="{{index===2}}">*环境数据基于您的地理位置，每月更新</view>
+                </view>
+            </record-item>
+            <record-item bindtap="goExactTesting" defaultClose="{{recordPage}}" icon="edit.png" style="margin-top: -54rpx;" title="头皮检测结果" wx:if="{{exactTest.length}}">
+                <view class="card-wrapper" slot="content" wx:if="{{exactTest.length}}">
+                    <view class="card-body">
+                        <view class="card-body-item" data-item="{{item}}" wx:for="{{exactTest}}" wx:for-index="rIndex" wx:key="exactText_{{rIndex}}">
+                            <view class="card-body-item-value" style="font-size: 34rpx;">
+                                <text>{{item}}</text>
+                            </view>
+                            <view class="card-body-item-header" style="margin-top: 8rpx;">
+                {{rIndex===0?'头皮油度':'头屑'}}
+              </view>
+                        </view>
+                    </view>
+                    <view class="card-tip">推荐产品已基于测试结果更新</view>
+                </view>
+            </record-item>
+            <view class="white-container" wx:if="{{recordPage}}">
+                <el-button bindbtntap="goUpdateProfile" myClass="update-profile" text="更新问卷"></el-button>
+                <view class="arrow-container">
+                    <view class="arrow-text">下滑查看专属精准护发组合</view>
+                    <image class="arrow" src="https://cdn.effortless.cn/assets/icons/arrow-down.png"></image>
+                </view>
+            </view>
+            <view style="margin-top: 20rpx;" wx:else>
+                <el-button bindbtntap="goRecommendProduct" myClass="check-your-product" text="查看适合您的产品"></el-button>
+            </view>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,19 @@
+<view class="card card-class">
+    <view bindtap="onClose" class="card-header card-head-class">
+        <view class="card-header-flex">
+            <image class="card-header-icon" src="https://cdn.effortless.cn/assets/icons/{{icon}}"></image>
+      {{title}}
+    </view>
+        <view class="card-header-end">
+            <slot name="card-header-end"></slot>
+            <text class="card-header-text">{{subTitle}}</text>
+            <block wx:if="{{showClose}}">
+                <image class="plus" src="https://cdn.effortless.cn/assets/icons/card-plus.png?t=111" wx:if="{{close}}"></image>
+                <image class="sub" src="https://cdn.effortless.cn/assets/icons/minus.png" wx:else></image>
+            </block>
+        </view>
+    </view>
+    <view class="transition-body" style="transition: {{defaultClose?'none':'all 300ms ease'}};max-height: {{showClose&&close?0:10000}}px;">
+        <slot name="content"></slot>
+    </view>
+</view>

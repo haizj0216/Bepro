@@ -8,9 +8,7 @@
   <view class="title">请将面部对准手机摄像头或</view>
   <view class="desc1">上传清晰面部清晰照片</view>
   <view class="desc2">仅作为皮肤分析使用</view>
-  <view class="image">
-    <van-uploader name="1" file-list="{{ fileList1 }}" bind:after-read="afterRead" bind:delete="delete" max-count="{{ 1 }}" bind:click-preview="clickPreview" />
-  </view>
-  <view class="skinanalyze" bindtap="skinanalyze">开始检测</view>
+  <image src="{{image}}"></image>
+  <view class="skinanalyze" bindtap="chooseimage">开始检测</view>
   <view class="next" bindtap="toTest2">下一步></view>
 </view>

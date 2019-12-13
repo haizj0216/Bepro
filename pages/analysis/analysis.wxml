@@ -2,8 +2,13 @@
 <header showBack="{{true}}"></header>
 
 <body></body>
+<view class="head_layout">
+  <view class="head">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+</view>
 <view class="title">
-  <text style="font-size:30px;border-bottom:1px #000 solid">肤质解读</text>
+  你的私人肤质解读
 </view>
 <block wx:for="{{faceresult}}" wx:for-item="itemresult">
   <view class="item-body-items">
@@ -14,3 +19,7 @@
     </view>
   </view>
 </block>
+<view class="analysis_text">作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史
+</view>
+
+<el-button text="获取你的私人护肤解决方案"></el-button>

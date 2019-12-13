@@ -1,0 +1,13 @@
+<view class="tui-modal-class tui-modal-box {{show?'tui-modal-show':''}}">
+    <view wx:if="{{!custom}}">
+        <view class="tui-modal-title" vIf="title">{{title}}</view>
+        <view class="tui-modal-content {{title?'':'tui-mtop'}}" style="color:{{color}};font-size:{{size}}rpx">{{content}}</view>
+        <view class="tui-modalBtn-box {{button.length>2?'tui-flex-column':''}}">
+            <button bindtap="handleClick" class="tui-modal-btn {{'tui-'+(item.type||'primary')+(item.plain?'-outline':'')}} {{button.length!=2?'tui-btn-width':''}} {{button.length>2?'tui-mbtm':''}} {{shape=='circle'?'tui-circle-btn':''}}" data-index="{{index}}" hoverClass="{{'tui-'+(item.plain?'outline':item.type||'primary')+'-hover'}}" wx:for="{{button}}" wx:key="{{index}}">{{item.text||'确定'}}</button>
+        </view>
+    </view>
+    <view wx:else>
+        <slot></slot>
+    </view>
+</view>
+<view bindtap="handleClickCancel" class="tui-modal-mask {{show?'tui-mask-show':''}}"></view>

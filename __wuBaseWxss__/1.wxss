@@ -1,0 +1,47 @@
+.title {
+    color: rgb(37,37,37);
+    font-size: 36rpx;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 56rpx;
+    margin-bottom: 112rpx;
+}
+
+.title-num {
+    font-size: 40rpx;
+}
+
+.step-container {
+    padding: 0 50rpx;
+}
+
+.step-footer-mini {
+    width: 650rpx;
+    position: fixed;
+    bottom: 50rpx;
+}
+
+.step-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50rpx;
+}
+
+.footer-arrow {
+    width: 16rpx;
+    height: 26rpx;
+}
+
+.footer-text-margin-left {
+    margin-left: 24rpx;
+}
+
+.footer-text-margin-right {
+    margin-right: 24rpx;
+}
+
+.footer-text {
+    color: rgb(37,37,37);
+    font-size: 28rpx;
+    font-weight: bold;
+}
