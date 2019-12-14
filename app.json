@@ -8,42 +8,43 @@
     "pages/test_photo/test_photo",
     "pages/question/question",
     "pages/element/element",
-    "pages/analysis/analysis",
     "pages/my/my",
     "components/noData/noData",
     "pages/cart/cart",
+        "pages/analysis/analysis",
+        
     "components/elbutton/elbutton",
     "pages/sleep/sleep",
     "pages/test_record/record"
-  ],  
+  ],
   "tabBar": {
-    "selecctedColor": "#ffffff",
-    "backgroundColor": "#eeeeee",
+    "selecctedColor": "#676a71",
+    "color": "#b3a7a2",
     "position": "bottom",
     "list": [
       {
         "pagePath": "pages/home1/home1",
         "text": "首页",
-        "iconPath": "/images/icon_homework_normal.png",
-        "selectedIconPath": "/images/icon_homework_selected.png"
+        "iconPath": "/images/icon_home_n.png",
+        "selectedIconPath": "/images/icon_home_s.png"
       },
       {
         "pagePath": "pages/test_record/record",
-        "text": "测试",
-        "iconPath": "/images/icon_rank_normal.png",
-        "selectedIconPath": "/images/icon_rank_selected.png"
+        "text": "档案",
+        "iconPath": "/images/icon_record_n.png",
+        "selectedIconPath": "/images/icon_record_s.png"
       },
       {
         "pagePath": "pages/cart/cart",
         "text": "购物车",
-        "iconPath": "/images/icon_tab_ocr_normal.png",
-        "selectedIconPath": "/images/icon_tab_ocr_selected.png"
+        "iconPath": "/images/icon_cart_n.png",
+        "selectedIconPath": "/images/icon_cart_s.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "/images/icon_me_normal.png",
-        "selectedIconPath": "/images/icon_me_selected.png"
+        "iconPath": "/images/icon_me_n.png",
+        "selectedIconPath": "/images/icon_me_s.png"
       }
     ]
   },

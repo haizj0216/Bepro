@@ -115,7 +115,7 @@ Page({
 
   toTest: function() {
     wx.navigateTo({
-      url: '../test_baseinfo/test_1'
+      url: '../question/question'
     })
   }
 

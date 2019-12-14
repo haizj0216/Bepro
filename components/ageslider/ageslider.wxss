@@ -41,7 +41,7 @@
 
 .text {
     font-size: 24rpx;
-    color: rgb(177,177,177);
+    color: #595757;
     flex: 1;
 }
 

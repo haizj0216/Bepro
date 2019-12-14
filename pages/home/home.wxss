@@ -136,7 +136,6 @@ page {
 }
 
 .qu-button {
-    background-color: rgb(37,37,37);
     color: #fff;
     font-size: 26rpx;
     padding: 8rpx 0;

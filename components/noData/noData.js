@@ -67,7 +67,7 @@ Page({
 
   goQuestionnaire: function () {
     wx.navigateTo({
-      url: '/pages/test_baseinfo/test_1',
+      url: '/pages/question/question',
     })
   }
 })

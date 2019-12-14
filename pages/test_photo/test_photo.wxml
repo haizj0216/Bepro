@@ -1,14 +1,12 @@
 <!--pages/test_photo/test_photo.wxml-->
 <header showBack="{{true}}"></header>
+
 <body></body>
 <view>
-  <view class="title">
-    <text>2/上传照片</text>
+  <view class="imageSize">
+    <image class="image" mode="aspectFit" src="{{image}}"></image>
   </view>
-  <view class="title">请将面部对准手机摄像头或</view>
-  <view class="desc1">上传清晰面部清晰照片</view>
-  <view class="desc2">仅作为皮肤分析使用</view>
-  <image src="{{image}}"></image>
-  <view class="skinanalyze" bindtap="chooseimage">开始检测</view>
-  <view class="next" bindtap="toTest2">下一步></view>
+
+  <button class="skinanalyze" bindtap="chooseimage">上传照片</button>
+  <view class="next" bindtap="skinanalyze">下一步></view>
 </view>

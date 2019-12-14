@@ -27,11 +27,6 @@ page {
   margin-top: 13.8vh;
 }
 
-.customer-banner {
-  width: 750rpx;
-  height: 600rpx;
-}
-
 .item2-container {
   padding-left: 92rpx;
   padding-top: 98rpx;
@@ -142,8 +137,8 @@ page {
 }
 
 .item3-body-item-image {
-  width: 40rpx;
-  height: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .item3-body-item-text {
@@ -166,7 +161,7 @@ page {
 .item4-body-item {
   text-align: center;
   width: 33.3333333%;
-  margin-top: 40rpx;
+  margin-top: 80rpx;
 }
 
 .item4-body-item-image {
@@ -452,14 +447,12 @@ page {
 }
 
 .qu-button {
-  background-color: rgb(37, 37, 37);
   color: #fff;
   font-size: 26rpx;
   padding: 8rpx 0;
   border-radius: 0;
   position: absolute;
   bottom: 120rpx;
-  width: 610rpx;
   height: 80rpx !important;
   margin-left: 70rpx;
 }
@@ -580,7 +573,8 @@ page {
 }
 
 .image {
-  width: 100%;
+  width: 750rpx;
+  height: 1000rpx;
 }
 
 .title_desc {

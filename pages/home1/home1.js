@@ -5,14 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    image_1: "https://www.kiehls.com.cn/dw/image/v2/AARM_PRD/on/demandware.static/-/Sites-kiehls-cn-Library/default/dw8024d4e1/images/HB/HBKLS20181119_2.jpg?sw=431&sh=2000&sm=fit",
-    image_2: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575788793957&di=f3b89a85603ec395cbf368eeb51e5af9&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F14%2F75%2F45%2F69A58PICv2i_1024.jpg",
-    image_3: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575788793957&di=f3b89a85603ec395cbf368eeb51e5af9&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F14%2F75%2F45%2F69A58PICv2i_1024.jpg",
 
-    home_3:[
-      {
-        name:"无香精",
-        img:"/images/home_3_xiangjing.png",
+    home_3: [{
+        name: "无香精",
+        img: "/images/home_3_xiangjing.png",
       },
       {
         name: "无激素",
@@ -45,15 +41,15 @@ Page({
       }, {
         name: "年龄",
         icon: "p-2",
-          img: "../../images/home_2_age.png",
+        img: "../../images/home_2_age.png",
       }, {
         name: "皮肤类型",
         icon: "p-3",
-          img: "../../images/home_2_skin_class.png",
+        img: "../../images/home_2_skin_class.png",
       }, {
         name: "皮肤问题",
         icon: "p-4",
-          img: "../../images/home_2_skin_q.png",
+        img: "../../images/home_2_skin_q.png",
       }],
       title: "个人因素"
     }, {
@@ -64,15 +60,15 @@ Page({
       }, {
         name: "湿度",
         icon: "p-6",
-          img: "../../images/home_2_shidu.png",
+        img: "../../images/home_2_shidu.png",
       }, {
         name: "日晒强度",
         icon: "p-7",
-          img: "../../images/home_2_sun.png",
+        img: "../../images/home_2_sun.png",
       }, {
         name: "空气质量",
         icon: "p-8",
-          img: "../../images/home_2_air.png",
+        img: "../../images/home_2_air.png",
       }],
       title: "环境因素"
     }, {
@@ -83,11 +79,11 @@ Page({
       }, {
         name: "运动频率",
         icon: "p-11",
-          img: "../../images/home_2_sport.png",
+        img: "../../images/home_2_sport.png",
       }, {
         name: "压力水平",
         icon: "p-12",
-          img: "../../images/home_2_y.png",
+        img: "../../images/home_2_y.png",
       }],
       title: "生活方式"
     }],
@@ -139,8 +135,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -188,7 +183,7 @@ Page({
 
   goQuestionnaire: function() {
     wx.navigateTo({
-      url: '/pages/test_baseinfo/test_1',
+      url: '/pages/question/question',
     })
   }
 })

@@ -14,17 +14,26 @@
   text-align: center;
 }
 
-.image {
+.imageSize {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin-top: 100rpx;
 }
+
+.image {
+  width: 600rpx;
+  height: 600rpx;
+  border: 2rpx dashed #e6e2e2;
+}
+
 .next {
-  margin-top: 30px;
+  margin-top: 100rpx;
   margin-right: 20px;
   text-align: right;
   font-size: 14px;
 }
 
-.skinanalyze{
-  text-align: center
+.skinanalyze {
+  margin-top: 100rpx;
+  width: 600rpx;
 }

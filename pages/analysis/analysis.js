@@ -9,43 +9,44 @@ Page({
   data: {
     faceresult: [
       [{
-        icon: "/images/keyboard_0_new.png",
+        icon: "/images/icon_skin_maokong.png",
         name: "毛孔",
         score: "1",
       }, {
-        icon: "/images/keyboard_1_new.png",
+        icon: "/images/icon_skin_heitou.png",
         name: "黑头",
         score: "0",
       }],
       [{
-        icon: "/images/keyboard_2_new.png",
+        icon: "/images/icon_skin_eye.png",
         name: "细纹",
         score: "1",
       }, {
-        icon: "/images/keyboard_3_new.png",
-        name: "法令纹",
-        score: "1",
+        icon: "/images/icon_skin_doudou.png",
+        name: "痘痘",
+        score: "0",
       }],
       [{
-        icon: "/images/keyboard_4_new.png",
+        icon: "/images/icon_skin_seban.png",
         name: "色斑",
         score: "2",
       }, {
-        icon: "/images/keyboard_5_new.png",
-        name: "肤质",
+        icon: "/images/icon_skin_fanhong.png",
+        name: "泛红",
         score: "",
       }],
       [{
-        icon: "/images/keyboard_6_new.png",
+        icon: "/images/icon_skin_yanquan.png",
         name: "黑眼圈",
         score: "2",
       }, {
-        icon: "/images/keyboard_7_new.png",
-        name: "痘痘",
-        score: "0",
+        icon: "/images/icon_skin_falingwen.png",
+        name: "法令纹",
+        score: "1",
       }]
     ],
-    analysisresult: "",
+    faceanalysis: null,
+    analysisresult: "作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史",
     userInfo: {},
   },
 
@@ -53,9 +54,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    setData({
-      userInfo: app.globalData.userInfo
-    })
+
   },
 
   /**
@@ -69,7 +68,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.setData({
+      userInfo: app.globalData.userInfo,
+      faceanalysis: app.globalData.analysis
+    })
+    console.log(faceanalysis);
   },
 
   /**

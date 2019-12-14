@@ -144,7 +144,7 @@ Page({
 
   toTest2: function() {
     wx.navigateTo({
-      url: '../test_photo/test_photo'
+      url: '../question/question'
     })
   },
 

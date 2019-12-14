@@ -1,23 +1,93 @@
 <!--pages/question/question.wxml-->
 <header showBack="{{true}}"></header>
+
 <body></body>
+<view class="name">a.您的姓名或昵称
+</view>
+<input class="name_input"></input>
+
+<view class="name">b.您的性别
+</view>
+<view class="radio_group">
+  <radio-group>
+    <radio class="sex_female"> 女性</radio>
+    <radio class="sex_male"> 男性</radio>
+  </radio-group>
+</view>
+<view class="name">c.您的年龄
+</view>
+<!-- <view class="radio_group">
+    <radio-group>
+      <radio class="sex_female"> 小于20</radio>
+      <radio class="sex_female"> 21-35</radio>
+      <radio class="sex_female"> 36-45</radio>
+      <radio class="sex_female"> 46-55</radio>
+      <radio class="sex_female"> 大于55</radio>
+    </radio-group>
+  </view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onAgeChange" max="{{ageRange.length-1}}" value="{{age}}" values="{{ageRange}}"></el-agelider>
+</view>
+<!-- <slider class="slider" max="4" step="1" selected-color="#000000" backgroundColor="#000000" blockSize="10px"></slider>
+<view class="age">
+  <view class="age_text">小于20</view>
+  <view class="age_text">21-35</view>
+  <view class="age_text">36-45</view>
+  <view class="age_text">46-55</view>
+  <view class="age_text">大于55</view>
+</view> -->
+<view class="name">d.您的居住地
+</view>
+<picker mode='region' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+  <view class="picker">{{region[0]}} {{region[1]}} {{region[2]}} </view>
+</picker>
+<view class="line"></view>
+
+<view class="name">e.您每日的日晒时长</view>
+<!-- <slider class="slider" max="3" step="1" selected-color="#000000" backgroundColor="#000000" blockSize="10px"></slider>
+<view class="age">
+  <view class="age_text">小于0.5小时</view>
+  <view class="age_text">0.5-1小时</view>
+  <view class="age_text">1-3小时</view>
+  <view class="age_text">大于3小时</view>
+</view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onSunChange" max="{{sunRange.length-1}}" value="{{sunValue}}" values="{{sunRange}}"></el-agelider>
+</view>
+<view class="name">f.您每日的睡眠时长</view>
+<!-- <view class="home_grids_2">
+  <view wx:for="{{sleeps}}" class='{{item.checked ? "text_grid_selected" : "text_grid"}}' data-id='{{item.id}}' bindtap="setSleepSelected">
+    <view class="text2">{{item.name}}</view>
+  </view>
+</view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onSleepChange" max="{{sleepRange.length-1}}" value="{{sleepValue}}" values="{{sleepRange}}"></el-agelider>
+</view>
+<view class="name">g.您每日的使用电子设备的时间</view>
+<!-- <view class="home_grids_2">
+  <view wx:for="{{phones}}" class='{{item.checked ? "text_grid_selected" : "text_grid"}}' data-id='{{item.id}}' bindtap="setPhoneSelected">
+    <view class="text2">{{item.name}}</view>
+  </view>
+</view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onPhoneChange" max="{{phoneRange.length-1}}" value="{{phoneValue}}" values="{{phoneRange}}"></el-agelider>
+</view>
 <view>
-  <view class="title">3/问题描述</view>
-  <view class="question_1">a.以下哪些肌肤问题正在困扰你</view>
+  <view class="question_1">h.以下哪些肌肤问题正在困扰你</view>
   <view class="home_grids">
-    <view wx:for="{{images}}" wx:key="item.name" class="home_grid" data-id='{{item.id}}' bindtap="setChecked">
-      <view class='{{item.checked ? "grid_item_checked" : "grid_item_unchecked"}}'>
-        <image class="image" src="{{item.img}}" mode="aspectFit"></image>
-        <view class="text">{{item.name}}</view>
-      </view>
+    <view wx:for="{{images}}" wx:key="item.name" class='{{item.checked && item.name != "" ? "home_grid_s" : "home_grid"}}' data-id='{{item.id}}' bindtap="setChecked">
+
+      <image class="image" src="{{item.img}}" mode="aspectFit"></image>
+      <view class="text">{{item.name}}</view>
     </view>
   </view>
-  <view class="question_1">b.洁面后，如果不能使用任何护肤品，2-3小时候您的肌肤状态</view>
+  <view class="question_1">i.洁面后，如果不能使用任何护肤品，2-3小时候您的肌肤状态</view>
   <view class="home_grids">
     <view wx:for="{{texts}}" class='{{item.checked ? "text_grid_selected" : "text_grid"}}' data-id='{{item.id}}' bindtap="setSelected">
       <view class="text2">{{item.name}}</view>
     </view>
   </view>
-  <view class="next" bindtap="toNext">下一步></view>
 
 </view>
+<view class="next" bindtap="toNext">下一步></view>
+<view class="span"></view>

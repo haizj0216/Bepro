@@ -6,7 +6,7 @@
         </view>
     </view>
     <view class="dot dots-container" style="right: 0;"></view>
-    <slider activeColor="rgb(193, 193, 193)" backgroundColor="#c1c1c1" bindchange="bindchange" blockColor="rgb(179, 167, 162)" blockSize="18" class="slider" max="{{max}}" min="{{min}}" step="{{step}}" value="{{value}}"></slider>
+    <slider activeColor="rgb(193, 193, 193)" backgroundColor="#c1c1c1" bindchange="bindchange" blockColor="rgb(179, 167, 162)" blockSize="10" class="slider" max="{{max}}" min="{{min}}" step="{{step}}" value="{{value}}"></slider>
     <view bindtap="upToMax" class="mock-block mock-right"></view>
 </view>
 <view class="text-container">

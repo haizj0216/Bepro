@@ -4,7 +4,7 @@
 <body></body>
 <swiper bindchange="onSwiperChange" class="swiper" duration="{{300}}" vertical="true">
   <swiper-item class="swiper-item" key="1">
-    <image class="image" src="{{image_1}}" mode='widthFix'></image>
+    <image class="image" src="/images/home_1_head.png" ></image>
     <view class="container_1">
       <view>
         <image class="title" src="/images/logo_black.png" mode=""></image>

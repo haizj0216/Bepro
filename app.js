@@ -149,8 +149,8 @@ App({
   }(),
   globalData: {
     systemInfo: {},
-    userInfo: null
-    
+    userInfo: null,
+    analysis:null
   },
   appLaunchFinish: function () { }
 });

@@ -6,20 +6,30 @@
   <view class="head">
     <open-data type="userAvatarUrl"></open-data>
   </view>
+  <view class="title_layout">
+    <view class="title">
+      你的私人肤质档案
+    </view>
+    <view class="time_text">2019.12.13</view>
+  </view>
+
 </view>
-<view class="title">
-  你的私人肤质解读
-</view>
+
 <block wx:for="{{faceresult}}" wx:for-item="itemresult">
   <view class="item-body-items">
     <view class="item-body-item" wx:for="{{itemresult}}" wx:for-index="i" wx:for-item="iconItem" wx:key="iconItem_${{i}}">
       <image class="item-body-item-image" src="{{iconItem.icon}}"></image>
       <view class="item-body-item-text">{{iconItem.name}}</view>
-      <view class='{{iconItem.score==0?"red":"" || iconItem.score==1?"green":"" || iconItem.score==2?"yellow":"" }}'></view>
+      <image src='{{iconItem.score==0?"/images/icon_skin_bad.png":"" || iconItem.score==1?"/images/icon_skin_nobad.png":"" || iconItem.score==2?"/images/icon_skin_good.png":"" }}' class="score_image"></image>
     </view>
   </view>
 </block>
-<view class="analysis_text">作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史
+<view class="analysis_result">
+  <view>测试分析</view>
+  <view style="width: 150rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
+
+  <view class="analysis_text">{{analysisresult}}</view>
+
 </view>
 
-<el-button text="获取你的私人护肤解决方案"></el-button>
+<button class="qu-button">获取你的私人护肤解决方案</button>
