@@ -1,18 +1,17 @@
 {
   "pages": [
+    "pages/analysis/analysis",
+    "pages/test_photo/test_photo",
     "pages/home1/home1",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
     "pages/test_baseinfo/test_1",
-    "pages/test_photo/test_photo",
     "pages/question/question",
     "pages/element/element",
     "pages/my/my",
     "components/noData/noData",
     "pages/cart/cart",
-        "pages/analysis/analysis",
-        
     "components/elbutton/elbutton",
     "pages/sleep/sleep",
     "pages/test_record/record"
@@ -21,8 +20,7 @@
     "selecctedColor": "#676a71",
     "color": "#b3a7a2",
     "position": "bottom",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home1/home1",
         "text": "首页",
         "iconPath": "/images/icon_home_n.png",

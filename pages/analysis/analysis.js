@@ -1,5 +1,78 @@
 // pages/analysis/analysis.js
+import * as echarts from '../../ec-canvas/echarts';
+
 const app = getApp()
+
+function initChart(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+
+  var option = {
+    backgroundColor: "#ffffff",
+    color: ["#37A2DA", "#FF9F7F"],
+    borderColor:"#FFB6C1",
+    tooltip: {},
+    xAxis: {
+      show: false
+    },
+    yAxis: {
+      show: false
+    },
+    radar: {
+      // shape: 'circle',
+      indicator: [{
+        name: '毛孔',
+        max: 100
+      },
+      {
+        name: '黑头',
+        max: 100
+      },
+      {
+        name: '细纹',
+        max: 100
+      },
+      {
+        name: '痘痘',
+        max: 100
+      },
+      {
+        name: '色斑',
+        max: 100
+      },
+      {
+        name: '泛红',
+        max: 100
+      },
+      {
+        name: '黑眼圈',
+        max: 100
+      },
+      {
+        name: '法令纹',
+        max: 100
+      }
+      ]
+    },
+    series: [{
+      name: '皮肤',
+      type: 'radar',
+      data: [
+      {
+        value: [80, 74, 56, 90, 61, 10, 78, 43],
+        name: '皮肤'
+      }
+      ]
+    }]
+  };
+
+  chart.setOption(option);
+  return chart;
+}
+
 
 Page({
 
@@ -7,6 +80,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ec: {
+      onInit: initChart
+    },
+
     faceresult: [
       [{
         icon: "/images/icon_skin_maokong.png",
@@ -45,9 +122,8 @@ Page({
         score: "1",
       }]
     ],
-    faceanalysis: null,
+    faceanalysis: {},
     analysisresult: "作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史",
-    userInfo: {},
   },
 
   /**
@@ -69,8 +145,6 @@ Page({
    */
   onShow: function() {
     this.setData({
-      userInfo: app.globalData.userInfo,
-      faceanalysis: app.globalData.analysis
     })
     console.log(faceanalysis);
   },

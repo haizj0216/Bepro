@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "header": "../../../../components/head/head",
-    "body": "../../../../components/body/body"
+    "body": "../../../../components/body/body",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+
   }
 }

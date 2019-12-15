@@ -8,7 +8,9 @@ Page({
    */
   data: {
     fileList1: [],
-    image:"/images/photo_bg.png"
+    image:"",
+    showCamera:false,
+    showPop:true,
   },
 
   /**
@@ -136,9 +138,7 @@ Page({
 
       success: function(res) {
         console.log(res.data);
-        if (res.data.code == 0) {
-          that.saveAnalysis(res.data.result);
-        };
+        that.saveAnalysis(res.data.result);
         that.toTest2();
       }
 
@@ -159,7 +159,8 @@ Page({
         var tempFilePaths = res.tempFilePaths;
         if(tempFilePaths.length > 0) {
           that.setData({
-            image:tempFilePaths[0]
+            image:tempFilePaths[0],
+            showCamera: false,
           });
         }
       },
@@ -172,6 +173,35 @@ Page({
       filePath: 'image',
       name: '',
     })
-  }
+  },
 
+  takePhoto() {
+    let that = this;
+    let show = that.data.showCamera;
+    if(!show) {
+      that.setData({
+        showCamera:true,
+        image:"",
+      })
+    } else {
+      const ctx = wx.createCameraContext()
+      ctx.takePhoto({
+        quality: 'high',
+        success: (res) => {
+          that.setData({
+            image: res.tempImagePath,
+            showCamera:false,
+          })
+        }
+      })
+    }
+  },
+
+  hidePop:function() {
+    this.setData({
+      showCamera:true,
+      showPop:false,
+    })
+  }
+  
 })

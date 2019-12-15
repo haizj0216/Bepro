@@ -12,7 +12,12 @@
     </view>
     <view class="time_text">2019.12.13</view>
   </view>
+</view>
 
+
+
+<view class="radar">
+  <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
 </view>
 
 <block wx:for="{{faceresult}}" wx:for-item="itemresult">
