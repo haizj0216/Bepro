@@ -1,6 +1,6 @@
 /* pages/test_record/record.wxss */
 page {
-    background-color: rgb(243,244,244);
+    background-color: rgb(243, 244, 244);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ page {
 }
 
 .profile {
-    background-color: rgb(244,242,241);
+    background-color: rgb(244, 242, 241);
     display: flex;
     justify-content: space-between;
     padding: 40rpx;
@@ -39,7 +39,7 @@ page {
 }
 
 .basic {
-    color: rgb(105,105,105);
+    color: rgb(105, 105, 105);
     font-size: 24rpx;
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ page {
 .vertical-line {
     width: 1px;
     height: 20rpx;
-    background-color: rgb(105,105,105);
+    background-color: rgb(105, 105, 105);
     margin: 0 16rpx;
 }
 
@@ -72,7 +72,7 @@ page {
 .circle {
     width: 400rpx;
     height: 400rpx;
-    border: solid 1rpx rgb(230,230,230);
+    border: solid 1rpx rgb(230, 230, 230);
     border-radius: 100%;
     position: relative;
     display: flex;
@@ -89,7 +89,7 @@ page {
     align-items: center;
     justify-content: center;
     font-size: 12rpx;
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     position: absolute;
     top: -12rpx;
     left: 50%;
@@ -116,21 +116,21 @@ page {
 }
 
 .piece-border {
-    border: solid 1rpx rgb(230,230,230);
+    border: solid 1rpx rgb(230, 230, 230);
 }
 
 .piece {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     overflow: hidden;
 }
 
 .piece-text {
     font-size: 18rpx;
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -166,24 +166,24 @@ page {
 
 .card-body-item-header {
     font-size: 20rpx;
-    color: rgb(37,37,37);
+    color: rgb(37, 37, 37);
 }
 
 .card-body-item-value {
     font-size: 34rpx;
-    color: rgb(77,77,77);
+    color: rgb(77, 77, 77);
     font-weight: 500;
     margin-top: 18rpx;
 }
 
 .card-body-item-unit {
     font-size: 24rpx;
-    color: rgb(177,177,177);
+    color: rgb(177, 177, 177);
     margin-left: 8rpx;
 }
 
 .card-tip {
-    color: rgb(158,158,158);
+    color: rgb(158, 158, 158);
     font-size: 20rpx;
 }
 
@@ -191,17 +191,17 @@ page {
     display: flex;
     justify-content: space-between;
     padding: 26rpx 0;
-    border-top: solid 1px rgb(193,193,193);
+    border-top: solid 1px rgb(193, 193, 193);
     margin-top: -1rpx;
 }
 
 .hair-exact-test-key {
-    color: rgb(37,37,37);
+    color: rgb(37, 37, 37);
     font-size: 26rpx;
 }
 
 .hair-exact-enter {
-    color: rgb(179,167,162);
+    color: rgb(179, 167, 162);
     font-size: 26rpx;
 }
 
@@ -218,9 +218,7 @@ page {
 }
 
 .recommend-container {
-    margin-top: 24rpx;
     background-color: #fff;
-    padding-top: 36rpx;
     padding-bottom: 36rpx;
 }
 
@@ -248,13 +246,13 @@ page {
 }
 
 .no-data {
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     font-size: 32rpx;
     margin-top: 94rpx;
 }
 
 .no-data-des {
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     font-size: 22rpx;
     margin-top: 20rpx;
 }
@@ -272,12 +270,12 @@ page {
 }
 
 .modal-title {
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     font-size: 24rpx;
 }
 
 .modal-name {
-    color: rgb(56,56,56);
+    color: rgb(56, 56, 56);
     font-size: 34rpx;
     font-weight: bolder;
     letter-spacing: 4rpx;
@@ -285,7 +283,7 @@ page {
 }
 
 .modal-des {
-    color: rgb(25,25,25);
+    color: rgb(25, 25, 25);
     font-size: 28rpx;
     line-break: 44rpx;
     margin-bottom: 100rpx;
@@ -296,5 +294,61 @@ page {
 }
 
 .hide-modal-btn {
-    width: 100%!important;
+    width: 100% !important;
 }
+
+.analysis {
+    background-color: white;
+}
+
+.head_layout {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.head {
+    width: 100rpx;
+    height: 100rpx;
+    overflow: hidden;
+}
+
+.username {
+    margin-left: 30rpx;
+    flex-direction: column;
+    display: flex;
+}
+
+.userinfo {
+    color: rgb(170, 165, 165);
+    font-size: 25rpx;
+    margin-right: 30rpx;
+    display: flex;
+    margin-left: 250rpx;
+    align-items: center;
+}
+.radar{
+    width: 100%;
+    height: 600rpx;
+  }
+
+  .analysis_result {
+    margin-top: 100rpx;
+    margin-left: 50rpx;
+    margin-right: 50rpx;
+    position: relative;
+  }
+  
+  .analysis_text{
+    font-size: 30rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 30rpx;
+    color:rgb(148, 143, 143);
+  }
+  
+  .analysis_title{
+    border-bottom: 1px #000 solid
+  }

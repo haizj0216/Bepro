@@ -1,18 +1,16 @@
-<view class="page">
-    <view class="title-container">
-        <view class="title">
-            <text>适合当月使用的产品</text>
-        </view>
-        <view class="title-solution">
-            <view class="title-solution-s">Solution</view>
-            <view class="title-solution-no">No.{{solution}}</view>
-        </view>
+<view >
+  <view class="title-container">
+    <view class="title">
+      <text>适合当月使用的产品</text>
     </view>
-    <view>
-        <view bindtap="onAllSelectChange" class="all-select">
-            <el-select selected="{{allSelect}}"></el-select>
-            <text class="all-select-text">全选</text>
-        </view>
-        <el-product-item bindquantitychange="onQuantityChange" bindselectchange="onProductSelectChange" from="{{from}}" product="{{item}}" wx:for="{{list}}" wx:key="product_{{index}}"></el-product-item>
+    <view class="divider"></view>
+    <view class="title-solution">更新日期:{{solution}}</view>
+  </view>
+  <view class="page">
+    <view bindtap="onAllSelectChange" class="all-select">
+      <el-select selected="{{allSelect}}"></el-select>
+      <text class="all-select-text">全选</text>
     </view>
+    <el-product-item bindquantitychange="onQuantityChange" bindselectchange="onProductSelectChange" from="{{from}}" product="{{item}}" wx:for="{{list}}" wx:key="product_{{index}}"></el-product-item>
+  </view>
 </view>
