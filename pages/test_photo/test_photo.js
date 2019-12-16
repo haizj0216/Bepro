@@ -139,6 +139,7 @@ Page({
       success: function(res) {
         console.log(res.data);
         that.saveAnalysis(res.data.result);
+        that.updateAnalysis(res.data.result);
         that.toTest2();
       }
 
@@ -202,6 +203,17 @@ Page({
       showCamera:true,
       showPop:false,
     })
+  },
+
+  updateAnalysis(result) {
+    let maokong = result.pores_left_cheek.confidence * 100;
+    let falingwen = result.nasolabial_fold.confidence * 100;
+    let heiyanquan = result.dark_circle.confidence * 100;
+    let yandai = result.eye_pouch.confidence * 100;
+    let seban = result.skin_spot.confidence * 100;
+    let doudou = result.acne.confidence * 100;
+    let xiwen = result.eye_finelines.confidence * 100;
+    let blackhead = result.blackhead.confidence * 100;
+    console.log(maokong);
   }
-  
 })

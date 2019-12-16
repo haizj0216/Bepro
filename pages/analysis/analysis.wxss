@@ -71,9 +71,10 @@
 .qu-button {
   background-color: rgb(37, 37, 37);
   color: #fff;
+  width: 600rpx;
+  height: 90rxx;
   font-size: 26rpx;
   margin-top: 200rpx;
-  padding: 10rpx;
   margin-bottom: 30rpx;
 }
 
