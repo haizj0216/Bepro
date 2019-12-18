@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-      "recommend-list": "../../components/recommendlist/recommendlist",
       "header": "../../../../components/head/head",
       "body": "../../../../components/body/body",
       "el-button": "../../../../components/elbutton/elbutton",

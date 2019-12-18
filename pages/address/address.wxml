@@ -1,0 +1,22 @@
+<header></header>
+<body></body>
+<view class="no-address" wx:if="{{listEmpty}}">
+    <image class="no-address-image" src="https://cdn.effortless.cn/assets/icons/address-empty.png"></image>
+    <view class="no-address-text">暂时没有收货地址</view>
+    <el-button bindbtntap="goNewAddress" myClass="add-address" text="新增收货地址"></el-button>
+</view>
+<view class="address-list" wx:else>
+    <view catchtap="onSelectedChange" class="address-item" data-index="{{index}}" data-item="{{item}}" wx:for="{{list}}" wx:key="address_{{index}}">
+        <view class="address-item-select">
+            <el-select selected="{{selected===index}}"></el-select>
+        </view>
+        <view class="address-user">
+            <view class="address-user-name-and-phone">{{item.user_name}}  {{item.phone}}</view>
+            <view class="address-user-address">{{item.province}} {{item.city}} {{item.area}} {{item.address}}</view>
+        </view>
+        <view catchtap="editAddress" data-item="{{item}}">
+            <image class="address-edit" src="https://cdn.effortless.cn/assets/icons/pen.png"></image>
+        </view>
+    </view>
+</view>
+<el-button bindbtntap="goNewAddress" myClass="add-address" text="新增收货地址"></el-button>

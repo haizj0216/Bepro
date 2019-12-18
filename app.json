@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/home1/home1",
-    "pages/test_photo/test_photo",
     "pages/analysis/analysis",
+    "pages/test_photo/test_photo",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
@@ -15,7 +15,11 @@
     "components/elbutton/elbutton",
     "pages/sleep/sleep",
     "pages/test_record/record",
-    "pages/recommend/recommend"
+    "pages/recommend/recommend",
+    "pages/address/address",
+    "pages/detail/detail",
+    "pages/newaddress/newaddress",
+    "pages/payment/payment"
   ],
   "tabBar": {
     "selecctedColor": "#676a71",

@@ -1,7 +1,15 @@
 {
   "usingComponents": {
+    "el-product-item": "../../components/elproductitem/elproductitem",
+    "el-button": "../../components/elbutton/elbutton",
+    "no-data": "../../components/noData/noData",
     "header": "../../../../components/head/head",
     "body": "../../../../components/body/body",
-    "no-data": "../../components/noData/noData"
+    "el-input": "../../../../components/elinput/elinput",
+    "el-slider": "../../../../components/elslider/elslider",
+    "el-checkbox": "../../../../components/elcheckbox/elcheckbox",
+    "el-select": "../../../../components/elselect/elselect",
+    "el-radio": "../../../../components/elradio/elradio",
+    "modal": "../../../../components/modal/modal"
   }
 }

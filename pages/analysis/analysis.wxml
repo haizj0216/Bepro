@@ -37,4 +37,4 @@
 
 </view>
 
-<button class="qu-button">获取你的私人护肤解决方案</button>
+<button class="qu-button" bindtap="toRemommend">获取你的私人护肤解决方案</button>

@@ -124,7 +124,7 @@ Page({
   skinanalyze() {
     let that = this;
     wx.request({
-      url: 'https://api-cn.faceplusplus.com/facepp/v1/skinanalyze?api_key=JYYPRM-kN-WY69UKEvx16R3COm2yqZim&api_secret=p6OCDBZd5bl2U1X-p8BLDuNUCNdFYN0N&image_url=https://5b0988e595225.cdn.sohucs.com/images/20180501/dc952082bdb542e6b1effea9e62410af.png',
+      url: 'https://api-cn.faceplusplus.com/facepp/v1/skinanalyze?api_key=JYYPRM-kN-WY69UKEvx16R3COm2yqZim&api_secret=p6OCDBZd5bl2U1X-p8BLDuNUCNdFYN0N&image_url=https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f636afc379310a557919c6dfb44543a9822610df.jpg',
       header: {
         'content-type': 'multipart/form-data'
       },

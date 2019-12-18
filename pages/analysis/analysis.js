@@ -189,20 +189,35 @@ Page({
 
   updateAnalysis() {
     var result = app.globalData.analysis;
-    let maokong = result.pores_left_cheek.confidence * 100;
-    let falingwen = result.nasolabial_fold.confidence * 100;
-    let heiyanquan = result.dark_circle.confidence * 100;
-    let yandai = result.eye_pouch.confidence * 100;
-    let seban = result.skin_spot.confidence * 100;
-    let doudou = result.acne.confidence * 100;
-    let xiwen = result.eye_finelines.confidence * 100;
-    let blackhead = result.blackhead.confidence * 100;
-    let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
-    console.log(score);
-    this.setData({
-      scores: score
-    })
+    if (result == null) {
+      let score = [80, 58, 82, 36, 75, 57, 60, 46];
+      console.log(score);
+      this.setData({
+        scores: score
+      })
+    } else {
+      let maokong = result.pores_left_cheek.confidence * 100;
+      let falingwen = result.nasolabial_fold.confidence * 100;
+      let heiyanquan = result.dark_circle.confidence * 100;
+      let yandai = result.eye_pouch.confidence * 100;
+      let seban = result.skin_spot.confidence * 100;
+      let doudou = result.acne.confidence * 100;
+      let xiwen = result.eye_finelines.confidence * 100;
+      let blackhead = result.blackhead.confidence * 100;
+      let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
+      console.log(score);
+      this.setData({
+        scores: score
+      })
+    }
     this.init_echarts();
+  },
+
+  toRemommend:function() {
+    wx.navigateTo({
+      url:"/pages/recommend/recommend"
+    })
   }
+
 
 })

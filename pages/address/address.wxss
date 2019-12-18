@@ -1,0 +1,62 @@
+.no-address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 340rpx;
+}
+
+.no-address-image {
+  width: 240rpx;
+  height: 236rpx;
+}
+
+.no-address-text {
+  color: rgb(102,106,113);
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 54rpx;
+}
+
+.add-address {
+  width: 600rpx;
+  height: 92rpx;
+  font-size: 28rpx;
+  margin-top: 70rpx;
+}
+
+.address-list {
+}
+
+.address-item {
+  display: flex;
+  margin-top: 60rpx;
+}
+
+.address-item-select {
+  padding: 0 40rpx 0 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+.address-user {
+  flex: 1;
+}
+
+.address-user-name-and-phone {
+  color: rgba(33,33,33,0.8);
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.address-user-address {
+  color: rgba(33,33,33,0.8);
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.address-edit {
+  width: 24rpx;
+  height: 24rpx;
+  margin: 0 46rpx;
+}

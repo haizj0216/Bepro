@@ -12,10 +12,10 @@
                 <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/coupon.png?q=1"></image>
                 <view class="tab-name">我的优惠券</view>
             </view>
-            <view bindtap="goReWard" class="tab">
+            <!-- <view bindtap="goReWard" class="tab">
                 <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/gift.png?q=1"></image>
                 <view class="tab-name">我的积分</view>
-            </view>
+            </view> -->
             <view bindtap="goContact" class="tab">
                 <button class="contact" openType="contact">
                     <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/chat.png?q=1"></image>

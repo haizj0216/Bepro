@@ -1,0 +1,119 @@
+.page {
+  padding: 50rpx;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+}
+
+.icon-plus {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.head-text {
+  color: rgb(56,56,56);
+  font-size: 34rpx;
+  letter-spacing: 4rpx;
+  margin-left: 16rpx;
+  font-weight: bold;
+}
+
+.input-container {
+  margin: 20rpx 0;
+}
+
+.tags-container {
+  margin-top: 80rpx;
+}
+
+.container-title {
+  color: rgb(77,77,77);
+  font-size: 28rpx;
+}
+
+.tags {
+  margin-left: -14rpx;
+  margin-top: 30rpx;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.tag {
+  width: 140rpx;
+  height: 64rpx;
+  border: solid 1rpx rgb(193,193,193);
+  color: rgb(103,106,113);
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14rpx;
+}
+
+.tag-selected {
+  background-color: rgb(179,167,162);
+  color: #fff;
+}
+
+.default-address {
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tip {
+  color: rgba(33,33,33,0.8);
+  font-size: 24rpx;
+}
+
+.wx-switch-input {
+  width: 100rpx!important;
+  height: 52rpx!important;
+}
+
+.wx-switch-input::before {
+  width: 99rpx!important;
+  height: 49rpx!important;
+}
+
+.wx-switch-input::after {
+  width: 55rpx!important;
+  height: 49rpx!important;
+}
+
+.save {
+  margin-top: 300rpx;
+}
+
+.del-address {
+  color: red;
+  font-size: 26rpx;
+  margin-top: 40rpx;
+}
+
+.modal-body {
+  padding: 50rpx 60rpx;
+}
+
+.modal-title {
+  color: rgb(56,56,56);
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.modal-input {
+  margin-top: 60rpx;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 80rpx;
+}
+
+.modal-btn {
+  width: 200rpx!important;
+  margin-left: 30rpx!important;
+}

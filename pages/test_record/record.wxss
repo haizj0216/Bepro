@@ -220,6 +220,7 @@ page {
 .recommend-container {
     background-color: #fff;
     padding-bottom: 36rpx;
+    margin-top: 30rpx;
 }
 
 .add-to-cart {

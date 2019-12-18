@@ -1,1 +1,48 @@
 /* pages/recommend/recommend.wxss */
+.page {
+  padding-left: 32rpx;
+}
+
+.title {
+  color: rgb(56,56,56);
+  font-size: 34rpx;
+  letter-spacing: 4rpx;
+  margin-top: 50rpx;
+  font-weight: bolder;
+}
+
+.all-select {
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.all-select-text {
+  color: rgb(77,77,77);
+  font-size: 24rpx;
+  margin-left: 28rpx;
+}
+
+.add-to-cart {
+  background: #000;
+  color: #fff;
+  border-radius: 0;
+  width: 618rpx;
+  margin-top: 80rpx;
+  margin-bottom: 36rpx;
+  font-size: 28rpx;
+  padding: 26rpx 0;
+  line-height: unset;
+}
+
+.back-home {
+  color: rgb(151,151,151);
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.back-home-text {
+  border-bottom: solid 1px rgb(151,151,151);
+  padding-bottom: 4rpx;
+}

@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-      "recommend-list": "../../components/recommendlist/recommendlist",
+      "bottle-loading": "../../components/bottleloading/bottleloading",
+      "el-product-item": "../../components/elproductitem/elproductitem",
+      "el-order-product-item": "../../components/elorderproductitem/elorderproductitem",
       "header": "../../../../components/head/head",
       "body": "../../../../components/body/body",
       "el-button": "../../../../components/elbutton/elbutton",

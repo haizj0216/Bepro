@@ -1,6 +1,30 @@
 <!--pages/cart/cart.wxml-->
 <header showBack="{{false}}"></header>
 <body></body>
-<view>
-  <no-data pageName="空购物车"></no-data>
+<view wx:if="{{loading}}"></view>
+<view class="page" wx:elif="{{list.length>0}}">
+  <view class="content">
+    <view bindtap="onAllSelectChange" class="all-select">
+      <el-select selected="{{allSelect}}"></el-select>
+      <text class="all-select-text">全选</text>
+    </view>
+    <el-product-item binddelProduct="delProduct" bindquantitychange="onQuantityChange" bindselectchange="onProductSelectChange" disabledSlide="{{false}}" from="购物车" maxQuantity="{{10}}" product="{{item}}" wx:for="{{list}}" wx:key="product_{{index}}_{{item.quantity}}"></el-product-item>
+  </view>
+  <view class="footer">
+    <view class="price">总金额： ￥{{total}}</view>
+    <el-button bindbtntap="goPayment" myClass="confirm" text="结算"></el-button>
+  </view>
 </view>
+<block wx:else>
+  <view wx:if="{{!hasDoneQ}}">
+    <no-data pageName="空购物车"></no-data>
+  </view>
+  <block wx:else>
+    <view class="empty" wx:if="{{list.length===0}}">
+      <image class="empty-image" src="https://cdn.effortless.cn/assets/icons/cart-empty.png"></image>
+      <view class="empty-text">您的购物袋空空如也</view>
+      <view class="empty-des">健康生活从头开始，effortless给您带来惊喜！</view>
+      <el-button bindbtntap="goRecommendPage" myClass="check-product-btn" text="查看适合我的产品"></el-button>
+    </view>
+  </block>
+</block>

@@ -1,0 +1,122 @@
+<header></header>
+<body></body>
+<view wx:if="{{loading}}"></view>
+<block wx:else>
+    <view class="relative">
+        <swiper bindchange="onCarouselChange" class="swiper" duration="{{300}}">
+            <swiper-item wx:for="{{images}}" wx:for-item="image" wx:key="image_{{index}}">
+                <image class="swiper" src="{{image}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot {{carouselCurrent===index?'dot-active':''}}" wx:for="{{images}}" wx:key="image_{{index}}"></view>
+        </view>
+        <view class="icons">
+            <button bindgetuserinfo="addToCart" class="share-btn" openType="getUserInfo">
+                <view class="icon-bg">
+                    <image class="icon" src="https://cdn.effortless.cn/assets/icons/bag.png"></image>
+                </view>
+            </button>
+            <button bindtap="shareProduct" class="share-btn" openType="{{goodsPush?'':'share'}}">
+                <view class="icon-bg">
+                    <image class="icon" src="https://cdn.effortless.cn/assets/icons/share.png"></image>
+                </view>
+            </button>
+        </view>
+    </view>
+    <view class="detail">
+        <view class="name">
+      {{name}}
+      <text class="out-of-stock" wx:if="{{!canbuy}}">缺货</text>
+        </view>
+        <view class="des">
+      {{sub_title}}
+      </view>
+        <view class="price">
+            <text decode="{{true}}">{{volume}}&nbsp;&nbsp;&nbsp;¥{{price}}</text>
+        </view>
+        <view class="main-des">{{des}}</view>
+    </view>
+    <card cardHeadClass="card-head" title="{{attr.name}}" wx:if="{{attr.en_name!=='formula'}}" wx:for="{{attributes}}" wx:for-item="attr" wx:key="attr_{{index}}">
+        <view class="card-body" wx:if="{{attr.type===0}}">
+            <view class="flex" style="justify-content: flex-start;" wx:for="{{attr.content}}" wx:for-index="contentIndex" wx:key="key_value_{{contentIndex}}">
+                <view class="key" style="width: 250rpx;">{{item.key}}</view>
+                <view class="value" style="margin-left: 60rpx; width: 360rpx;">{{item.value}}</view>
+            </view>
+        </view>
+        <view class="card-body card-body-flex" wx:elif="{{attr.type===1}}">
+            <view class="flex flex-stars" wx:for="{{attr.content}}" wx:for-index="contentIndex" wx:key="star_{{contentIndex}}">
+                <view class="key">{{item.label}}</view>
+                <view class="stars">
+                    <star empty="{{item.star-1<star}}" wx:for="{{[0,1,2]}}" wx:for-item="star" wx:key="star_{{index}}"></star>
+                </view>
+            </view>
+        </view>
+        <view wx:elif="{{attr.type===2}}">
+            <block wx:for="{{attr.content}}" wx:for-index="contentIndex" wx:key="textImage_{{contentIndex}}">
+                <block wx:if="{{item.image}}">
+                    <image class="text-image" mode="widthFix" src="{{textImage}}" wx:for="{{item.data}}" wx:for-index="textImageIndex" wx:for-item="textImage" wx:key="textImage_{{contentIndex}}_image_{{textImageIndex}}"></image>
+                </block>
+                <view class="text" wx:else>
+          {{item.data}}
+        </view>
+            </block>
+        </view>
+        <view bindtap="showFormulaTable" class="formula" data-status="open" wx:if="{{attr.en_name==='showIngredient'}}">
+      查看配方表
+      <image class="brown-arrow" src="https://cdn.effortless.cn/assets/icons/brown-arrow.png"></image>
+        </view>
+    </card>
+</block>
+<view class="padding-bottom"></view>
+<view class="safe-area" wx:if="{{iphoneX}}"></view>
+<view class="bottom">
+    <view class="bottom-container">
+        <view class="bottom-icons">
+            <image bindtap="goHome" class="bottom-icon" src="https://cdn.effortless.cn/assets/tabs/home.png"></image>
+            <image bindtap="goCart" class="bottom-icon" src="https://cdn.effortless.cn/assets/tabs/cart.png"></image>
+            <view bindtap="goCart" class="cart-num">{{cartNum}}</view>
+        </view>
+        <el-button bindgetUserInfo="goPayment" myClass="buy-now" openType="getUserInfo" text="立即购买" userLoading="{{true}}"></el-button>
+    </view>
+    <view class="safe-area" wx:if="{{iphoneX}}"></view>
+</view>
+<modal id="modal">
+    <view class="modal-body">
+        <view class="modal-title">成分表</view>
+        <scroll-view class="modal-table-body" scrollY="{{true}}">
+            <view class="modal-des">
+                <text decode="{{true}}">
+          effortless采用国际通用的&lt;EWG成分安全评分>评估成分安全性。EWG分值越低，安全度越高 -- 1分为安全度最高成分，7分以上为高风险成分。
+        </text>
+            </view>
+            <view class="modal-table-row modal-table-title">
+                <view class="modal-table-row1-width">配方</view>
+                <view class="modal-table-row2-width">EWG评分</view>
+                <view class="modal-table-value">使用目的</view>
+            </view>
+            <view class="modal-table-row modal-table-text" wx:for="{{formula.content}}" wx:key="formula_content_{{index}}">
+                <view class="modal-table-row1-width">{{item[0]}}</view>
+                <view class="modal-table-row2-width">{{item[1]}}</view>
+                <view class="modal-table-value">{{item[2]}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</modal>
+<!-- <van-popup bind:close="onClose" position="bottom" show="{{show}}">
+    <view class="share-container">
+        <button bindtap="shareProductReport" class="share-item" openType="share">
+            <image class="share-icon" src="https://cdn.effortless.cn/assets/icons/wechat-share.png"></image>
+            <view class="share-text">分享给朋友</view>
+        </button>
+        <view bindtap="hidePopup" class="share-item">
+            <share-button bind:error="on_error" product="{{goods}}" type="{{3}}">
+                <image class="share-icon" src="https://cdn.effortless.cn/assets/icons/goodthing.png"></image>
+                <view class="share-text">推荐好物圈</view>
+            </share-button>
+        </view>
+    </view>
+    <view bindtap="hidePopup" class="popup-cancel">
+    取消
+  </view>
+</van-popup> -->

@@ -16,7 +16,7 @@
 <view class='{{showPop?"pop_show":"pop_hide"}}'>
   <view class="pop">
     <view>
-      <image src="/images/home_1_head.png"></image>
+      <image src="https://img.zcool.cn/community/0129b5587d9f42a801219c77a4312b.gif"></image>
       <view bindtap="hidePop">关闭</view>
     </view>
   </view>
