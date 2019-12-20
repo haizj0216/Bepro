@@ -25,7 +25,10 @@
         <view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
         <view class="analysis_text">{{analysisresult}}</view>
       </view>
+
+      <el-button bindbtntap="goQuestionnaire" myClass="question" text="更新皮肤状态"></el-button>
     </view>
+    
   </view>
   <view class="recommend-container">
     <recommend-list allSelect="{{allSelect}}" bindquantitychange="onQuantityChange" bindselectallchange="onAllSelectChange" bindselectchange="onProductSelectChange" from="档案产品推荐页" list="{{recommendList}}" solution="{{solution}}"></recommend-list>

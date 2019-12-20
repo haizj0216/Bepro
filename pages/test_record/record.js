@@ -58,9 +58,9 @@ Page({
       key: "",
       des: ""
     },
-    age:"<20",
-    sex:"女",
-    city:"北京市",
+    age: "<20",
+    sex: "女",
+    city: "北京市",
     scores: [],
     ec: {
       lazyLoad: true,
@@ -69,13 +69,13 @@ Page({
     analysisresult: "作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史",
   },
   onLoad: function (options) {
-    this.init();
-    this.mokelist();
+    // this.init();
     this.echartsComponnet = this.selectComponent('#mychart-dom-graph-record');
-    this.updateAnalysis();
   },
   onShow: function () {
-    this.needShowRequest && this.init(), this.needShowRequest = !0;
+    // this.needShowRequest && this.init(), this.needShowRequest = !0;
+    this.mokelist();
+    this.updateAnalysis();
   },
   init: function () {
     var e = n(t.regeneratorRuntime.mark(function e() {
@@ -210,7 +210,7 @@ Page({
   }(),
   goQuestionnaire: function () {
     t.default.navigateTo({
-      url: "/pages/questionnaire/questionnaire"
+      url: "/pages/question/question"
     });
   },
   goUpdateProfile: function () {
@@ -249,83 +249,82 @@ Page({
       quantity: 1,
       num: 2,
       price: 100,
-      selected:true
+      selected: true
     }];
     this.setData({
       hasDoneQ: 1,
       recommendList: lis,
-      solution:"2019-12-20"
+      solution: "2019-12-20"
     })
   },
 
   init_echarts: function () {
     this.echartsComponnet.init((canvas, width, height) => {
-        const chart = echarts.init(canvas, null, {
-          width: width,
-          height: height
-        });
+      const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
 
-        var option = {
-          backgroundColor: "#ffffff",
-          color: ["#37A2DA", "#FF9F7F"],
-          borderColor: "#FFB6C1",
-          tooltip: {},
-          xAxis: {
-            show: false
-          },
-          yAxis: {
-            show: false
-          },
-          radar: {
-            // shape: 'circle',
-            indicator: [{
-                name: '毛孔',
-                max: 100
-              },
-              {
-                name: '黑头',
-                max: 100
-              },
-              {
-                name: '细纹',
-                max: 100
-              },
-              {
-                name: '痘痘',
-                max: 100
-              },
-              {
-                name: '色斑',
-                max: 100
-              },
-              {
-                name: '泛红',
-                max: 100
-              },
-              {
-                name: '黑眼圈',
-                max: 100
-              },
-              {
-                name: '法令纹',
-                max: 100
-              }
-            ]
-          },
-          series: [{
-            name: '皮肤',
-            type: 'radar',
-            data: [{
-              value: this.data.scores,
-              name: '皮肤'
-            }]
+      var option = {
+        backgroundColor: "#ffffff",
+        color: ["#37A2DA", "#FF9F7F"],
+        borderColor: "#FFB6C1",
+        tooltip: {},
+        xAxis: {
+          show: false
+        },
+        yAxis: {
+          show: false
+        },
+        radar: {
+          // shape: 'circle',
+          indicator: [{
+              name: '毛孔',
+              max: 100
+            },
+            {
+              name: '黑头',
+              max: 100
+            },
+            {
+              name: '细纹',
+              max: 100
+            },
+            {
+              name: '痘痘',
+              max: 100
+            },
+            {
+              name: '色斑',
+              max: 100
+            },
+            {
+              name: '泛红',
+              max: 100
+            },
+            {
+              name: '黑眼圈',
+              max: 100
+            },
+            {
+              name: '法令纹',
+              max: 100
+            }
+          ]
+        },
+        series: [{
+          name: '皮肤',
+          type: 'radar',
+          data: [{
+            value: this.data.scores,
+            name: '皮肤'
           }]
-        };
+        }]
+      };
 
-        chart.setOption(option);
-        return chart;
-      }
-    )
+      chart.setOption(option);
+      return chart;
+    })
   },
 
   updateAnalysis() {

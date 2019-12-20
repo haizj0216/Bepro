@@ -282,12 +282,12 @@ Page({
                       paySign: n.paySign,
                       success: function(t) {
                           console.log("payment success res", t), e.default.switchTab({
-                              url: "/pages/me/me"
+                              url: "/pages/my/my"
                           });
                       },
                       fail: function(t) {
                           e.default.switchTab({
-                              url: "/pages/me/me"
+                              url: "/pages/my/my"
                           });
                       },
                       complete: function(e) {}
@@ -311,7 +311,7 @@ Page({
   },
   zeroModalHide: function() {
       this.selectComponent("#zeroModal").hide(), e.default.switchTab({
-          url: "/pages/me/me"
+          url: "/pages/my/my"
       });
   },
   zeroPay: function() {
@@ -329,7 +329,7 @@ Page({
 
                 case 2:
                   0 === t.sent.code && e.default.switchTab({
-                      url: "/pages/me/me"
+                      url: "/pages/my/my"
                   });
 
                 case 4:

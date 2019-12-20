@@ -92,7 +92,7 @@ Page({
         
     },
     onShow: function () {
-        this.showRequest && this.getList(), this.showRequest = !0;
+        // this.showRequest && this.getList(), this.showRequest = !0;
         this.mockdata();
     },
     getList: function () {

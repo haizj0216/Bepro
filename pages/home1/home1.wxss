@@ -453,6 +453,7 @@ page {
   border-radius: 0;
   position: absolute;
   bottom: 120rpx;
+  width: 600rpx;
   height: 80rpx !important;
   margin-left: 70rpx;
 }

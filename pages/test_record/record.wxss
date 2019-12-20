@@ -300,6 +300,7 @@ page {
 
 .analysis {
     background-color: white;
+    padding-bottom: 66rpx;
 }
 
 .head_layout {
@@ -352,4 +353,16 @@ page {
   
   .analysis_title{
     border-bottom: 1px #000 solid
+  }
+
+  .question{
+    background: #000;
+    color: #fff;
+    border-radius: 0;
+    width: 618rpx;
+    margin-top: 120rpx;
+    margin-left: 66rpx;
+    font-size: 28rpx;
+    padding: 26rpx 0;
+    line-height: unset;
   }

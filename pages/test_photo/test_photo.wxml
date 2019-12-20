@@ -1,23 +1,21 @@
 <!--pages/test_photo/test_photo.wxml-->
 <header showBack="{{true}}"></header>
 <body></body>
-<view >
-  <view class="imageSize">
+<view class="imageSize">
     <image class="image" mode="aspectFit" src="{{image}}"></image>
     <camera class='{{showCamera ?"camera_show":"camera_hide"}}' device-position="front" flash="off" binderror="error"></camera>
     <!-- <image src="http://hiphotos.baidu.com/feed/pic/item/d043ad4bd11373f0f5b4314ca80f4bfbfaed045d.jpg"></image> -->
   </view>
-</view>
 <view class="bottom">
-  <button class="skinanalyze" bindtap="takePhoto">拍照</button>
-  <button class="skinanalyze" bindtap="chooseimage">上传照片</button>
+  <view class="camera_uploader">
+    <image class="camera_image" bindtap="takePhoto" src="/images/icon_camera.png"></image>
+    <image class="uploader_image" bindtap="chooseimage" src="/images/icon_upload.png"></image>
+  </view>
   <view class="next" bindtap="skinanalyze">>></view>
 </view>
 <view class='{{showPop?"pop_show":"pop_hide"}}'>
   <view class="pop">
-    <view>
-      <image src="https://img.zcool.cn/community/0129b5587d9f42a801219c77a4312b.gif"></image>
-      <view bindtap="hidePop">关闭</view>
-    </view>
+    <image src="https://img.zcool.cn/community/0129b5587d9f42a801219c77a4312b.gif"></image>
+    <image class="close" bindtap="hidePop" src="/images/ic_close.png"></image>
   </view>
 </view>
