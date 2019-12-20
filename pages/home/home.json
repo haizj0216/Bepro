@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "el-button": "../../../../components/elbutton/elbutton"
+    "header": "../../../../components/head/head",
+    "body": "../../../../components/body/body",
+    "el-button": "/components/elbutton/elbutton"
   }
 }

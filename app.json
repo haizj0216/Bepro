@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/home1/home1",
+    "pages/home/home",
     "pages/analysis/analysis",
     "pages/test_photo/test_photo",
-    "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
     "pages/test_baseinfo/test_1",
@@ -27,7 +26,7 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/home1/home1",
+        "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/images/icon_home_n.png",
         "selectedIconPath": "/images/icon_home_s.png"
