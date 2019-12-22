@@ -2,16 +2,19 @@
 <header showBack="{{true}}"></header>
 <body></body>
 <view class="imageSize">
-    <image class="image" mode="aspectFit" src="{{image}}"></image>
-    <camera class='{{showCamera ?"camera_show":"camera_hide"}}' device-position="front" flash="off" binderror="error"></camera>
-    <!-- <image src="http://hiphotos.baidu.com/feed/pic/item/d043ad4bd11373f0f5b4314ca80f4bfbfaed045d.jpg"></image> -->
+  <!-- <image class="image" mode="aspectFit" src="{{image}}"></image> -->
+  <view class="camera_layout">
+  <camera class='camera_show' device-position="front" flash="off" binderror="error">
+  <cover-image class="image" mode="aspectFit" src="{{image}}"></cover-image>
+  </camera>
   </view>
-<view class="bottom">
-  <view class="camera_uploader">
-    <image class="camera_image" bindtap="takePhoto" src="/images/icon_camera.png"></image>
-    <image class="uploader_image" bindtap="chooseimage" src="/images/icon_upload.png"></image>
+  <view class="bottom">
+    <view class="camera_uploader">
+      <image class="camera_image" bindtap="takePhoto" src="/images/icon_camera.png"></image>
+      <image class="uploader_image" bindtap="chooseimage" src="/images/icon_upload.png"></image>
+    </view>
+    <view class="next" bindtap="skinanalyze">>></view>
   </view>
-  <view class="next" bindtap="skinanalyze">>></view>
 </view>
 <view class='{{showPop?"pop_show":"pop_hide"}}'>
   <view class="pop">

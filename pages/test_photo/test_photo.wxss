@@ -20,41 +20,52 @@
   align-items: center;
 }
 
+.camera_layout{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+
+}
+
 .camera_show {
-  width: 100%;
-  height: 100%;
+  width: 600rpx;
+  height: 600rpx;
   display: block;
-  z-index: -1;
-  position: fixed;
-  left: 0;
-  top: 0;
 }
 
 .camera_hide {
-  width: 100%;
-  height: 100%;
+  width: 600rpx;
+  height: 600rpx;
   display: none;
-  z-index: 1;
-  position: fixed;
-  left: 0;
-  top: 0;
 }
 
 .image {
-  width: 600rpx;
-  height: 600rpx;
-  border: 2rpx dashed #e6e2e2;
+  width: 604rpx;
+  height: 604rpx;
+  /* border: 2rpx dashed #e6e2e2; */
   /* background-image: ""; */
-  position: fixed;
+  /* position: fixed;
   z-index: -1;
-  top: 200rpx;
+  top: 200rpx; */
 }
 
 .next {
   margin-top: 50rpx;
   margin-right: 20px;
-  text-align: right;
-  font-size: 14px;
+  display: flex;
+  flex-direction: row-reverse;
+  color: #e6e2e2;
+}
+
+.next_arrow{
+  font-size: 30rpx;
+  background-color: white;
+  opacity: 0.3;
+  padding: 15rpx;
+  border-radius: 50%;
+  color: #e6e2e2;
 }
 
 .bottom {
@@ -74,7 +85,7 @@
 
 .pop_show {
   display: block;
-  
+
 }
 
 .pop_hide {
@@ -112,9 +123,18 @@
 .camera_image{
   width: 80rpx;
   height: 80rpx;
+  background-color: white;
+  opacity: 0.3;
+  padding: 15rpx;
+  border-radius: 50%;
 }
+
 .uploader_image{
   width: 80rpx;
   height: 80rpx;
   margin-left: 100rpx;
+  background-color: white;
+  opacity: 0.3;
+  padding: 15rpx;
+  border-radius: 50%;
 }

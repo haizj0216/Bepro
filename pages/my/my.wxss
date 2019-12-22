@@ -1,6 +1,6 @@
 /* pages/my/my.wxss */
 page {
-    background-color: rgb(243,244,244);
+    background-color: rgb(243, 244, 244);
 }
 
 .no-order-list {
@@ -14,13 +14,13 @@ page {
 }
 
 .no-order-text {
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     font-size: 32rpx;
     margin-top: 56rpx;
 }
 
 .no-order-des {
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
     font-size: 22rpx;
     margin-top: 20rpx;
 }
@@ -45,7 +45,7 @@ page {
 }
 
 .name {
-    color: rgb(51,51,51);
+    color: rgb(51, 51, 51);
     font-size: 24rpx;
     letter-spacing: 3rpx;
     font-weight: bolder;
@@ -69,11 +69,10 @@ page {
 
 .tab-name {
     font-size: 22rpx;
-    color: rgb(103,106,113);
+    color: rgb(103, 106, 113);
 }
 
-.order-list {
-}
+.order-list {}
 
 .contact {
     background: #fff;
@@ -92,4 +91,10 @@ page {
     overflow: hidden;
     color: #000000;
     display: block;
+}
+
+.head {
+    width: 100rpx;
+    height: 100rpx;
+    margin-top: 30rpx;
 }

@@ -45,27 +45,28 @@ Page({
     hasDoneQ: !0
   },
   onLoad: function () {
-    var e = r(t.regeneratorRuntime.mark(function e(r) {
-      var n;
-      return t.regeneratorRuntime.wrap(function (e) {
-        for (; ;) switch (e.prev = e.next) {
-          case 0:
-            (n = t.default.getStorageSync("userInfo")) && (n = JSON.parse(n), this.setData({
-              userInfo: n
-            })), this.getOrderList();
+    // var e = r(t.regeneratorRuntime.mark(function e(r) {
+    //   var n;
+    //   return t.regeneratorRuntime.wrap(function (e) {
+    //     for (; ;) switch (e.prev = e.next) {
+    //       case 0:
+    //         (n = t.default.getStorageSync("userInfo")) && (n = JSON.parse(n), this.setData({
+    //           userInfo: n
+    //         })), this.getOrderList();
 
-          case 3:
-          case "end":
-            return e.stop();
-        }
-      }, e, this);
-    }));
-    return function (t) {
-      return e.apply(this, arguments);
-    };
+    //       case 3:
+    //       case "end":
+    //         return e.stop();
+    //     }
+    //   }, e, this);
+    // }));
+    // return function (t) {
+    //   return e.apply(this, arguments);
+    // };
   }(),
   onShow: function () {
-    this.showRequest && (this.page = 1, this.getOrderList()), this.showRequest = !0;
+    // this.showRequest && (this.page = 1, this.getOrderList()), this.showRequest = !0;
+    this.mockdata();
   },
   getOrderList: function () {
     var e = r(t.regeneratorRuntime.mark(function e() {
@@ -192,5 +193,25 @@ Page({
       path: "/pages/index/index",
       imageUrl: "https://cdn.effortless.cn/assets/images/coupon-image.jpg"
     };
+  },
+  mockdata:function(){
+    let list = [{
+      order_num:123456,
+      statusText:1,
+      pay_price:100,
+      fullAddress:"北京市朝阳区",
+      address:{
+        user_name:"VV",
+        phone:"1234567890"
+      },
+      createTime:"2019-12-12",
+      order_num:10,
+      id:123,
+    }];
+    this.setData({
+      hasDoneQ:0,
+      loading:0,
+      orderList:list,
+    })
   }
 });

@@ -123,6 +123,7 @@ Page({
 
   skinanalyze() {
     let that = this;
+    wx.showLoading();
     wx.request({
       url: 'https://api-cn.faceplusplus.com/facepp/v1/skinanalyze?api_key=JYYPRM-kN-WY69UKEvx16R3COm2yqZim&api_secret=p6OCDBZd5bl2U1X-p8BLDuNUCNdFYN0N&image_url=https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f636afc379310a557919c6dfb44543a9822610df.jpg',
       header: {
@@ -141,6 +142,7 @@ Page({
         that.saveAnalysis(res.data.result);
         that.updateAnalysis(res.data.result);
         that.toTest2();
+        wx.hideLoading();
       }
 
     })
@@ -176,6 +178,12 @@ Page({
     })
   },
 
+  error:function(event) {
+    wx.showToast({
+      title: "相机未授权！",
+    })
+  },
+
   takePhoto() {
     let that = this;
     let show = that.data.showCamera;
@@ -189,19 +197,30 @@ Page({
       ctx.takePhoto({
         quality: 'high',
         success: (res) => {
+          console.log(res.tempImagePath)
           that.setData({
             image: res.tempImagePath,
+          })
+          that.setData({
             showCamera:false,
           })
+        },
+        fail:(msg)=>{
+          wx.showToast({
+            title: "相机拍照出错！！",
+          })
         }
+
       })
     }
   },
 
   hidePop:function() {
     this.setData({
-      showCamera:true,
       showPop:false,
+    })
+    this.setData({
+      showCamera:true,
     })
   },
 

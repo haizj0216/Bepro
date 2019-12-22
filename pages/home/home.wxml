@@ -75,7 +75,6 @@
     </view>
     <el-button bindbtntap="goQuestionnaire" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
     <view class="arrow-container arrow-container-mini">
-      <view class="arrow-text">了解更多</view>
       <image class="array" src="/images/down_arrow.png"></image>
     </view>
   </swiper-item>
