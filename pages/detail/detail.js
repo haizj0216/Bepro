@@ -325,7 +325,7 @@ Page({
   },
   goHome: function() {
       t.default.switchTab({
-          url: "/pages/index/index"
+          url: "/pages/home/home"
       });
   },
   goCart: function() {

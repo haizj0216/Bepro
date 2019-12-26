@@ -194,12 +194,13 @@ Page({
 
   getdata:function(){
     let that = this
+    var token = wx.getStorageSync("token")
     wx.showLoading()
     wx.request({
       url:n.apiUrl.testResult,
       method: "GET",
       header:{
-        "token":"123",
+        "token":token,
         "content-type":"x-www-form-urlencoded"
       },
       success(res){

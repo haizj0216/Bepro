@@ -102,7 +102,7 @@ Page({
             });
 
           case 6:
-            99999 === (r = e.sent).code && this.setData({
+           return 99999 === (r = e.sent).code && this.setData({
               recommendList: r.data.map(function (t) {
                 return t.selected = !0, t.quantity = 1, t;
               }),
@@ -285,7 +285,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      path: "/pages/index/index",
+      path: "/pages/home/home",
       imageUrl: "https://cdn.effortless.cn/assets/images/coupon-image.jpg"
     };
   },

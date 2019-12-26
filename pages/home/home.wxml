@@ -3,7 +3,7 @@
 <body></body>
 <swiper bindchange="onSwiperChange" class="swiper" duration="{{300}}" vertical="true">
   <swiper-item class="swiper-item" key="1">
-    <image class="image" src="/images/home_1_head.png" ></image>
+    <image class="image" src="http://vapi.thebepro.com/files/448a30233d26e7f60eef1d44d0934a04.png" ></image>
     <view class="container_1">
       <view>
         <image class="title" src="/images/logo_black.jpeg" mode=""></image>
@@ -47,7 +47,7 @@
   </swiper-item>
   <swiper-item key="3">
     <view class="item6-content">
-      <image class="item6-banner" src="/images/home_3_head.png" mode='widthFix'></image>
+      <image class="item6-banner" src="http://vapi.thebepro.com/files/8c1a55a908a390f80698dbeb4d536c6c.png" mode='widthFix'></image>
       <view>
         <view class="item6-title">严选成分 不为赋予概念而复杂配方</view>
         <view class="item6-des">选用EWG值1-2等级原料</view>

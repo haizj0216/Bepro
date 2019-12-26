@@ -30,7 +30,7 @@ Component({
             }), e.default.navigateBack({
                 delta: 1
             })) : e.default.switchTab({
-                url: "/pages/index/index"
+                url: "/pages/home/home"
             });
         }
     }

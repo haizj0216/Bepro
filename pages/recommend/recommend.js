@@ -122,6 +122,7 @@ Page({
         wx.showLoading()
         let that = this
         var list
+        var token = wx.getStorageSync("token")
         list = this.data.recommendList.filter(function (t) {
             return t.selected;
         })
@@ -133,7 +134,7 @@ Page({
             }
         }
         wx.request({
-            url: netUtils.apiUrl.addCart + "?token=123",
+            url: netUtils.apiUrl.addCart + "?token=" + token,
             method: "POST",
             data: productList,
             success(res) {
@@ -158,7 +159,7 @@ Page({
         r.sensors.track("clickButton", {
             name_of_button: "返回主页"
         }), t.default.switchTab({
-            url: "/pages/index/index"
+            url: "/pages/home/home"
         });
     },
     onReady: function () {},
@@ -169,7 +170,7 @@ Page({
     onReachBottom: function () {},
     onShareAppMessage: function () {
         return {
-            path: "/pages/index/index",
+            path: "/pages/home/home",
             imageUrl: "https://cdn.effortless.cn/assets/images/coupon-image.jpg"
         };
     },

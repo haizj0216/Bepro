@@ -3,16 +3,13 @@
     "pages/home/home",
     "pages/analysis/analysis",
     "pages/test_photo/test_photo",
-    "pages/index/index",
     "pages/logs/logs",
-    "pages/test_baseinfo/test_1",
     "pages/question/question",
     "pages/element/element",
     "pages/my/my",
     "components/noData/noData",
     "pages/cart/cart",
     "components/elbutton/elbutton",
-    "pages/sleep/sleep",
     "pages/test_record/record",
     "pages/recommend/recommend",
     "pages/address/address",
@@ -20,12 +17,17 @@
     "pages/newaddress/newaddress",
     "pages/payment/payment"
   ],
+  "subPackages": [
+    {
+      "root":"product",
+      "pages":[]
+    }
+  ],
   "tabBar": {
     "selecctedColor": "#676a71",
     "color": "#b3a7a2",
     "position": "bottom",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/images/icon_home_n.png",

@@ -13,12 +13,12 @@
       <image class="camera_image" bindtap="takePhoto" src="/images/icon_camera.png"></image>
       <image class="uploader_image" bindtap="chooseimage" src="/images/icon_upload.png"></image>
     </view>
-    <view class="next" bindtap="skinanalyze">下一步></view>
+    <view class="next" bindtap="douploader">下一步></view>
   </view>
 </view>
 <view class='{{showPop?"pop_show":"pop_hide"}}'>
   <view class="pop">
-    <image src="https://img.zcool.cn/community/0129b5587d9f42a801219c77a4312b.gif"></image>
+    <image class="cover_image" src="http://vapi.thebepro.com/files/1f054d1047fc8622d6981f2db963e88d.gif"></image>
     <image class="close" bindtap="hidePop" src="/images/ic_close.png"></image>
   </view>
 </view>

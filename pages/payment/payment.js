@@ -349,7 +349,7 @@ Page({
   onReachBottom: function() {},
   onShareAppMessage: function() {
       return {
-          path: "/pages/index/index",
+          path: "/pages/home/home",
           imageUrl: "https://cdn.effortless.cn/assets/images/coupon-image.jpg"
       };
   },

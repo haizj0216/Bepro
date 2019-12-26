@@ -59,8 +59,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/recommend/recommend",
-					"pathName": "pages/recommend/recommend",
+					"name": "pages/test_photo/test_photo",
+					"pathName": "pages/test_photo/test_photo",
 					"query": "",
 					"scene": null
 				}
