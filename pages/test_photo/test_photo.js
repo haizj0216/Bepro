@@ -1,5 +1,6 @@
 // pages/test_photo/test_photo.js
 const app = getApp()
+var n = require("../../common/config.default");
 
 Page({
 
@@ -9,15 +10,27 @@ Page({
   data: {
     fileList1: [],
     image:"",
+    imageUrl:"",
     showCamera:false,
     showPop:true,
+    question:{},
+    analysis_result:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    wx.getStorage({
+      key: 'question',
+      success (res) {
+        that.setData({
+          question:res.data
+        })
+        console.log(res.data)
+      }
+    })
   },
 
   /**
@@ -115,7 +128,60 @@ Page({
       [`fileList${name}`]: fileList
     });
   },
+
+  douploader:function(){
+    // wx.request({
+    //   url:n.apiUrl.uploadFile,
+    //   method:"POST",
+    //   data:{
+    //     file:''
+    //   },
+    //   success(res){
+        
+    //   }
+    // })
+    let that = this
+    var filePath = that.data.image
+    wx.uploadFile({
+      url:n.apiUrl.fileUpload + "?token=123",
+      filePath:filePath,
+      name:'file',
+      success(res){
+        console.log(res.data)
+      }
+    })
+  },
+
+  doget:function(){
+    let that = this
+    var result = JSON.stringify(that.data.analysis_result)
+    wx.request({
+      url:n.apiUrl.testSave+"?token=123",
+      method:"POST",
+      data:{
+        name:that.data.question.name,
+        sex:that.data.question.sex,
+        age:that.data.question.age,
+        zone:that.data.question.zone,
+        photo:that.data.imageUrl,
+        skinQuestion:that.data.question.skin_question,
+        sleepTime:that.data.question.sleep_time,
+        shineTime:that.data.question.shine_time,
+        electronicsTime:that.data.question.electronics_time,
+        analysisResult:result,
+      },
+      success(res){
+        that.toTest2();
+      },
+      fail(res){
+
+      }
+
+    })
+  },
+
   toTest2: function() {
+    wx.hideLoading();
     wx.navigateTo({
       url: '../analysis/analysis'
     })
@@ -141,8 +207,7 @@ Page({
         console.log(res.data);
         that.saveAnalysis(res.data.result);
         that.updateAnalysis(res.data.result);
-        that.toTest2();
-        wx.hideLoading();
+        that.doget();
       }
 
     })
@@ -150,6 +215,9 @@ Page({
 
   saveAnalysis(result) {
     app.globalData.analysis = result;
+    this.setData({
+      analysis_result:result,
+    })
   },
 
   chooseimage:function(){
@@ -167,14 +235,6 @@ Page({
           });
         }
       },
-    })
-  },
-
-  uploadimage(){
-    wx.uploadFile({
-      url: '',
-      filePath: 'image',
-      name: '',
     })
   },
 

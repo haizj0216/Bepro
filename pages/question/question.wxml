@@ -3,7 +3,7 @@
 <body></body>
 <view class="name">a.您的姓名或昵称
 </view>
-<input class="name_input"></input>
+<input class="name_input" bindinput="getName"></input>
 <view class="name">b.您的性别
 </view>
 <view class="radio_group">

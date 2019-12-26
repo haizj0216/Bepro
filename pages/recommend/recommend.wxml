@@ -4,7 +4,7 @@
     <recommend-list allSelect="{{allSelect}}" bindquantitychange="onQuantityChange" bindselectallchange="onAllSelectChange" bindselectchange="onProductSelectChange" from="产品推荐页" list="{{recommendList}}" solution="{{solution}}"></recommend-list>
 </view>
 <view style="display: flex: justify-content: center;">
-    <el-button bindbtntap="addToCart" myClass="add-to-cart" openType="getUserInfo" text="加入购物车"></el-button>
+    <el-button bindbtntap="addToCart" myClass="add-to-cart" text="加入购物车"></el-button>
 </view>
 <view bindtap="goHome" class="back-home" wx:if="{{home}}">
     <text class="back-home-text">返回首页</text>

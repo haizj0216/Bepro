@@ -33,7 +33,7 @@
   <view>测试分析</view>
   <view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
 
-  <view class="analysis_text">{{analysisresult}}</view>
+  <view class="analysis_text">{{analysis_string}}</view>
 
 </view>
 

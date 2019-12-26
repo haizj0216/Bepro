@@ -75,7 +75,7 @@
   height: 90rxx;
   font-size: 26rpx;
   margin-top: 200rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 50rpx;
 }
 
 .analysis_result {

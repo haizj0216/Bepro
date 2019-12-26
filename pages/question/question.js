@@ -9,7 +9,7 @@ Page({
    */
   data: {
     question: {},
-    sex: "2",
+    sex: 1,
     sexs: [{
       value: 1,
       name: "女",
@@ -21,13 +21,13 @@ Page({
     }],
     region: [],
     ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
-    age: '<20',
+    age: 0,
     sunRange: ['<0.5小时', '0.5~1小时', '1~3小时', '>3小时'],
-    sunValue: '<0.5小时',
+    sunValue: 0,
     phoneRange: ['<3小时', '3~6小时', '>6小时'],
-    phoneValue: '<3小时',
+    phoneValue: 0,
     sleepRange: ['<6小时', '6~8小时', '>8小时'],
-    sleepValue: '<6小时',
+    sleepValue: 0,
     images: [{
       id: 1,
       name: "干燥",
@@ -181,48 +181,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
@@ -237,7 +195,10 @@ Page({
   },
 
   radioChange: function (e) {
-    e.detail.value
+    this.setData({
+      sex: e.detail.value
+    })
+
   },
 
   setChecked(event) {
@@ -297,18 +258,51 @@ Page({
     })
   },
 
+  getName: function (e) {
+    var val = e.detail.value
+    this.setData({
+      name: val,
+    })
+  },
+
   toNext: function () {
     let that = this;
-    var questiondata = {
-      city: that.region,
-      age: that.age,
-      sex: that.sex,
+    if (that.data.name == null) {
+      wx.showToast({
+        title: "请输入姓名",
+        duration: 1000
+      })
+      return
     }
-    this.setData({
-      question: questiondata,
+    var skin_question = [];
+    var index = 0;
+    for (let i = 0; i < this.data.images.length; i++) {
+      if (this.data.images[i].checked == true) {
+        skin_question[index] = this.data.images[i].id
+        index++
+      }
+    }
+    var skinQuestion = skin_question.join(',')
+    var region = that.data.region
+    var city = region.join(',')    
+    
+    var questiondata = {
+      age: that.data.age + 1,
+      sex: that.data.sex,
+      zone: city,
+      sleep_time: that.data.sleepValue + 1,
+      shine_time: that.data.sunValue + 1,
+      electronics_time: that.data.phoneValue + 1,
+      skin_question: skinQuestion,
+      name: that.data.name,
+    }
+    console.log(questiondata)
+    wx.setStorage({
+      key: 'question',
+      data: questiondata
     })
     wx.navigateTo({
-      url: '../test_photo/test_photo?question=' + question
+      url: '../test_photo/test_photo'
     })
   },
 

@@ -568,9 +568,9 @@ page {
 }
 
 .title {
-  width: 240rpx;
-  height: 30rpx;
-  margin-top: 50px;
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 20px;
 }
 
 .image {
@@ -579,7 +579,7 @@ page {
 }
 
 .title_desc {
-  margin-top: 50px;
+  margin-top: 30px;
   size: 30px;
   text-align: center;
 }

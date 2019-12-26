@@ -7,15 +7,15 @@
       <image class="item-image" src="{{product.logo}}?x-oss-process=style/_200x200"></image>
       <view class="item-recommend" wx:if="{{product.is_recommond}}">当月推荐</view>
     </view>
-    <view>
-      <view class="item-name">{{product.name}}</view>
+    <view style="width:100%">
+      <view class="item-name">{{product.title}}</view>
       <view class="item-des">
-        <text decode="{{true}}"></text>{{product.sub_title}} · {{product.volume}}
+        <text decode="{{true}}"></text>{{product.capacity}}{{product.capacityUnit}}
         <text decode="{{true}}"></text>
       </view>
       <view class="item-effort">
           {{product.description}}
-        </view>
+      </view>
       <view class="item-bottom">
         <view class="item-bottom-flex" wx:if="{{showCounter}}">
           <counter bindchange="onCounterChange" min="{{minQuantity}}" value="{{product.quantity}}"></counter>
@@ -35,13 +35,13 @@
     </view>
     <view catchtap="goProductDetail" class="item-detail" style="border-bottom: {{withoutEndline?'none':'solid 1rpx #DADCDB'}};">
       <view class="item-image-item">
-        <image class="item-image" src="{{product.logo}}?x-oss-process=style/_200x200"></image>
+        <image class="item-image" src="{{product.image}}"></image>
         <view class="item-recommend" wx:if="{{product.is_recommond}}">当月推荐</view>
       </view>
       <view>
-        <view class="item-name">{{product.name}}</view>
+        <view class="item-name">{{product.title}}</view>
         <view class="item-des">
-          <text decode="{{true}}"></text>{{product.sub_title}} · {{product.volume}}
+          <text decode="{{true}}"></text>{{product.capacity}}{{product.capacityUnit}}
           <text decode="{{true}}"></text>
         </view>
         <view class="item-effort">

@@ -1,4 +1,46 @@
 // pages/home1/home1.js
+
+var t = function (t) {
+  if (t && t.__esModule) return t;
+  var e = {};
+  if (null != t)
+    for (var n in t)
+      if (Object.prototype.hasOwnProperty.call(t, n)) {
+        var r = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(t, n) : {};
+        r.get || r.set ? Object.defineProperty(e, n, r) : e[n] = t[n];
+      }
+  return e.default = t, e;
+}(require("../../utils/wx.js"));
+
+function e(t, e, n, r, o, a, i) {
+  try {
+    var c = t[a](i),
+      u = c.value;
+  } catch (t) {
+    return void n(t);
+  }
+  c.done ? e(u) : Promise.resolve(u).then(r, o);
+}
+
+function n(t) {
+  return function () {
+    var n = this,
+      r = arguments;
+    return new Promise(function (o, a) {
+      var i = t.apply(n, r);
+
+      function c(t) {
+        e(i, o, a, c, u, "next", t);
+      }
+
+      function u(t) {
+        e(i, o, a, c, u, "throw", t);
+      }
+      c(void 0);
+    });
+  };
+}
+
 Page({
 
   /**
@@ -89,90 +131,29 @@ Page({
     }],
     userInfo: {},
     hasUserInfo: false,
+    hasDoneQ: !1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.hideTabBar();
-
-    if (app.globalData.userInfo) {
+    if (wx.getStorageSync("hasDoneQ")) {
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasDoneQ: 1
       })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+      this.getdata()
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {},
 
-  },
-
-  onSwiperChange: function(t) {
+  onSwiperChange: function (t) {
     var n = t.detail.current;
     if (n == 2) {
       wx.showTabBar();
@@ -181,9 +162,56 @@ Page({
     }
   },
 
-  goQuestionnaire: function() {
-    wx.navigateTo({
-      url: '/pages/question/question',
-    })
-  }
+  goQuestionnaire: function () {
+    var token = wx.getStorageSync("token")
+    if(token) {
+      if (wx.getStorageSync("hasDoneQ")) {
+        this.setData({
+          hasDoneQ: 1
+        })
+      }
+      wx.navigateTo({
+        url: '/pages/question/question',
+      })
+
+    }
+    
+  },
+
+  getdata: function () {
+    let that = this
+    token = wx.getStorageSync("token")
+    if (token) {
+      wx.showLoading()
+      wx.request({
+        url: n.apiUrl.testResult,
+        method: "GET",
+        header: {
+          "token": token,
+          "content-type": "x-www-form-urlencoded"
+        },
+        success(res) {
+          if (res.data.code == 99999 && res.data.data.analysisString) {
+            that.setData({
+              hasDoneQ: 1
+            })
+            wx.setStorageSync('hasDoneQ', 1)
+          } else {
+            that.setData({
+              hasDoneQ: 0
+            })
+          }
+
+        },
+        fail(res) {
+
+        },
+        complete(res) {
+          wx.hideLoading()
+        }
+      })
+    }
+
+  },
+
 })

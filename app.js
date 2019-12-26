@@ -23,7 +23,7 @@ a.setPara({
   name: "sensors",
   server_url: "https://effortless.datasink.sensorsdata.cn/sa?project=production&token=7d63dfff847af3ce",
   show_log: !1,
-  appid: "wx30d1c3281e1437fa",
+  appid: "wxd063f70a4758bc4d",
   allow_amend_share_path: !0
 }), a.init();
 
@@ -55,7 +55,6 @@ App({
               url: "firstLogin",
               data: {
                 code: c.code,
-                anonymousId: a.quick("getAnonymousID")
               }
             });
 
@@ -79,21 +78,21 @@ App({
               t.next = 30;
               break;
             }
-            return t.next = 28, e.default.request({
-              url: "recordDetail",
-              method: "POST"
-            });
+            // return t.next = 28, e.default.request({
+            //   url: "recordDetail",
+            //   method: "POST"
+            // });
 
           case 28:
             if (0 === (h = t.sent).code && h.data && h.data.content) {
               e.default.setStorage({
-                key: "hasFinishQ",
+                key: "hasDoneQ",
                 data: !0
               }), e.default.setStorageSync("qData", h.data.content);
-              try {
-                (p = JSON.parse(h.data.content)) && p.exact && (y = ["几乎没有", "偶尔", "经常"].indexOf(p.q11) || 0,
-                  m = ["基本无", "中度", "重度"], e.default.setStorageSync("exactTest", [p.q10, m[y]]));
-              } catch (e) { }
+              // try {
+              //   (p = JSON.parse(h.data.content)) && p.exact && (y = ["几乎没有", "偶尔", "经常"].indexOf(p.q11) || 0,
+              //     m = ["基本无", "中度", "重度"], e.default.setStorageSync("exactTest", [p.q10, m[y]]));
+              // } catch (e) { }
             }
 
           case 30:

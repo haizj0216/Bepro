@@ -1,4 +1,4 @@
-var e = function(e) {
+var e = function (e) {
   if (e && e.__esModule) return e;
   var t = {};
   if (null != e)
@@ -21,10 +21,10 @@ function t(e, t, r, n, a, o, i) {
 }
 
 function r(e) {
-  return function() {
+  return function () {
     var r = this,
       n = arguments;
-    return new Promise(function(a, o) {
+    return new Promise(function (a, o) {
       var i = e.apply(r, n);
 
       function u(e) {
@@ -97,13 +97,13 @@ Component({
   },
   data: {},
   methods: {
-    onTap: function() {
+    onTap: function () {
       this.triggerEvent("btntap");
     },
-    submit: function() {
+    submit: function () {
       var t = r(e.regeneratorRuntime.mark(function t(r) {
         var a;
-        return e.regeneratorRuntime.wrap(function(t) {
+        return e.regeneratorRuntime.wrap(function (t) {
           for (;;) switch (t.prev = t.next) {
             case 0:
               if (!(a = r.detail.formId) || -1 !== a.indexOf("mock")) {
@@ -127,14 +127,17 @@ Component({
           }
         }, t);
       }));
-      return function(e) {
+      return function (e) {
         return t.apply(this, arguments);
       };
     }(),
-    getUserInfo: function() {
+    getUserInfo: function () {
+      if (wx.getStorageSync("token")) {
+        return
+      }
       var t = r(e.regeneratorRuntime.mark(function t(r) {
         var a, o, i;
-        return e.regeneratorRuntime.wrap(function(t) {
+        return e.regeneratorRuntime.wrap(function (t) {
           for (;;) switch (t.prev = t.next) {
             case 0:
               return this.data.userLoading && e.default.showLoading(), t.next = 3, e.default.login();
@@ -155,39 +158,53 @@ Component({
                 url: n.apiUrl.login,
                 method: "POST",
                 data: {
-                  code: a.code,
-                  iv: o.iv,
-                  encryptedData: o.encryptedData
+                  code: a.code
                 }
               });
 
             case 12:
-              if (0 !== (i = t.sent).code) {
+              if (99999 !== (i = t.sent).code) {
                 t.next = 18;
                 break;
               }
-              return e.default.setStorage({
+              return t.next = 19, e.default.setStorage({
                 key: "token",
-                data: i.data.token
+                data: i.data
               }), e.default.setStorage({
                 key: "userInfo",
                 data: JSON.stringify(o.userInfo)
-              }), this.triggerEvent("getUserInfo", !0), t.abrupt("return");
+              }), e.default.request({
+                url: n.apiUrl.testResult1,
+                method: "GET",
+                header: {
+                  "token": i.data,
+                  "content-type": "x-www-form-urlencoded"
+                },
+              });
 
             case 18:
               return e.default.hideLoading(), e.default.showToast({
                 title: "授权失败，请重试"
               }), this.triggerEvent("getUserInfo", !1), t.abrupt("return");
-
+            case 19:
+              if (99999 !== (i = t.sent).code) {
+                break;
+              }
+              var hasDoneQ = i.data.analysisResult ? 1 : 0
+              return e.default.setStorage({
+                key: "hasDoneQ",
+                data: hasDoneQ,
+              }), this.triggerEvent("getUserInfo", !0), t.abrupt("return");
             case 22:
             case "end":
               return t.stop();
           }
         }, t, this);
       }));
-      return function(e) {
+      return function (e) {
         return t.apply(this, arguments);
       };
+
     }()
   }
 });

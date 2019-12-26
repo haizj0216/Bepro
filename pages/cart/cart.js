@@ -1,4 +1,5 @@
 require("../../@babel/runtime/helpers/Arrayincludes");
+var net = require("../../common/config.default");
 
 var t = function (t) {
     if (t && t.__esModule) return t;
@@ -88,23 +89,23 @@ Page({
         });
     },
     onLoad: function (t) {
-        // this.getList();
-        
+        this.getList();
     },
     onShow: function () {
-        // this.showRequest && this.getList(), this.showRequest = !0;
-        this.mockdata();
+        this.showRequest && this.getList(), this.showRequest = !0;
+        // this.mockdata();
     },
     getList: function () {
+        var token = wx.getStorageSync("token")
         var e = n(t.regeneratorRuntime.mark(function e() {
             var n, a, r;
             return t.regeneratorRuntime.wrap(function (e) {
                 for (;;) switch (e.prev = e.next) {
                     case 0:
-                        return t.default.showTabBar(), this.data.loading && t.default.showLoading(), n = t.default.getStorageSync("hasFinishQ"),
+                        return t.default.showTabBar(), this.data.loading && t.default.showLoading(), n = t.default.getStorageSync("hasDoneQ"),
                             a = {}, e.prev = 4, e.next = 7, t.default.request({
-                                url: "cartList",
-                                method: "POST"
+                                url: net.apiUrl.cartList + "?token=" + token,
+                                method: "GET"
                             });
 
                     case 7:
@@ -120,11 +121,7 @@ Page({
                         };
 
                     case 13:
-                        0 === a.code && (r = a.data.list.map(function (t) {
-                            var e = t.product;
-                            return e.quantity = t.num, e.disable = e.stock < e.quantity || !e.status, e.selected = !e.disable,
-                                e.cartId = t.id, e;
-                        }), this.setData({
+                        99999 === a.code && (r = a.data, this.setData({
                             list: r,
                             allSelect: r.every(function (t) {
                                 return t.selected;
@@ -211,7 +208,7 @@ Page({
     },
     goRecommendPage: function () {
         t.default.navigateTo({
-            url: "/pages/recommend/recommend?from=空购物车"
+            url: "/pages/recommend/recommend"
         });
     },
     delProduct: function () {

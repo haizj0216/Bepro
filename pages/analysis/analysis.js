@@ -2,6 +2,7 @@
 import * as echarts from '../../ec-canvas/echarts';
 
 const app = getApp()
+var n = require("../../common/config.default");
 
 Page({
 
@@ -52,9 +53,13 @@ Page({
         score: "1",
       }]
     ],
+    city:'',
+    age:'',
+    sex:'',
     echartsComponnet: null,
-    faceanalysis: app.globalData.analysis,
-    analysisresult: "作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史",
+    analysis_result:{},
+    analysis_string: "作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史",
+    ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
   },
 
   /**
@@ -63,7 +68,8 @@ Page({
   onLoad: function (options) {
     this.echartsComponnet = this.selectComponent('#mychart-dom-graph');
 
-    this.updateAnalysis()
+    // this.updateAnalysis()
+    this.getdata()
   },
 
   /**
@@ -186,6 +192,73 @@ Page({
     )
   },
 
+  getdata:function(){
+    let that = this
+    wx.showLoading()
+    wx.request({
+      url:n.apiUrl.testResult,
+      method: "GET",
+      header:{
+        "token":"123",
+        "content-type":"x-www-form-urlencoded"
+      },
+      success(res){
+        if(res.data.code == 99999){
+          var age = that.data.ageRange[res.data.data.age -1]
+          var sex = res.data.data.sex == 1 ? "女" : "男"
+          var citys = res.data.data.city
+          var city = citys.split(',')
+          var result = JSON.parse(res.data.data.analysisResult)
+          that.setData({
+            age:age,
+            city:city[1],
+            sex:sex,
+            test_time:res.data.data.testTime,
+            analysis_result:result,
+            analysis_string:res.data.data.analysisString,
+          })
+          that.updateanalysis(result)
+        }
+        
+      },
+      fail(res){
+
+      },
+      complete(res){
+        wx.hideLoading()
+      }
+    })
+  },
+
+  updateanalysis:function(result) {
+    
+    if (result == null) {
+      let score = [80, 58, 82, 36, 75, 57, 60, 46];
+      console.log(score);
+      this.setData({
+        scores: score
+      })
+    } else {
+      let maokong = result.pores_left_cheek.confidence * 100;
+      let falingwen = result.nasolabial_fold.confidence * 100;
+      let heiyanquan = result.dark_circle.confidence * 100;
+      let yandai = result.eye_pouch.confidence * 100;
+      let seban = result.skin_spot.confidence * 100;
+      let doudou = result.acne.confidence * 100;
+      let xiwen = result.eye_finelines.confidence * 100;
+      let blackhead = result.blackhead.confidence * 100;
+      let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
+      console.log(score);
+      this.setData({
+        scores: score
+      })
+    }
+    this.init_echarts();
+  },
+
+  recompute(value){
+    
+  },
 
   updateAnalysis() {
     var result = app.globalData.analysis;

@@ -74,7 +74,7 @@ Page({
       return t.regeneratorRuntime.wrap(function (e) {
         for (; ;) switch (e.prev = e.next) {
           case 0:
-            return t.default.showTabBar(), this.data.loading && t.default.showLoading(), r = t.default.getStorageSync("hasFinishQ"),
+            return t.default.showTabBar(), this.data.loading && t.default.showLoading(), r = t.default.getStorageSync("hasDoneQ"),
               n = {}, e.prev = 4, e.next = 7, t.default.request({
                 url: "orderList",
                 data: {

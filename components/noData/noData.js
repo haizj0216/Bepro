@@ -66,8 +66,11 @@ Page({
   },
 
   goQuestionnaire: function () {
-    wx.navigateTo({
-      url: '/pages/question/question',
-    })
+    var token = wx.getStorageSync("token")
+    if(token) {
+      wx.navigateTo({
+        url: '/pages/question/question',
+      })
+    }
   }
 })

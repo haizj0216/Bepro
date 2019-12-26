@@ -13,7 +13,7 @@
       <image class="camera_image" bindtap="takePhoto" src="/images/icon_camera.png"></image>
       <image class="uploader_image" bindtap="chooseimage" src="/images/icon_upload.png"></image>
     </view>
-    <view class="next" bindtap="skinanalyze">>></view>
+    <view class="next" bindtap="skinanalyze">下一步></view>
   </view>
 </view>
 <view class='{{showPop?"pop_show":"pop_hide"}}'>
