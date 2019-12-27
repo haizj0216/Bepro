@@ -181,7 +181,13 @@ Page({
             data: [{
               value: this.data.scores,
               name: '皮肤'
-            }]
+            }],
+            label:{
+              normal:{
+                fontSize:20,
+                rich:{}
+              }
+            }
           }]
         };
 
@@ -197,12 +203,8 @@ Page({
     var token = wx.getStorageSync("token")
     wx.showLoading()
     wx.request({
-      url:n.apiUrl.testResult,
+      url:n.apiUrl.testResult + "?token=" + token,
       method: "GET",
-      header:{
-        "token":token,
-        "content-type":"x-www-form-urlencoded"
-      },
       success(res){
         if(res.data.code == 99999){
           var age = that.data.ageRange[res.data.data.age -1]

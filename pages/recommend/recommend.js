@@ -55,6 +55,7 @@ Page({
         home: !1
     },
     onLoad: function () {
+        // var token = wx.getStorageSync("token")
         // var e = n(t.regeneratorRuntime.mark(function e(n) {
         //     var o;
         //     return t.regeneratorRuntime.wrap(function(e) {
@@ -63,8 +64,8 @@ Page({
         //             return n.home && this.setData({
         //                 home: !0
         //             }), e.next = 3, t.default.request({
-        //                 url: "recommentProducts",
-        //                 method: "POST"
+        //                 url: netUtils.apiUrl.recommendInfo1 + "?token=" + token,
+        //                 method: "GET"
         //             });
 
         //           case 3:
@@ -72,7 +73,6 @@ Page({
         //                 recommendList: o.data.product_list.map(function(t) {
         //                     return t.selected = !0, t.quantity = 1, t;
         //                 }),
-        //                 solution: o.data.solution
         //             }), r.sensors.track("clickCheckRecommendation", {
         //                 click_check_source: n.from
         //             }), this.options = n, console.log("resp", o);
@@ -84,7 +84,6 @@ Page({
         //     }, e, this);
         // }));
 
-        // this.mockdata();
         // return function(t) {
         //     return e.apply(this, arguments);
         // };
@@ -178,8 +177,9 @@ Page({
     getrecommend: function () {
         let that = this
         wx.showLoading()
+        var token = wx.getStorageSync("token")
         wx.request({
-            url: netUtils.apiUrl.recommendInfo + "?token=123",
+            url: netUtils.apiUrl.recommendInfo + "?token=" + token,
             method: "GET",
             success(res) {
                 if (res.data.code == 99999) {
@@ -194,7 +194,7 @@ Page({
                 }
             },
             fail(res) {
-                that.mockdata()
+                
             },
             complete(res) {
                 wx.hideLoading()
@@ -204,8 +204,6 @@ Page({
     },
 
     updateList: function () {
-        console.log(data)
-
     },
 
     mockdata: function () {

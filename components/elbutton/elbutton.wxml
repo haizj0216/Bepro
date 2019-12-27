@@ -1,9 +1,7 @@
 <!--components/elbutton/elbutton.wxml-->
-<form action="" bindsubmit="submit" reportSubmit="{{true}}">
   <button bindgetuserinfo="getUserInfo" catchtap="onTap" class="{{buttonType}} button  my-class" disabled="{{disabled}}" formType="submit" hoverClass="other-button-hover" loading="{{loading}}" openType="{{openType}}" plain="{{plain}}" size="{{size}}">
     {{text}}
     <view class="button-tip" wx:if="{{btnTip}}">
       {{btnTip}}
     </view>
   </button>
-</form>

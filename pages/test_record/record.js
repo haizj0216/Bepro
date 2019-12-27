@@ -81,7 +81,6 @@ Page({
     // this.updateAnalysis();
   },
   init: function () {
-    var token = wx.getStorageSync("token")
     var e = n(t.regeneratorRuntime.mark(function e() {
       var n, r;
       return t.regeneratorRuntime.wrap(function (e) {
@@ -96,6 +95,7 @@ Page({
             }), e.abrupt("return");
 
           case 4:
+            var token = wx.getStorageSync("token")
             return e.next = 10, t.default.request({
               url: net.apiUrl.testResult1 + "?token=" + token,
               method: "GET",
@@ -110,6 +110,7 @@ Page({
               hasDoneQ: n
             });
           case 10:
+            var token = wx.getStorageSync("token")
             return e.next = 6, 99999 === (r = e.sent).code, this.updateResult(r), t.default.request({
               url: net.apiUrl.recommendInfo1 + "?token=" + token,
               method: "GET",

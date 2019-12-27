@@ -33,6 +33,9 @@ function a(e) {
   };
 }
 
+var net = require("../../common/config.default");
+
+
 Page({
   setStorage: !1,
   changeDirect: !1,
@@ -157,18 +160,22 @@ Page({
                   }), this.tag = !1, t.abrupt("return");
 
                 case 23:
+                    var token = wx.getStorageSync("token")
                   return a = {
                       phone: this.data.phone,
-                      user_name: this.data.name,
-                      address: this.data.street,
-                      province: this.data.region[0],
-                      city: this.data.region[1],
-                      area: this.data.region[2],
-                      tag: this.data.tag
-                  }, this.data.default && (a.is_default = 1), this.data.id && (a.id = this.data.id), 
+                      name: this.data.name,
+                      address: this.data.region[0] + this.data.region[1] + this.data.region[2] + this.data.street,
+                    //   province: this.data.region[0],
+                    //   city: this.data.region[1],
+                    //   area: this.data.region[2],
+                      tag: this.data.tag,
+                  }, this.data.default && (a.isDefault = 1), this.data.id && (a.id = this.data.id), 
                   t.next = 28, e.default.request({
-                      url: "addressSave",
-                      method: "POST",
+                      url: net.apiUrl.addAddress + "?token=" + token,
+                      method: "POST", 
+                      header:{
+                        "Content-Type":"application/json"
+                      },                                        
                       data: a
                   });
 

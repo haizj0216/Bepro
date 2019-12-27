@@ -65,7 +65,7 @@ Page({
       checked: false,
     }, {
       id: 8,
-      name: "色斑",
+      name: "粗糙",
       img: "../../images/icon_skin_seban.png",
       checked: false,
     }, {
@@ -195,8 +195,9 @@ Page({
   },
 
   radioChange: function (e) {
+    var sexValue = e.detail.value == "女" ? 1:2
     this.setData({
-      sex: e.detail.value
+      sex: sexValue
     })
 
   },

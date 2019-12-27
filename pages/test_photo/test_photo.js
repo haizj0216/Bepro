@@ -130,16 +130,7 @@ Page({
   },
 
   douploader: function () {
-    // wx.request({
-    //   url:n.apiUrl.uploadFile,
-    //   method:"POST",
-    //   data:{
-    //     file:''
-    //   },
-    //   success(res){
-
-    //   }
-    // })
+    wx.showLoading()
     var token = wx.getStorageSync("token")
     let that = this
     var filePath = that.data.image
@@ -150,6 +141,9 @@ Page({
       success(res) {
         var result = JSON.parse(res.data)
         if (result.code == 99999) {
+          that.setData({
+            imageUrl:result.data.url
+          })
           that.skinanalyze(result.data.url)
         } else {
           wx.hideLoading()
@@ -224,9 +218,17 @@ Page({
 
       success: function (res) {
         console.log(res.data);
-        that.saveAnalysis(res.data.result);
-        that.updateAnalysis(res.data.result);
-        that.doget();
+        if (res.data.result) {
+          that.saveAnalysis(res.data.result);
+          that.updateAnalysis(res.data.result);
+          that.doget();
+        } else {
+          wx.hideLoading()
+          wx.showToast({
+            title: '图片识别失败，请重新拍照或者替换其他照片'
+          })
+        }
+
       },
       fail(res) {
         wx.hideLoading()

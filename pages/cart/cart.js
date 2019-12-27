@@ -96,12 +96,12 @@ Page({
         // this.mockdata();
     },
     getList: function () {
-        var token = wx.getStorageSync("token")
         var e = n(t.regeneratorRuntime.mark(function e() {
             var n, a, r;
             return t.regeneratorRuntime.wrap(function (e) {
                 for (;;) switch (e.prev = e.next) {
                     case 0:
+                        var token = wx.getStorageSync("token")
                         return t.default.showTabBar(), this.data.loading && t.default.showLoading(), n = t.default.getStorageSync("hasDoneQ"),
                             a = {}, e.prev = 4, e.next = 7, t.default.request({
                                 url: net.apiUrl.cartList + "?token=" + token,
@@ -122,7 +122,9 @@ Page({
 
                     case 13:
                         99999 === a.code && (r = a.data, this.setData({
-                            list: r,
+                            list: r.map(function (t) {
+                                return t.selected = !0, t;
+                              }),
                             allSelect: r.every(function (t) {
                                 return t.selected;
                             }),
@@ -169,6 +171,7 @@ Page({
         });
     },
     onQuantityChange: function (e) {
+        var token = wx.getStorageSync("token")
         var a = this,
             i = this.data.list.map(function (t) {
                 return t.id === e.detail.id && (t.stock < e.detail.quantity ? t.disable = !0 : t.disable = !1,
@@ -181,11 +184,14 @@ Page({
                 for (;;) switch (n.prev = n.next) {
                     case 0:
                         return n.next = 2, t.default.request({
-                            url: "addToCart",
+                            url: net.apiUrl.updateCart + "?token=" + token,
                             method: "POST",
+                            header:{
+                                "content-type": "application/json"
+                            },
                             data: {
-                                product_id: e.detail.id,
-                                num: e.detail.quantity
+                                productId: e.detail.id,
+                                count: e.detail.quantity
                             }
                         });
 

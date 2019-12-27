@@ -188,7 +188,7 @@ Page({
         method: "GET",
         header: {
           "token": token,
-          "content-type": "x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         success(res) {
           if (res.data.code == 99999 && res.data.data.analysisString) {
