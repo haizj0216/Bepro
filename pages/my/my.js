@@ -33,6 +33,8 @@ function r(t) {
   };
 }
 
+var net = require("../../common/config.default");
+
 var n = require("../../utils/util"), a = getApp(), o = ["待支付", "待发货", "发货中", "待收货", "已完成", "已关闭", "已取消"];
 
 Page({
@@ -45,42 +47,37 @@ Page({
     hasDoneQ: !0
   },
   onLoad: function () {
-    // var e = r(t.regeneratorRuntime.mark(function e(r) {
-    //   var n;
-    //   return t.regeneratorRuntime.wrap(function (e) {
-    //     for (; ;) switch (e.prev = e.next) {
-    //       case 0:
-    //         (n = t.default.getStorageSync("userInfo")) && (n = JSON.parse(n), this.setData({
-    //           userInfo: n
-    //         })), this.getOrderList();
-
-    //       case 3:
-    //       case "end":
-    //         return e.stop();
-    //     }
-    //   }, e, this);
-    // }));
-    // return function (t) {
-    //   return e.apply(this, arguments);
-    // };
+    var e = r(t.regeneratorRuntime.mark(function e(r) {
+      var n;
+      return t.regeneratorRuntime.wrap(function (e) {
+        for (; ;) switch (e.prev = e.next) {
+          case 0:
+            this.getOrderList();
+          case 3:
+          case "end":
+            return e.stop();
+        }
+      }, e, this);
+    }));
+    return function (t) {
+      return e.apply(this, arguments);
+    };
   }(),
   onShow: function () {
-    // this.showRequest && (this.page = 1, this.getOrderList()), this.showRequest = !0;
-    this.mockdata();
+    this.showRequest && (this.page = 1, this.getOrderList()), this.showRequest = !0;
+    // this.mockdata();
   },
   getOrderList: function () {
     var e = r(t.regeneratorRuntime.mark(function e() {
       var r, n, a, o = this;
+      var token = wx.getStorageSync("token")
       return t.regeneratorRuntime.wrap(function (e) {
         for (; ;) switch (e.prev = e.next) {
           case 0:
             return t.default.showTabBar(), this.data.loading && t.default.showLoading(), r = t.default.getStorageSync("hasDoneQ"),
               n = {}, e.prev = 4, e.next = 7, t.default.request({
-                url: "orderList",
-                data: {
-                  page_size: 20,
-                  page: this.page
-                }
+                url: net.apiUrl.orderList + "?token=" + token,
+                method:"GET"
               });
 
           case 7:
@@ -96,10 +93,10 @@ Page({
             };
 
           case 13:
-            0 === n.code && (a = n.data.list.map(function (t) {
+            99999 === n.code && (a = n.data.map(function (t) {
               return o.transData(t);
             }), this.setData({
-              orderList: 1 === this.page ? a : this.data.orderList.concat(a),
+              orderList: a,
               loading: !1,
               hasDoneQ: r
             })), t.default.hideLoading();
@@ -115,20 +112,8 @@ Page({
     };
   }(),
   transData: function (t) {
-    t.statusText = o[t.status - 1], 0 !== t.after_sale_status && 500 !== t.after_sale_status && (t.statusText = "售后中"),
-      t.createTime = n.formatTime(1e3 * t.ctime), t.productSnapshotList = t.productSnapshotList.map(function (t) {
-        return Object.assign({}, {
-          quantity: t.num
-        }, t.contentObj);
-      });
-    try {
-      t.address = JSON.parse(t.address), t.fullAddress = "".concat(t.address.province, " ").concat(t.address.city, " ").concat(t.address.area, " ").concat(t.address.address);
-    } catch (t) {
-      console.log("parse Address Error", t);
-    }
-    return t.hasRecomment = t.productSnapshotList.some(function (t) {
-      return !!t.is_recommend;
-    }), t;
+    t.statusText = o[t.status - 1];
+     return t;
   },
   goCoupon: function () {
     t.default.navigateTo({
@@ -185,8 +170,6 @@ Page({
   onUnload: function () { },
   onPullDownRefresh: function () { },
   onReachBottom: function () {
-    console.log("onReachBottom"), this.page++ , console.log("onReachBottom", this.page),
-      this.getOrderList();
   },
   onShareAppMessage: function () {
     return {
@@ -198,13 +181,12 @@ Page({
     let list = [{
       order_num:123456,
       statusText:1,
-      pay_price:100,
-      fullAddress:"北京市朝阳区",
+      price:100,
       address:{
-        user_name:"VV",
+        name:"VV",
         phone:"1234567890"
       },
-      createTime:"2019-12-12",
+      orderTime:"2019-12-12",
       order_num:10,
       id:123,
     }];

@@ -38,7 +38,7 @@
         <image class="item-image" src="{{product.image}}"></image>
         <view class="item-recommend" wx:if="{{product.is_recommond}}">当月推荐</view>
       </view>
-      <view>
+      <view style="width=100%">
         <view class="item-name">{{product.title}}</view>
         <view class="item-des">
           <text decode="{{true}}"></text>{{product.capacity}}{{product.capacityUnit}}

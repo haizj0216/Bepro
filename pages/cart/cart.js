@@ -61,29 +61,11 @@ Page({
         var e = 0,
             n = [],
             a = this.data.list.filter(function (t) {
-                return t.selected && t.status && t.stock >= t.quantity;
-            }).map(function (t) {
-                return e += t.quantity, n.includes(t.category) || n.push(t.category), i.sensors.track("clickBuyDetail", {
-                    commodity_name: t.name,
-                    commodity_type: t.category,
-                    commodity_price: t.price,
-                    commodity_quantity: t.quantity,
-                    if_recommendation_product: !!t.is_recommond
-                }), {
-                    product_id: t.id,
-                    num: t.quantity
-                };
+                return t.selected;
             });
-        a.length ? (i.sensors.track("clickBuy", {
-            if_click_buy_all: !this.data.list.some(function (t) {
-                return !t.selected && t.status && t.stock >= t.quantity;
-            }),
-            total_commodity_quantity: e,
-            total_type_quantity: n.length,
-            order_amount: this.data.total
-        }), t.default.navigateTo({
+        a.length ? t.default.navigateTo({
             url: "/pages/payment/payment?products=".concat(JSON.stringify(a))
-        })) : t.default.showToast({
+        }) : t.default.showToast({
             icon: "none",
             title: "购物车商品无库存"
         });
@@ -130,7 +112,7 @@ Page({
                             }),
                             loading: !1,
                             hasDoneQ: n
-                        }), t.default.hideLoading(), this.computeTotal()), i.sensors.track("shoppingCart");
+                        }), t.default.hideLoading(), this.computeTotal());
 
                     case 15:
                     case "end":
@@ -218,25 +200,42 @@ Page({
         });
     },
     delProduct: function () {
+        var token = wx.getStorageSync("token")
+
         var e = n(t.regeneratorRuntime.mark(function e(n) {
-            var a;
+            var a, r;
             return t.regeneratorRuntime.wrap(function (e) {
                 for (;;) switch (e.prev = e.next) {
                     case 0:
                         return e.next = 2, t.default.request({
-                            url: "deleteCart",
+                            url: net.apiUrl.updateCart + "?token=" + token,
                             method: "POST",
+                            header:{
+                                "content-type": "application/json"
+                            },
                             data: {
-                                id: n.detail.cartId
+                                productId: n.detail.id,
+                                count: 0
                             }
                         });
 
                     case 2:
-                        if (0 !== (a = e.sent).code) {
+                        if (99999 !== (a = e.sent).code) {
                             e.next = 6;
                             break;
                         }
-                        return this.getList(), e.abrupt("return");
+                        r = a.data,
+                        this.setData({
+                            list: r.map(function (t) {
+                                return t.selected = !0, t;
+                              }),
+                            allSelect: r.every(function (t) {
+                                return t.selected;
+                            }),
+                            loading: !1,
+                            hasDoneQ: n
+                        }), t.default.hideLoading(), this.computeTotal()
+                        return  e.abrupt("return");
 
                     case 6:
                         t.default.showToast({

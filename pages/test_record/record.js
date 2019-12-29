@@ -353,6 +353,8 @@ Page({
         yAxis: {
           show: false
         },
+        label: { rich: {} },
+ 
         radar: {
           // shape: 'circle',
           indicator: [{
@@ -389,13 +391,16 @@ Page({
             }
           ]
         },
+        
         series: [{
           name: '皮肤',
           type: 'radar',
           data: [{
             value: this.data.scores,
             name: '皮肤'
-          }]
+          }],
+          label: { rich: {} },
+ 
         }]
       };
 

@@ -1,0 +1,84 @@
+.head-container {
+  padding: 20rpx 56rpx 24rpx;
+}
+
+.head-express-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(51,51,51);
+  line-height: 44rpx;
+}
+
+.head-basic {
+  font-size: 24rpx;
+  color: rgb(51,51,51);
+  line-height: 44rpx;
+}
+
+.body-container {
+  border-top: solid 26rpx rgb(244,244,244);
+  padding-top: 40rpx;
+}
+
+.timeline-item {
+  display: flex;
+}
+
+.time {
+  width: 120rpx;
+  padding-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.date {
+  font-size: 24rpx;
+  color: rgb(103,106,113);
+  font-weight: bold;
+  text-align: right;
+}
+
+.date-time {
+  font-size: 20rpx;
+  color: rgb(153,153,153);
+  text-align: right;
+}
+
+.icons {
+  width: 52rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 52rpx;
+  height: 52rpx;
+  flex-shrink: 0;
+}
+
+.line {
+  width: 2rpx;
+  height: 100%;
+  background-color: rgb(204,205,201);
+}
+
+.des {
+  margin-left: 32rpx;
+}
+
+.main-status {
+  font-size: 28rpx;
+  color: rgb(51,51,51);
+  font-weight: bold;
+}
+
+.sub-status {
+  font-size: 24rpx;
+  color: rgb(51,51,51);
+  padding-bottom: 50rpx;
+  padding-right: 40rpx;
+}
+
+.gray {
+  color: rgb(190,190,190)!important;
+}

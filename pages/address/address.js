@@ -17,6 +17,8 @@ function t(e, t, r, n, a, s, d) {
   i.done ? t(o) : Promise.resolve(o).then(n, a);
 }
 
+var net = require("../../common/config.default");
+
 function r(e) {
   return function() {
       var r = this, n = arguments;
@@ -70,17 +72,19 @@ Page({
       this.data.onShow && this.getAddressList();
   },
   getAddressList: function() {
+      var token = wx.getStorageSync("token");
       var t = r(e.regeneratorRuntime.mark(function t(r) {
           var n, a, s, d;
           return e.regeneratorRuntime.wrap(function(t) {
               for (;;) switch (t.prev = t.next) {
                 case 0:
                   return t.next = 2, e.default.request({
-                      url: "addressList"
+                      url: net.apiUrl.addressList + "?token=" +token,
+                      method:"GET"
                   });
 
                 case 2:
-                  0 === (n = t.sent).code && (a = n.data.list, s = {
+                  99999 === (n = t.sent).code && (a = n.data, s = {
                       list: a
                   }, r && (d = a.findIndex(function(e) {
                       return parseInt(e.id) === parseInt(r);
@@ -99,7 +103,7 @@ Page({
   goNewAddress: function() {
       var t = "";
       this.data.addressId && (t = "?selectAddressId=".concat(this.data.addressId)), e.default.navigateTo({
-          url: "/pages/newAddress/newAddress".concat(t)
+          url: "/pages/newaddress/newaddress".concat(t)
       });
   },
   onSelectedChange: function() {
@@ -152,7 +156,7 @@ Page({
               return "".concat(e, "=").concat(r[e]);
           }).join("&");
           e.default.navigateTo({
-              url: "/pages/newAddress/newAddress?".concat(n)
+              url: "/pages/newaddress/newaddress?".concat(n)
           });
       }
   },

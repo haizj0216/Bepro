@@ -11,8 +11,8 @@
             <el-select selected="{{selected===index}}"></el-select>
         </view>
         <view class="address-user">
-            <view class="address-user-name-and-phone">{{item.user_name}}  {{item.phone}}</view>
-            <view class="address-user-address">{{item.province}} {{item.city}} {{item.area}} {{item.address}}</view>
+            <view class="address-user-name-and-phone">{{item.name}}  {{item.phone}}</view>
+            <view class="address-user-address">{{item.address}}</view>
         </view>
         <view catchtap="editAddress" data-item="{{item}}">
             <image class="address-edit" src="https://cdn.effortless.cn/assets/icons/pen.png"></image>

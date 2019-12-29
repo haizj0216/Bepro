@@ -55,11 +55,11 @@ Page({
   onLoad: function(e) {
       e.change && (this.changeDirect = !0, this.orderId = parseInt(e.orderId)), (e.from = "payment") && (this.setStorage = !0), 
       Object.keys(e).length && this.setData({
-          name: e.user_name || "",
+          name: e.name || "",
           phone: e.phone || "",
-          street: e.address || "",
+          street: e.street || "",
           region: [ e.province, e.city, e.area ],
-          default: 1 === parseInt(e.is_default),
+          default: 1 === parseInt(e.isDefault),
           id: e.id || "",
           selectAddressId: e.selectAddressId || 0,
           tag: e.tag || ""
@@ -165,9 +165,10 @@ Page({
                       phone: this.data.phone,
                       name: this.data.name,
                       address: this.data.region[0] + this.data.region[1] + this.data.region[2] + this.data.street,
-                    //   province: this.data.region[0],
-                    //   city: this.data.region[1],
-                    //   area: this.data.region[2],
+                      province: this.data.region[0],
+                      city: this.data.region[1],
+                      area: this.data.region[2],
+                      street:this.data.street,
                       tag: this.data.tag,
                   }, this.data.default && (a.isDefault = 1), this.data.id && (a.id = this.data.id), 
                   t.next = 28, e.default.request({
@@ -180,22 +181,16 @@ Page({
                   });
 
                 case 28:
-                  if (0 !== (n = t.sent).code) {
+                  if (99999 !== (n = t.sent).code) {
                       t.next = 37;
                       break;
                   }
-                  if (this.setStorage && (a.id = n.data, e.default.setStorageSync("reSelectAddress", JSON.stringify(a))), 
+                  if (this.setStorage && (e.default.setStorageSync("reSelectAddress", JSON.stringify(a))), 
                   !this.changeDirect) {
                       t.next = 35;
                       break;
                   }
-                  return t.next = 34, e.default.request({
-                      url: "orderChangeAddress",
-                      data: {
-                          order_id: this.orderId,
-                          address_id: this.data.id
-                      }
-                  });
+                  return t.next = 34;
 
                 case 34:
                   t.sent;
@@ -231,13 +226,14 @@ Page({
       this.selectComponent("#modal").hide();
   },
   delAddress: function() {
+      var token = wx.getStorageSync("token")
       var t = a(e.regeneratorRuntime.mark(function t() {
           var a;
           return e.regeneratorRuntime.wrap(function(t) {
               for (;;) switch (t.prev = t.next) {
                 case 0:
                   return t.next = 2, e.default.request({
-                      url: "addressDelete",
+                      url: net.apiUrl.addressDelete + "?token=" + token,
                       method: "POST",
                       data: {
                           id: this.data.id

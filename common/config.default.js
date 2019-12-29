@@ -13,7 +13,13 @@ module.exports = {
         addCart1:"cart/add",
         cartList:"cart/list",
         addAddress:"address/save",
+        addressDefault:"address/default",
+        addressList:"address/list",
+        addressUpdate:"address/update",
+        addressDelete:"address/delete",
         updateCart:"cart/update",
+        saveOrder:"order/save",
+        orderList:"order/list",
     },
     scene: {
         1001: "发现栏小程序主入口",

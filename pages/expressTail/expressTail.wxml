@@ -1,0 +1,23 @@
+<header></header>
+<body></body>
+<view class="head-container">
+    <view class="head-express-name">顺丰快递</view>
+    <view class="head-basic">订单编号 {{orderId}}</view>
+    <view class="head-basic">物流单号 {{expressId}}</view>
+</view>
+<view class="body-container">
+    <view class="timeline-item" wx:for="{{express}}" wx:key="express_{{index}}">
+        <view class="time">
+            <view class="date {{index>1?'gray':''}}">{{item.day}}</view>
+            <view class="date-time {{index>1?'gray':''}}">{{item.time}}</view>
+        </view>
+        <view class="icons">
+            <image class="icon" src="https://cdn.effortless.cn/assets/icons/{{item.status&&item.status.icon}}{{index<2?'-on':''}}.png"></image>
+            <view class="line" wx:if="{{index+1!==express.length}}"></view>
+        </view>
+        <view class="des">
+            <view class="main-status {{index>1?'gray':''}}">{{item.status&&item.status.text}}</view>
+            <view class="sub-status {{index>1?'gray':''}}">{{item.action_msg}}</view>
+        </view>
+    </view>
+</view>

@@ -19,10 +19,10 @@
           <text>收货方式</text>
         </view>
         <view class="order-info-key">
-                    {{orderPreview.address.user_name}}  {{orderPreview.address.phone}}
+                    {{orderPreview.name}}  {{orderPreview.phone}}
                 </view>
         <view class="payment-address">
-                    {{orderPreview.address.province}} {{orderPreview.address.city}} {{orderPreview.address.area}} {{orderPreview.address.address}}
+                    {{orderPreview.address}}
                 </view>
       </view>
       <image class="icon-arrow" src="https://cdn.effortless.cn/assets/icons/arrow-right.png"></image>
@@ -35,20 +35,15 @@
         <text>支付信息</text>
       </view>
     </view>
-    <view wx:for="{{productlist}}" wx:key="product_{{index}}">
+    <view wx:for="{{products}}" wx:key="product_{{index}}">
       <view class="item-detail">
         <view class="item-image-item">
-          <image class="item-image" src="{{item.logo}}"></image>
+          <image class="item-image" src="{{item.image}}"></image>
           <view class="item-recommend" wx:if="{{item.is_recommond}}">当月推荐</view>
         </view>
-        <view>
-          <view class="item-name">{{item.name}}</view>
-          <view class="item-des">
-            <text decode="{{true}}"></text>{{item.sub_title}} · {{item.volume}}
-            
-            
-            <text decode="{{true}}"></text>
-          </view>
+        <view style="width=100%">
+          <view class="item-name">{{item.title}}</view>
+          
           <view class="item-effort">
           {{item.description}}</view>
           <view class="item_count">x{{item.quantity}}</view>
@@ -60,7 +55,7 @@
     <view class="order-info">
       <view class="order-info-line">
         <view class="order-info-key">商品总额</view>
-        <view class="order-info-value">￥{{orderPreview.total_product_price}}</view>
+        <view class="order-info-value">￥{{displayPayPrice}}</view>
       </view>
       <view class="order-info-line">
         <view class="order-info-key">运费</view>
@@ -68,21 +63,9 @@
       </view>
       <view bindtap="goCoupon" class="order-info-line">
         <view class="order-info-key">优惠券</view>
-        <view class="order-info-value">
-                    {{hasUsefulCoupon?selectCoupon.reduce_price?'- ￥'+selectCoupon.reduce_price:'有可用优惠券':'暂无可用优惠券'}}
-                    
-          
-          
-          
-          
-          
-          <image class="icon-arrow" src="https://cdn.effortless.cn/assets/icons/arrow-right.png"></image>
+        <view class="order-info-value">暂无可用优惠券
         </view>
       </view>
-      <!-- <view class="order-info-line"><view class="order-info-key">
-                    积分
-                    <view class="user-score">
-                        共<text class="score">{{orderPreview.score}}</text>积分，可用<text class="score">{{orderPreview.canUseScore}}</text>积分，抵扣<text class="score">¥{{orderPreview.promotion}}.00</text></view></view><view class="order-info-value" wx:if="{{orderPreview.canUseScore}}"><switch bindchange="onSelectScoreUse" checked="{{isUseScore}}" class="score-switch" color="rgb(179, 167, 162)"></switch></view></view> -->
       <view class="order-info-line">
         <view class="order-info-key">实付金额</view>
         <view class="order-info-total">￥{{displayPayPrice}}</view>
@@ -91,7 +74,6 @@
   </view>
   <el-button bindbtntap="payment" myClass="pay" text="提交订单"></el-button>
 </view>
-<!-- <modal bindonclose="triggerHideModal" data-cancel="{{true}}" id="modal"><view class="modal-body"><view class="modal-title">定制留言</view><view class="modal-input-line"><view class="modal-for">FOR</view><view class="input-container"><input bindinput="changeName" class="input-text" placeholder="输入昵称，不更改则显示默认昵称" placeholderClass="placeholder" style="flex: 1;" value="{{nickname}}"></input></view></view><view class="modal-input"><view class="input-container"><input bindinput="changeMsg" class="input-text" placeholder="输入留言，不更改则显示默认留言" placeholderClass="placeholder" value="{{msg}}"></input></view></view><view class="modal-btns"><el-button bindbtntap="triggerHideModal" buttonType="plain" data-cancel="{{true}}" myClass="modal-btn" text="取消"></el-button><el-button bindbtntap="triggerHideModal" myClass="modal-btn" text="确认"></el-button></view></view></modal> -->
 <modal bindonclose="zeroModalHide" id="zeroModal">
   <view class="modal-body">
     <view class="modal-title">是否确认支付</view>

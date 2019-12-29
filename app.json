@@ -7,20 +7,22 @@
     "pages/cart/cart",
     "components/elbutton/elbutton",
     "pages/recommend/recommend",
-      "pages/address/address",
-      "pages/detail/detail",
-      "pages/newaddress/newaddress",
-      "pages/payment/payment",
-      "pages/question/question",
-      "pages/element/element", "pages/analysis/analysis",
-      "pages/test_photo/test_photo"
+    "pages/address/address",
+    "pages/detail/detail",
+    "pages/newaddress/newaddress",
+    "pages/payment/payment",
+    "pages/question/question",
+    "pages/element/element",
+    "pages/analysis/analysis",
+    "pages/test_photo/test_photo",
+    "pages/expressTail/expressTail"
   ],
-  
   "tabBar": {
     "selecctedColor": "#676a71",
     "color": "#b3a7a2",
     "position": "bottom",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/images/icon_home_n.png",
