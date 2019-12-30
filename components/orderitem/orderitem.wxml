@@ -11,6 +11,22 @@
       </view>
       <view class="order-status">{{data.statusText}}</view>
     </view>
+    <view wx:for="{{data.products}}" wx:key="product_{{index}}">
+      <view class="item-detail">
+        <view class="item-image-item">
+          <image class="item-image" src="{{item.image}}"></image>
+          <view class="item-recommend" wx:if="{{item.is_recommond}}">当月推荐</view>
+        </view>
+        <view style="width=100%">
+          <view class="item-name">{{item.title}}</view>
+          
+          <view class="item-effort">
+          {{item.description}}</view>
+          <view class="item_count">x{{item.quantity}}</view>
+        </view>
+        <view class="item-bottom-price">￥{{item.price}}</view>
+      </view>
+    </view>
     <el-order-product-item product="{{item}}" wx:for="{{data.productSnapshotList}}" wx:key="product_{{index}}"></el-order-product-item>
     <view class="flex-space-between">
       <view class="order-total-text">商品总额</view>

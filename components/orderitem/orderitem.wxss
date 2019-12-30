@@ -213,3 +213,71 @@
     font-size: 22rpx;
     line-height: 36rpx;
 }
+
+.item-detail {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+    padding-bottom: 22rpx;
+  }
+  
+  .item-image-item {
+    width: 160rpx;
+    height: 160rpx;
+    flex-shrink: 0;
+    margin-right: 24rpx;
+    position: relative;
+  }
+  
+  .item-image {
+    width: 160rpx;
+    height: 160rpx;
+  }
+  
+  .item-recommend {
+    position: absolute;
+    right: 0;
+    bottom: -10rpx;
+    background: rgb(77,77,77);
+    color: #fff;
+    font-size: 16rpx;
+    padding: 4rpx 10rpx;
+  }
+  
+  .item-name {
+    font-size: 26rpx;
+    color: rgba(33,33,33,0.8);
+    font-weight: bold;
+  }
+  
+  .item-des {
+    font-size: 20rpx;
+    color: rgb(103,106,113);
+    margin-top: 8rpx;
+  }
+  
+  .item-effort {
+    font-size: 20rpx;
+    color: rgb(177,177,177);
+    margin-top: 6rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  .item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .item-bottom-price {
+    font-size: 20rpx;
+    color: rgba(33,33,33,0.8);
+    font-weight: bold;
+    margin-left: 20rpx;
+  }
+  
+  .item_count{
+    font-size: 20rpx;
+    color: rgb(177,177,177);
+  }
