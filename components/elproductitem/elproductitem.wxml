@@ -4,7 +4,7 @@
   </view>
   <view catchtap="goProductDetail" class="item-detail" style="border-bottom: {{withoutEndline?'none':'solid 1rpx #DADCDB'}};">
     <view class="item-image-item">
-      <image class="item-image" src="{{product.logo}}?x-oss-process=style/_200x200"></image>
+      <image class="item-image" src="{{product.thumb}}"></image>
       <view class="item-recommend" wx:if="{{product.is_recommond}}">当月推荐</view>
     </view>
     <view style="width:100%">

@@ -4,8 +4,8 @@
 <view>
   <view class="question_1">h.以下哪些肌肤问题正在困扰您</view>
   <view class="home_grids">
-    <view wx:for="{{images}}" wx:key="item.name" class='{{item.checked && item.name != "" ? "home_grid_s" : "home_grid"}}' data-id='{{item.id}}' bindtap="setChecked">
-      <image class="image" src="{{item.img}}" mode="aspectFit"></image>
+    <view wx:for="{{images}}" wx:key="item.name" class='home_grid' data-id='{{item.id}}' bindtap="setChecked">
+      <image class="image" src='{{item.checked ? item.img_s : item.img}}' ></image>
       <view class="text">{{item.name}}</view>
     </view>
   </view>

@@ -59,8 +59,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/test_record/record",
-					"pathName": "pages/test_record/record",
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
 					"query": "",
 					"scene": null
 				}

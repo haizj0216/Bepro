@@ -1,16 +1,6 @@
 {
   "usingComponents": {
-      "star": "../../components/star/star",
-      "card": "../../components/card/card",
-      "modal": "../../components/modal/modal",
-      "el-radio": "../../../../components/elradio/elradio",
-      "van-popup": "../../components/vant/popup/index",
       "header": "../../../../components/head/head",
-      "body": "../../../../components/body/body",
-      "el-button": "../../../../components/elbutton/elbutton",
-      "el-input": "../../../../components/elinput/elinput",
-      "el-slider": "../../../../components/elslider/elslider",
-      "el-checkbox": "../../../../components/elcheckbox/elcheckbox",
-      "el-select": "../../../../components/elselect/elselect"
+      "body": "../../../../components/body/body"
   }
 }

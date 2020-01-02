@@ -75,8 +75,9 @@ Component({
     data: {},
     methods: {
         goProductDetail: function() {
+            var productJson = JSON.stringify(this.data.product)
             t.default.navigateTo({
-                url: "/pages/detail/detail?id=".concat(this.data.product.id, "&from=").concat(this.data.from)
+                url: "/pages/detail/detail?product=".concat(productJson)
             });
         },
         onProductSelectChange: function() {

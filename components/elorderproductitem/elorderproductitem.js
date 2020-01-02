@@ -35,8 +35,9 @@ Component({
     data: {},
     methods: {
         goProduct: function(t) {
-            this.data.showSelect || e.default.navigateTo({
-                url: "/pages/detail/detail?id=".concat(this.data.product.id, "&from=订单")
+            var productJson = JSON.stringify(this.data.product)
+            t.default.navigateTo({
+                url: "/pages/detail/detail?product=".concat(productJson)
             });
         },
         onProductSelectChange: function(e) {

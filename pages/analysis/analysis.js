@@ -14,45 +14,7 @@ Page({
     ec: {
       lazyLoad: true,
     },
-
-    faceresult: [
-      [{
-        icon: "/images/icon_skin_maokong.png",
-        name: "毛孔",
-        score: "1",
-      }, {
-        icon: "/images/icon_skin_heitou.png",
-        name: "黑头",
-        score: "0",
-      }],
-      [{
-        icon: "/images/icon_skin_eye.png",
-        name: "细纹",
-        score: "1",
-      }, {
-        icon: "/images/icon_skin_doudou.png",
-        name: "痘痘",
-        score: "0",
-      }],
-      [{
-        icon: "/images/icon_skin_seban.png",
-        name: "色斑",
-        score: "2",
-      }, {
-        icon: "/images/icon_skin_fanhong.png",
-        name: "泛红",
-        score: "",
-      }],
-      [{
-        icon: "/images/icon_skin_yanquan.png",
-        name: "黑眼圈",
-        score: "2",
-      }, {
-        icon: "/images/icon_skin_falingwen.png",
-        name: "法令纹",
-        score: "1",
-      }]
-    ],
+    
     city:'',
     age:'',
     sex:'',
