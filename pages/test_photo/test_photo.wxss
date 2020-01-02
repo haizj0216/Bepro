@@ -44,6 +44,9 @@
 .image {
   width: 604rpx;
   height: 604rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
   /* border: 2rpx dashed #e6e2e2; */
   /* background-image: ""; */
   /* position: fixed;

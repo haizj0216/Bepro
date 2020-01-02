@@ -133,7 +133,7 @@ Page({
             }
         }
         wx.request({
-            url: netUtils.apiUrl.addCart + "?token=" + token,
+            url: netUtils.apiHost + netUtils.apiUrl.addCart + "?token=" + token,
             method: "POST",
             data: productList,
             success(res) {

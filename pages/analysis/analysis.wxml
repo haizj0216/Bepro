@@ -8,7 +8,7 @@
   </view>
   <view class="title_layout">
     <view class="title">
-      你的私人肤质档案
+      您的私人肤质档案
     </view>
     <view class="time_text">2019.12.13</view>
   </view>
@@ -37,4 +37,4 @@
 
 </view>
 
-<button class="qu-button" bindtap="toRemommend">获取你的私人护肤解决方案</button>
+<button class="qu-button" bindtap="toRemommend">获取您的私人护肤解决方案</button>

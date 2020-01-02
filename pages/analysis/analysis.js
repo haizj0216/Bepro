@@ -58,7 +58,7 @@ Page({
     sex:'',
     echartsComponnet: null,
     analysis_result:{},
-    analysis_string: "作为资深的夜行动物，生活已经对你痛下狠手啦。皮肤急救刻不容缓，但是病急也不能乱投医，猛药背后肯定要付出代价的，EWG级别原料产品，特别适合现在的你，对自己好一点，才是最正经的罗曼史",
+    analysis_string: "",
     ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
   },
 

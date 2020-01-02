@@ -100,37 +100,37 @@ Component({
     onTap: function () {
       this.triggerEvent("btntap");
     },
-    submit: function () {
-      var t = r(e.regeneratorRuntime.mark(function t(r) {
-        var a;
-        return e.regeneratorRuntime.wrap(function (t) {
-          for (;;) switch (t.prev = t.next) {
-            case 0:
-              if (!(a = r.detail.formId) || -1 !== a.indexOf("mock")) {
-                t.next = 5;
-                break;
-              }
-              return t.next = 4, e.default.request({
-                url: n.apiUrl.formId,
-                method: "POST",
-                data: {
-                  form_id: a
-                }
-              });
+    // submit: function () {
+    //   var t = r(e.regeneratorRuntime.mark(function t(r) {
+    //     var a;
+    //     return e.regeneratorRuntime.wrap(function (t) {
+    //       for (;;) switch (t.prev = t.next) {
+    //         case 0:
+    //           if (!(a = r.detail.formId) || -1 !== a.indexOf("mock")) {
+    //             t.next = 5;
+    //             break;
+    //           }
+    //           return t.next = 4, e.default.request({
+    //             url: n.apiUrl.formId,
+    //             method: "POST",
+    //             data: {
+    //               form_id: a
+    //             }
+    //           });
 
-            case 4:
-              t.sent;
+    //         case 4:
+    //           t.sent;
 
-            case 5:
-            case "end":
-              return t.stop();
-          }
-        }, t);
-      }));
-      return function (e) {
-        return t.apply(this, arguments);
-      };
-    }(),
+    //         case 5:
+    //         case "end":
+    //           return t.stop();
+    //       }
+    //     }, t);
+    //   }));
+    //   return function (e) {
+    //     return t.apply(this, arguments);
+    //   };
+    // }(),
     getUserInfo: function () {
       if (wx.getStorageSync("token")) {
         return

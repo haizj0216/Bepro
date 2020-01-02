@@ -11,7 +11,7 @@ Page({
     fileList1: [],
     image: "",
     imageUrl: "",
-    showCamera: false,
+    showCamera: true,
     showPop: true,
     question: {},
     analysis_result: {},
@@ -135,7 +135,7 @@ Page({
     let that = this
     var filePath = that.data.image
     wx.uploadFile({
-      url: n.apiUrl.fileUpload + "?token=" + token,
+      url: n.apiHost + n.apiUrl.fileUpload + "?token=" + token,
       filePath: filePath,
       name: 'file',
       success(res) {

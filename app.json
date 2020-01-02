@@ -15,7 +15,9 @@
     "pages/element/element",
     "pages/analysis/analysis",
     "pages/test_photo/test_photo",
-    "pages/expressTail/expressTail"
+    "pages/expressTail/expressTail",
+    "pages/question_2/question_2",
+    "pages/question_3/question_3"
   ],
   "tabBar": {
     "selecctedColor": "#676a71",
@@ -57,7 +59,7 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "您的位置信息将用于小程序位置接口的效果展示"
     }
   },
   "debug": true,

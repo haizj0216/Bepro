@@ -12,7 +12,7 @@
       </view>
       <view class="username">
         <open-data type="userNickName"></open-data>
-        <text style="font-size:30rpx">发质档案</text>
+        <text style="font-size:30rpx">皮肤档案</text>
       </view>
       <view class="userinfo">{{sex}} | {{age}} | {{city}}</view>
     </view>

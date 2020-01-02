@@ -139,9 +139,9 @@ Component({
             });
         },
         goExpress: function(t) {
-            var r = t.currentTarget.dataset, a = r.address, n = r.orderId, o = r.orderNum;
+            var r = t.currentTarget.dataset, a = r.expressno, n = r.orderId, o = r.orderNum;
             e.default.navigateTo({
-                url: "/pages/expressTail/expressTail?orderId=".concat(n, "&address=").concat(a, "&orderNum=").concat(o)
+                url: "/pages/expressTail/expressTail?orderId=".concat(n, "&expressNo=").concat(a)
             });
         },
         receiveModalShow: function(e) {

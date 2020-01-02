@@ -3,11 +3,8 @@
 <body></body>
 <swiper bindchange="onSwiperChange" class="swiper" duration="{{300}}" vertical="true">
   <swiper-item class="swiper-item" key="1">
-    <image class="image" src="http://vapi.thebepro.com/files/448a30233d26e7f60eef1d44d0934a04.png" ></image>
+    <image class="item6-banner" mode="widthFix" src="https://vapi.thebepro.com/files/home_header.png" ></image>
     <view class="container_1">
-      <view>
-        <image class="title" src="http://vapi.thebepro.com/files/4e3f740bda80c56c3eae7cca512386b1.jpeg" mode=""></image>
-      </view>
       <view class="title_desc">
         <text>全新精准定制护肤系统</text>
       </view>
@@ -47,7 +44,7 @@
   </swiper-item>
   <swiper-item key="3">
     <view class="item6-content">
-      <image class="item6-banner" src="http://vapi.thebepro.com/files/8c1a55a908a390f80698dbeb4d536c6c.png" mode='widthFix'></image>
+      <image class="item6-banner" src="https://vapi.thebepro.com/files/fbffa9eda627b83b36f2edb994de8dac.png" mode='widthFix'></image>
       <view>
         <view class="item6-title">严选成分 不为赋予概念而复杂配方</view>
         <view class="item6-des">选用EWG值1-2等级原料</view>

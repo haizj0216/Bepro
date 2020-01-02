@@ -170,7 +170,7 @@ Page({
     }
     var token = wx.getStorageSync("token")
     wx.request({
-      url: net.apiUrl.addCart + "?token=" + token,
+      url: net.apiHost + net.apiUrl.addCart + "?token=" + token,
       method: "POST",
       data: productList,
       success(res) {
@@ -327,8 +327,20 @@ Page({
   updateResult(res) {
     let that = this
     var result = JSON.parse(res.data.analysisResult)
+    var date = new Date(res.data.testTime);
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    var createTime = year + "-" + month + "-" + day
+    var sexValue = res.data.sex == 1 ? "女":"男"
+    var ageValue = that.data.ageRange[res.data.age - 1]
+    var regoin = res.data.city.split(",")
+    
     that.setData({
-      solution: res.data.testTime,
+      sex:sexValue,
+      age:ageValue,
+      city:regoin && regoin.length > 2 ? regoin[2] :"",
+      solution: createTime,
       analysis_result: result,
       analysis_string: res.data.analysisString,
     })
@@ -353,8 +365,7 @@ Page({
         yAxis: {
           show: false
         },
-        label: { rich: {} },
- 
+
         radar: {
           // shape: 'circle',
           indicator: [{
@@ -399,7 +410,12 @@ Page({
             value: this.data.scores,
             name: '皮肤'
           }],
-          label: { rich: {} },
+          label: { 
+            name:{
+              fontSize:80,
+              rich: {}
+            }
+          },
  
         }]
       };

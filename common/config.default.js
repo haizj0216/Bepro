@@ -1,13 +1,14 @@
 module.exports = {
     cdn: "xxx",
-    apiHost: "http://localhost:8888/",
+    // apiHost: "http://localhost:8888/",
+    apiHost:"https://vapi.thebepro.com/",
     apiUrl: {
         login: "auth/login",
-        testSave:"http://localhost:8888/test/save",
-        testResult:"http://localhost:8888/test/result",
-        recommendInfo:"http://localhost:8888/recommend/info",
-        fileUpload:"http://localhost:8888/file/upload",
-        addCart:"http://localhost:8888/cart/add",
+        testSave:"test/save",
+        testResult:"test/result",
+        recommendInfo:"recommend/info",
+        fileUpload:"file/upload",
+        addCart:"cart/add",
         testResult1:"test/result",
         recommendInfo1:"recommend/info",
         addCart1:"cart/add",
@@ -20,6 +21,7 @@ module.exports = {
         updateCart:"cart/update",
         saveOrder:"order/save",
         orderList:"order/list",
+        orderExpress:"order/getExpress",
     },
     scene: {
         1001: "发现栏小程序主入口",

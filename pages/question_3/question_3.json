@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "el-agelider": "../../../components/ageslider/ageslider",
+    "header": "../../../../components/head/head",
+    "body": "../../../../components/body/body"
+  }
+}

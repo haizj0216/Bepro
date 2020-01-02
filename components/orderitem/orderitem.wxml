@@ -33,11 +33,7 @@
       <view class="order-total">￥{{data.price}}</view>
     </view>
     <view class="order-company-address" wx:if="{{data.status===5&&data.after_sale_status===100}}">
-      <text>请将售后产品寄往以下地址：
-          江苏省无锡市宜兴市环科园中
-          节能产业园15号楼三楼
-          effortless，18521531144
-        </text>
+     
     </view>
     <block wx:else>
       <view class="order-address-line">
@@ -60,7 +56,7 @@
       <el-button bindbtntap="payNow" data-order-id="{{data.id}}" myClass="order-btn" text="立即支付" wx:if="{{data.status===1}}"></el-button>
       <!-- <el-button bindbtntap="changeAddress" data-order-id="{{data.id}}" myClass="order-btn" text="修改地址" wx:if="{{data.status===2}}"></el-button> -->
       <el-button bindbtntap="receiveModalShow" data-order-id="{{data.id}}" myClass="order-btn" text="确认收货" wx:if="{{data.status===4}}"></el-button>
-      <el-button bindbtntap="goExpress" data-address="{{data.address.address}}" data-order-id="{{data.id}}" data-order-num="{{data.order_num}}" myClass="order-btn" text="查看物流" wx:if="{{data.status===4}}"></el-button>
+      <el-button bindbtntap="goExpress" data-address="{{data.address}}" data-order-id="{{data.id}}" data-order-num="{{data.order_num}}" data-expressNo="{{data.expressNo}}" myClass="order-btn" text="查看物流" wx:if="{{data.status===4}}"></el-button>
       <!-- <el-button bindbtntap="goAfterUse" btnTip="10元代金券" data-order-id="{{data.id}}" myClass="order-btn-plain" text="用后反馈" wx:if="{{!!data.can_feedback}}"></el-button> -->
       <el-button bindbtntap="goReturn" data-order-id="{{data.id}}" myClass="order-btn" text="申请售后" wx:if="{{!!data.can_after_sale}}"></el-button>
       <el-button bindbtntap="modalVisible" data-order-id="{{data.id}}" data-show="{{true}}" myClass="order-btn" text="填入邮寄单号" wx:if="{{data.status===5&&data.after_sale_status===100}}"></el-button>

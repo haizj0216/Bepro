@@ -5,7 +5,9 @@
   <!-- <image class="image" mode="aspectFit" src="{{image}}"></image> -->
   <view class="camera_layout">
   <camera class='camera_show' device-position="front" flash="off" binderror="error">
-  <cover-image class="image" mode="aspectFit" src="{{image}}"></cover-image>
+  <cover-view class="image" style='background-color:{{image?"#e6e6e6":""}}'>
+    <image  mode="widthFix" src="{{image}}"></image>
+  </cover-view>
   </camera>
   </view>
   <view class="bottom">
@@ -16,9 +18,9 @@
     <view class="next" bindtap="douploader">下一步></view>
   </view>
 </view>
-<view class='{{showPop?"pop_show":"pop_hide"}}'>
+<!-- <view class='{{showPop?"pop_show":"pop_hide"}}'>
   <view class="pop">
-    <image class="cover_image" src="http://vapi.thebepro.com/files/1f054d1047fc8622d6981f2db963e88d.gif"></image>
+    <image class="cover_image" src="https://vapi.thebepro.com/files/1f054d1047fc8622d6981f2db963e88d.gif"></image>
     <image class="close" bindtap="hidePop" src="/images/ic_close.png"></image>
   </view>
-</view>
+</view> -->

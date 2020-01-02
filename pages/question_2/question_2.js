@@ -9,6 +9,7 @@ Page({
    */
   data: {
     question: {},
+    zone:"",
     sex: 1,
     sexs: [{
       value: 1,
@@ -128,55 +129,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    qqmapsdk = new QQMapWX({
-      key: 'XITBZ-3SBLG-4R3QN-IXXPJ-TD5TE-QUFPR'
-    });
-    wx.getSetting({
-      success: (res) => {
-        console.log(JSON.stringify(res))
-
-        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
-          wx.showModal({
-            title: '请求授权当前位置',
-            content: '需要获取您的地理位置，请确认授权',
-            success: function (res) {
-              if (res.cancel) {
-                wx.showToast({
-                  title: '拒绝授权',
-                  icon: 'none',
-                  duration: 1000
-                })
-              } else if (res.confirm) {
-                wx.openSetting({
-                  success: function (dataAu) {
-                    if (dataAu.authSetting["scope.userLocation"] == true) {
-                      this.gettitude();
-                      wx.showToast({
-                        title: '授权成功',
-                        icon: 'success',
-                        duration: 1000
-                      })
-
-
-                    } else {
-                      wx.showToast({
-                        title: '授权失败',
-                        icon: 'none',
-                        duration: 1000
-                      })
-                    }
-                  }
-                })
-              }
-            }
-          })
-        } else if (res.authSetting['scope.userLocation'] == undefined) {
-          this.gettitude();
-        } else {
-          this.gettitude();
-
-        }
-      }
+    var question = JSON.parse(options.question);
+    this.setData({
+      age:question.age,
+      sex:question.sex,
+      name:question.name,
+      zone:question.zone
     })
   },
 
@@ -268,30 +226,20 @@ Page({
 
   toNext: function () {
     let that = this;
-    if (that.data.name == null) {
-      wx.showToast({
-        title: "请输入姓名",
-        duration: 1000
-      })
-      return
-    }
-    
-    var region = that.data.region
-    var city = region.join(',')    
     
     var questiondata = {
       age: that.data.age,
       sex: that.data.sex,
-      zone: city,
+      zone: that.data.zone,
+      sleep_time: that.data.sleepValue,
+      shine_time: that.data.sunValue,
+      electronics_time: that.data.phoneValue,
       name: that.data.name,
     }
     console.log(questiondata)
-    // wx.setStorage({
-    //   key: 'question',
-    //   data: questiondata
-    // })
+    
     wx.navigateTo({
-      url: '../question_2/question_2?question=' + JSON.stringify(questiondata)
+      url: '../question_3/question_3?question=' + JSON.stringify(questiondata)
     })
   },
 

@@ -1,0 +1,20 @@
+<!--pages/question_2/question_2.wxml-->
+<header showBack="{{true}}"></header>
+<body></body>
+<view class="name">e.您每日的日晒时长</view>
+<!-- <slider class="slider" max="3" step="1" selected-color="#000000" backgroundColor="#000000" blockSize="10px"></slider><view class="age"><view class="age_text">小于0.5小时</view><view class="age_text">0.5-1小时</view><view class="age_text">1-3小时</view><view class="age_text">大于3小时</view></view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onSunChange" max="{{sunRange.length-1}}" value="{{sunValue}}" values="{{sunRange}}"></el-agelider>
+</view>
+<view class="name">f.您每日的睡眠时长</view>
+<!-- <view class="home_grids_2"><view wx:for="{{sleeps}}" class='{{item.checked ? "text_grid_selected" : "text_grid"}}' data-id='{{item.id}}' bindtap="setSleepSelected"><view class="text2">{{item.name}}</view></view></view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onSleepChange" max="{{sleepRange.length-1}}" value="{{sleepValue}}" values="{{sleepRange}}"></el-agelider>
+</view>
+<view class="name">g.您每日的使用电子设备的时间</view>
+<!-- <view class="home_grids_2"><view wx:for="{{phones}}" class='{{item.checked ? "text_grid_selected" : "text_grid"}}' data-id='{{item.id}}' bindtap="setPhoneSelected"><view class="text2">{{item.name}}</view></view></view> -->
+<view class="slider-view">
+  <el-agelider bindchange="onPhoneChange" max="{{phoneRange.length-1}}" value="{{phoneValue}}" values="{{phoneRange}}"></el-agelider>
+</view>
+<view class="next" bindtap="toNext">下一步></view>
+<view class="span"></view>

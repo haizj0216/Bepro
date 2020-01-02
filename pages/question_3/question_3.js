@@ -10,6 +10,7 @@ Page({
   data: {
     question: {},
     sex: 1,
+    zone:"",
     sexs: [{
       value: 1,
       name: "女",
@@ -128,55 +129,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    qqmapsdk = new QQMapWX({
-      key: 'XITBZ-3SBLG-4R3QN-IXXPJ-TD5TE-QUFPR'
-    });
-    wx.getSetting({
-      success: (res) => {
-        console.log(JSON.stringify(res))
-
-        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
-          wx.showModal({
-            title: '请求授权当前位置',
-            content: '需要获取您的地理位置，请确认授权',
-            success: function (res) {
-              if (res.cancel) {
-                wx.showToast({
-                  title: '拒绝授权',
-                  icon: 'none',
-                  duration: 1000
-                })
-              } else if (res.confirm) {
-                wx.openSetting({
-                  success: function (dataAu) {
-                    if (dataAu.authSetting["scope.userLocation"] == true) {
-                      this.gettitude();
-                      wx.showToast({
-                        title: '授权成功',
-                        icon: 'success',
-                        duration: 1000
-                      })
-
-
-                    } else {
-                      wx.showToast({
-                        title: '授权失败',
-                        icon: 'none',
-                        duration: 1000
-                      })
-                    }
-                  }
-                })
-              }
-            }
-          })
-        } else if (res.authSetting['scope.userLocation'] == undefined) {
-          this.gettitude();
-        } else {
-          this.gettitude();
-
-        }
-      }
+    var question = JSON.parse(options.question);
+    this.setData({
+      age:question.age,
+      sex:question.sex,
+      name:question.name,
+      zone:question.zone,
+      sleep_time:question.sleep_time,
+      shine_time:question.shine_time,
+      electronics_time:question.electronics_time
     })
   },
 
@@ -268,30 +229,35 @@ Page({
 
   toNext: function () {
     let that = this;
-    if (that.data.name == null) {
-      wx.showToast({
-        title: "请输入姓名",
-        duration: 1000
-      })
-      return
-    }
     
-    var region = that.data.region
-    var city = region.join(',')    
+    var skin_question = [];
+    var index = 0;
+    for (let i = 0; i < this.data.images.length; i++) {
+      if (this.data.images[i].checked == true) {
+        skin_question[index] = this.data.images[i].id
+        index++
+      }
+    }
+    var skinQuestion = skin_question.join(',')
+     
     
     var questiondata = {
-      age: that.data.age,
+      age: that.data.age + 1,
       sex: that.data.sex,
-      zone: city,
+      zone: that.data.zone,
+      sleep_time: that.data.sleepValue + 1,
+      shine_time: that.data.sunValue + 1,
+      electronics_time: that.data.phoneValue + 1,
+      skin_question: skinQuestion,
       name: that.data.name,
     }
     console.log(questiondata)
-    // wx.setStorage({
-    //   key: 'question',
-    //   data: questiondata
-    // })
+    wx.setStorage({
+      key: 'question',
+      data: questiondata
+    })
     wx.navigateTo({
-      url: '../question_2/question_2?question=' + JSON.stringify(questiondata)
+      url: '../test_photo/test_photo'
     })
   },
 
