@@ -69,7 +69,7 @@ Page({
     echartsComponnet: null,
     analysisresult: "",
     ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
-
+    analysis_string:""
   },
   onLoad: function (options) {
     this.echartsComponnet = this.selectComponent('#mychart-dom-graph-record');
@@ -109,7 +109,6 @@ Page({
               recommendList: r.data.map(function (t) {
                 return t.selected = !0, t.quantity = 1, t;
               }),
-              solution: r.data.solution,
               hasDoneQ: n
             });
           case 10:

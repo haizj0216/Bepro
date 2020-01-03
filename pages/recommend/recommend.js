@@ -186,8 +186,6 @@ Page({
                         })
                     })
                     that.updateList()
-                } else {
-                    that.mockdata()
                 }
             },
             fail(res) {
@@ -203,20 +201,5 @@ Page({
     updateList: function () {
     },
 
-    mockdata: function () {
-        var list = [{
-            image: "https://gd4.alicdn.com/imgextra/i2/0/TB1gQJTJpXXXXb4XFXXXXXXXXXX_!!0-item_pic.jpg",
-            title: "BEPRO BASE EMULSION 基础乳液",
-            description: "主要作用成分介绍以及容量文字区域针对的皮肤属性能简短介绍文字区域",
-            quantity: 1,
-            num: 2,
-            price: 100,
-            selected: true
-        }];
-        this.setData({
-            recommendList: list,
-            home: !1,
-            solution: "2019-12-17"
-        })
-    }
+    
 });
