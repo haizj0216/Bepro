@@ -1,3 +1,0 @@
-<view class="loading-container">
-    <view class="loading" style="{{white?'animation: changingWhite 800ms infinite ease-in-out;':''}}"></view>
-</view>

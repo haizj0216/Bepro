@@ -1,5 +1,5 @@
 <view catchtap="onChange" class="checkbox">
-    <image class="check" src="https://cdn.effortless.cn/assets/icons/radio-checked.jpg" wx:if="{{checked}}"></image>
-    <image class="check" src="https://cdn.effortless.cn/assets/icons/radio-unchecked.jpg" wx:else></image>
+    <image class="check" src="https://vapi.thebepro.com/files/radio-checked.jpg" wx:if="{{checked}}"></image>
+    <image class="check" src="https://vapi.thebepro.com/files/radio-unchecked.jpg" wx:else></image>
     <text class="label" wx:if="{{!!label}}">{{label}}</text>
 </view>

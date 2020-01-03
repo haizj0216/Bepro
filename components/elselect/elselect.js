@@ -22,7 +22,7 @@ Component({
         attached: function() {
             var t = this;
             this.imgLoader = new e(this);
-            [ "https://cdn.effortless.cn/assets/icons/select.png", "https://cdn.effortless.cn/assets/icons/unselect.png" ].forEach(function(e) {
+            [ "https://vapi.thebepro.com/files/select.png", "https://vapi.thebepro.com/files/unselect.png" ].forEach(function(e) {
                 t.imgLoader.load(e);
             });
         }

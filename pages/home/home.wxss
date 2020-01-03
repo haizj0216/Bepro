@@ -405,10 +405,6 @@ page {
   margin-top: 5rpx;
 }
 
-.effortless-pray {
-  font-weight: 500;
-}
-
 .standards {
   margin: 20rpx 0;
   font-size: 24rpx;

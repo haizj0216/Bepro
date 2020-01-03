@@ -17,16 +17,6 @@ function t(e, t, a, n, r, o, s) {
   i.done ? t(c) : Promise.resolve(c).then(n, r);
 }
 
-// var a = require("./utils/lib/sensorsdata.min.js");
-
-// a.setPara({
-//   name: "sensors",
-//   server_url: "https://effortless.datasink.sensorsdata.cn/sa?project=production&token=7d63dfff847af3ce",
-//   show_log: !1,
-//   appid: "wxd063f70a4758bc4d",
-//   allow_amend_share_path: !0
-// }), a.init();
-
 var n = require("./common/config.default");
 
 App({

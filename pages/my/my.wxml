@@ -13,13 +13,13 @@
     </view>
     <view class="tabs">
       <view bindtap="goCoupon" class="tab">
-        <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/coupon.png?q=1"></image>
+        <image class="tab-icon" src="https://vapi.thebepro.com/files/coupon.png?q=1"></image>
         <view class="tab-name">我的优惠券</view>
       </view>
-      <!-- <view bindtap="goReWard" class="tab"><image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/gift.png?q=1"></image><view class="tab-name">我的积分</view></view> -->
+      <!-- <view bindtap="goReWard" class="tab"><image class="tab-icon" src="https://vapi.thebepro.com/files/gift.png?q=1"></image><view class="tab-name">我的积分</view></view> -->
       <view bindtap="goContact" class="tab">
         <button class="contact" openType="contact">
-          <image class="tab-icon" src="https://cdn.effortless.cn/assets/icons/chat.png?q=1"></image>
+          <image class="tab-icon" src="https://vapi.thebepro.com/files/chat.png?q=1"></image>
           <view class="tab-name" style="margin-top: 12rpx;">咨询客服</view>
         </button>
       </view>
@@ -31,9 +31,9 @@
   <view wx:if="{{loading}}"></view>
   <block wx:else>
     <view class="no-order-list" wx:if="{{!orderList.length}}">
-      <image class="no-order-image" src="https://cdn.effortless.cn/assets/icons/order-empty.png"></image>
+      <image class="no-order-image" src="https://vapi.thebepro.com/files/order-empty.png"></image>
       <view class="no-order-text">没有任何订单信息</view>
-      <view class="no-order-des">健康生活从头开始，effortless给您带来惊喜！</view>
+      <view class="no-order-des">健康生活从头开始，Bepro给您带来惊喜！</view>
       <el-button bindbtntap="goRecommendProduct" myClass="check-out-products" text="查看适合我的产品"></el-button>
     </view>
     <view class="order-list" wx:else>

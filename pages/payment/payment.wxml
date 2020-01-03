@@ -5,17 +5,17 @@
   <view bindtap="goNewAddress" class="payment-block" wx:if="{{!hasDefaultAddress}}">
     <view class="payment-block-head">
       <view class="payment-block-head-text">
-        <image class="icon-location" src="https://cdn.effortless.cn/assets/icons/order-location.png"></image>
+        <image class="icon-location" src="https://vapi.thebepro.com/files/order-location.png"></image>
         <text>新增收货地址</text>
       </view>
-      <image class="icon-arrow" src="https://cdn.effortless.cn/assets/icons/arrow-right.png"></image>
+      <image class="icon-arrow" src="https://vapi.thebepro.com/files/arrow-right.png"></image>
     </view>
   </view>
   <view bindtap="goAddressList" class="payment-block" wx:else>
     <view class="payment-block-head">
       <view>
         <view class="payment-block-head-text">
-          <image class="icon-location" src="https://cdn.effortless.cn/assets/icons/order-location.png"></image>
+          <image class="icon-location" src="https://vapi.thebepro.com/files/order-location.png"></image>
           <text>收货方式</text>
         </view>
         <view class="order-info-key">
@@ -25,13 +25,13 @@
                     {{orderPreview.address}}
                 </view>
       </view>
-      <image class="icon-arrow" src="https://cdn.effortless.cn/assets/icons/arrow-right.png"></image>
+      <image class="icon-arrow" src="https://vapi.thebepro.com/files/arrow-right.png"></image>
     </view>
   </view>
   <view class="payment-block payment-block-margin">
     <view class="payment-block-head">
       <view class="payment-block-head-text">
-        <image class="icon-location" src="https://cdn.effortless.cn/assets/icons/order-infos.png"></image>
+        <image class="icon-location" src="https://vapi.thebepro.com/files/order-infos.png"></image>
         <text>支付信息</text>
       </view>
     </view>

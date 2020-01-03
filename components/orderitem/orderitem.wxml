@@ -75,7 +75,7 @@
     </view>
   </view>
 </view>
-<modal id="modal">
+<!-- <modal id="modal">
   <view class="modal-body">
     <view class="modal-title">填入邮寄单号</view>
     <view class="modal-input">
@@ -87,7 +87,7 @@
       <el-button bindbtntap="requestSend" myClass="modal-btn" text="确认"></el-button>
     </view>
   </view>
-</modal>
+</modal> -->
 <modal bindonclose="zeroModalHide" id="zeroModal">
   <view class="zero-modal-body">
     <view class="zero-modal-title">是否确认支付</view>

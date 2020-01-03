@@ -1,6 +1,6 @@
 <view bindtap="onSelected">
-    <image class="icon" src="https://cdn.effortless.cn/assets/icons/select.png" wx:if="{{selected}}"></image>
-    <image class="icon" src="https://cdn.effortless.cn/assets/icons/unselect.png" wx:else></image>
+    <image class="icon" src="https://vapi.thebepro.com/files/select.png" wx:if="{{selected}}"></image>
+    <image class="icon" src="https://vapi.thebepro.com/files/unselect.png" wx:else></image>
 </view>
 <import src="../../utils/image-preload/index.wxml"></import>
 <template is="img-loader" data="{{imgLoadList:imgLoadList}}"></template>

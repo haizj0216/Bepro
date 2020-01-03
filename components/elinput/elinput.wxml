@@ -1,5 +1,5 @@
 <view class="input-container">
     <view class="label" wx:if="{{!!label}}">{{label}}</view>
     <input bindblur="bindblur" bindconfirm="bindconfirm" bindfocus="bindfocus" bindinput="bindinput" class="input-text" disabled="{{disabled}}" maxlength="{{maxlength}}" placeholder="{{placeholder}}" placeholderClass="placeholder" type="{{type}}" value="{{value}}"></input>
-    <image class="arrow-down" src="https://cdn.effortless.cn/assets/icons/arrow-black-down.png" wx:if="{{mode==='picker'}}"></image>
+    <image class="arrow-down" src="https://vapi.thebepro.com/files/arrow-black-down.png" wx:if="{{mode==='picker'}}"></image>
 </view>

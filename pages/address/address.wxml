@@ -1,7 +1,7 @@
 <header></header>
 <body></body>
 <view class="no-address" wx:if="{{listEmpty}}">
-    <image class="no-address-image" src="https://cdn.effortless.cn/assets/icons/address-empty.png"></image>
+    <image class="no-address-image" src="https://vapi.thebepro.com/files/address-empty.png"></image>
     <view class="no-address-text">暂时没有收货地址</view>
     <el-button bindbtntap="goNewAddress" myClass="add-address" text="新增收货地址"></el-button>
 </view>
@@ -15,7 +15,7 @@
             <view class="address-user-address">{{item.address}}</view>
         </view>
         <view catchtap="editAddress" data-item="{{item}}">
-            <image class="address-edit" src="https://cdn.effortless.cn/assets/icons/pen.png"></image>
+            <image class="address-edit" src="https://vapi.thebepro.com/files/pen.png"></image>
         </view>
     </view>
 </view>

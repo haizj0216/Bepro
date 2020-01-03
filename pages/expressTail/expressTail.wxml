@@ -10,10 +10,7 @@
         <view class="time">
             <view class="date-time">{{item.time}}</view>
         </view>
-        <!-- <view class="icons">
-            <image class="icon" src="https://cdn.effortless.cn/assets/icons/{{item.status&&item.status.icon}}{{index<2?'-on':''}}.png"></image>
-            <view class="line" wx:if="{{index+1!==express.length}}"></view>
-        </view> -->
+        
         <view class="des">
             <view class="main-status">{{item.status}}</view>
         </view>
