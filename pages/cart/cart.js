@@ -53,7 +53,7 @@ Page({
         list: [],
         allSelect: !0,
         total: 0,
-        loading: !1,
+        loading: 1,
         hasDoneQ: !1
     },
     goPayment: function () {
@@ -74,12 +74,20 @@ Page({
         var token = wx.getStorageSync("token")
         if(token) {
             this.getList();
+        } else {
+            this.setData({
+                loading: !1,
+            })
         }
     },
     onShow: function () {
         var token = wx.getStorageSync("token")
         if(token) {
             this.showRequest && this.getList(), this.showRequest = !0;
+        } else {
+            this.setData({
+                loading: !1,
+            })
         }
         // this.mockdata();
     },

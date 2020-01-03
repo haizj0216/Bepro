@@ -222,6 +222,7 @@ Page({
                                 price:list[i].price
                             }
                         }
+                        wx.showLoading()
                         return a = {
                                 addressId: this.data.orderPreview.id,
                                 product: JSON.stringify(productList),
@@ -238,6 +239,7 @@ Page({
                     case 9:
                         if (99999 !== (s = t.sent).code) {
                             t.next = 20;
+                            wx.hideLoading();
                             break;
                         }
                         if (!s.data.no_pay) {
@@ -264,7 +266,9 @@ Page({
                                         url: "/pages/my/my"
                                     });
                                 },
-                                complete: function (e) {}
+                                complete: function (e) {
+                                    wx.hideLoading()
+                                }
                             });
 
                     case 20:

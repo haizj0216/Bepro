@@ -99,7 +99,7 @@ Page({
             if(!token) {
               return
             }
-            return e.next = 10, t.default.request({
+            return e.next = 10,wx.showLoading(), t.default.request({
               url: net.apiUrl.testResult1 + "?token=" + token,
               method: "GET",
             });
@@ -119,6 +119,7 @@ Page({
             });
           case 8:
           case "end":
+            wx.hideLoading();
             return e.stop();
         }
       }, e, this);
