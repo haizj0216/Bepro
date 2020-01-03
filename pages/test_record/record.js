@@ -96,6 +96,9 @@ Page({
 
           case 4:
             var token = wx.getStorageSync("token")
+            if(!token) {
+              return
+            }
             return e.next = 10, t.default.request({
               url: net.apiUrl.testResult1 + "?token=" + token,
               method: "GET",

@@ -45,42 +45,40 @@ var a = getApp();
 Page({
     data: {
         product: {
-            // thumb: "https://vapi.thebepro.com/files/b3b99648c0e85e4312597924377f5623.png",
-            // title: "BEPRO冬柏净颜精华液",
-            // capacity: 150,
-            // unit: "ml",
-            // price: 99,
-            // description: "重建肌肤屏障，抑制由污染引起的过敏和衰老",
         }
     },
     onLoad: function (options) {
-          var productJson = JSON.parse(options.product)
-          this.setData({
-              product:productJson
-          })
+        var productJson = JSON.parse(options.product)
+        this.setData({
+            product: productJson
+        })
     },
 
     addToCart: function () {
-        var token = wx.getStorageSync("token")
-        let that = this
+        
         var e = r(t.regeneratorRuntime.mark(function e(r) {
             return t.regeneratorRuntime.wrap(function (e) {
                 for (;;) switch (e.prev = e.next) {
                     case 0:
+                        var token = wx.getStorageSync("token")
+                        let that = this
                         var products = [{
                             productId: that.data.product.id,
                             count: 1,
                         }]
                         return e.next = 12, t.default.request({
-                            url: net.apiUrl.addToCart + "?token=" + token,
+                            url: net.apiUrl.addCart + "?token=" + token,
                             method: "POST",
+                            header:{
+                                "content-type": "application/json"
+                            },
                             data: products
                         });
 
                     case 12:
                         99999 === e.sent.code ? (t.default.showToast({
                             title: "加购成功"
-                        }), this.getCartNum()) : t.default.showToast({
+                        }), this.goCart()) : t.default.showToast({
                             icon: "none",
                             title: "加购失败"
                         });
@@ -114,9 +112,6 @@ Page({
     onPullDownRefresh: function () {},
     onReachBottom: function () {},
     onShareAppMessage: function () {
-        return {
-            path: "/pages/detail/detail?id=".concat(this.data.id),
-            imageUrl: this.data.images[0]
-        };
+        
     }
 });

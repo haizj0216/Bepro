@@ -189,7 +189,7 @@ page {
 
 .item6-content {
   position: relative;
-  padding-top: 400rpx;
+  padding-top: 420rpx;
 }
 
 .item6-title {

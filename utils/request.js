@@ -30,12 +30,24 @@ module.exports = {
                     if ("string" != typeof a) {
                         var c = a.code,
                             i = a.msg;
-                        "99999" === "".concat(c) ? e(a) : "token错误" !== i && (wx.showToast({
-                            icon: "none",
-                            title: i
-                        }), "6" === "".concat(c) && wx.removeStorageSync("token"), n({
-                            errMsg: "".concat(i, "(").concat(c, ")")
-                        }));
+                        if( "101001" === "".concat(c)) {
+                            wx.showModal({
+                              title: '授权登录',
+                              content:'授权失效，请重新授权',
+                              cancelText:'取消',
+                              confirmText:'确定',
+                              success(res) {
+                                  if(res.confirm) {
+                                      
+                                  }
+                              }
+                            })
+                        } else {
+                            "99999" === "".concat(c) ? e(a) : ( "101001" === "".concat(c) && wx.removeStorageSync("token"), n({
+                                errMsg: "".concat(i, "(").concat(c, ")")
+                            }));
+                        }
+                        
                     } else try {
                         a = JSON.parse(a);
                     } catch (e) {

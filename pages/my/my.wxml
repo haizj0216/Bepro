@@ -25,7 +25,7 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{!hasDoneQ&&orderList.length===0}}">
+  <view wx:if="{{!hasDoneQ}}">
     <no-data pageName="空我"></no-data>
   </view>
   <view wx:if="{{loading}}"></view>

@@ -53,8 +53,8 @@ Page({
         list: [],
         allSelect: !0,
         total: 0,
-        loading: !0,
-        hasDoneQ: !0
+        loading: !1,
+        hasDoneQ: !1
     },
     goPayment: function () {
         
@@ -71,10 +71,16 @@ Page({
         });
     },
     onLoad: function (t) {
-        this.getList();
+        var token = wx.getStorageSync("token")
+        if(token) {
+            this.getList();
+        }
     },
     onShow: function () {
-        this.showRequest && this.getList(), this.showRequest = !0;
+        var token = wx.getStorageSync("token")
+        if(token) {
+            this.showRequest && this.getList(), this.showRequest = !0;
+        }
         // this.mockdata();
     },
     getList: function () {

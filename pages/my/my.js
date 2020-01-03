@@ -44,9 +44,12 @@ Page({
     orderList: [],
     userInfo: {},
     loading: !0,
-    hasDoneQ: !0
+    hasDoneQ: !1
   },
   onLoad: function () {
+    if(!wx.getStorageSync('token')) {
+      return
+    }
     var e = r(t.regeneratorRuntime.mark(function e(r) {
       var n;
       return t.regeneratorRuntime.wrap(function (e) {
