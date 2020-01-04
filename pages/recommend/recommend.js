@@ -176,7 +176,7 @@ Page({
         wx.showLoading()
         var token = wx.getStorageSync("token")
         wx.request({
-            url: netUtils.apiUrl.recommendInfo + "?token=" + token,
+            url:netUtils.apiHost + netUtils.apiUrl.recommendInfo + "?token=" + token,
             method: "GET",
             success(res) {
                 if (res.data.code == 99999) {

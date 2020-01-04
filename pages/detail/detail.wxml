@@ -9,6 +9,9 @@
   </view>
     <view class="description">{{product.description}}</view>
   </view>
+  <view wx:for="{{images}}">
+  <image class="image" mode="widthFix" src="{{item}}"></image>
+  </view>
   <view class="bottom">
     <button bindtap="addToCart" class="buy-now" >加入购物车</button>
   </view>

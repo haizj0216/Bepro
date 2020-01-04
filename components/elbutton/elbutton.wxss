@@ -1,5 +1,5 @@
 /* components/elbutton/elbutton.wxss */
-button::after {
+.button::after {
     border: 0;
 }
 

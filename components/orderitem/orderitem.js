@@ -32,6 +32,7 @@ function r(e) {
         });
     };
 }
+var net = require("../../common/config.default");
 
 getApp();
 
@@ -54,29 +55,31 @@ Component({
                 return e.regeneratorRuntime.wrap(function(t) {
                     for (;;) switch (t.prev = t.next) {
                       case 0:
+                          var token = wx.getStorageSync('token')
+                          wx.showLoading()
                         return t.next = 2, e.default.request({
-                            url: "orderPay",
+                            url: net.apiUrl.payWechat + "?token=" + token,
                             data: {
-                                order_id: r.currentTarget.dataset.orderId
+                                orderNumber: r.currentTarget.dataset.orderId
                             }
                         });
 
                       case 2:
-                        if (0 !== (a = t.sent).code) {
+                        if (99999 !== (a = t.sent).code) {
                             t.next = 11;
                             break;
                         }
-                        if (!a.data || !a.data.no_pay) {
+                        if (a.data ) {
                             t.next = 8;
                             break;
                         }
                         return this.zeroOrderId = a.data.order_id, this.zeroModalShow(), t.abrupt("return");
 
                       case 8:
-                        n = a.data.payParams, o = this, e.default.requestPayment({
+                        n = a.data, o = this, e.default.requestPayment({
                             timeStamp: n.timeStamp + "",
                             nonceStr: n.nonceStr,
-                            package: n.package,
+                            package: n.payPackage,
                             signType: n.signType,
                             paySign: n.paySign,
                             success: function(e) {
@@ -85,10 +88,12 @@ Component({
                             fail: function(e) {},
                             complete: function(e) {
                                 console.log("payment complete", e);
+                                wx.hideLoading()
                             }
                         });
 
                       case 11:
+                        wx.hideLoading()
                         console.log("res", a);
 
                       case 12:

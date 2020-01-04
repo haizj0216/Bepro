@@ -41,6 +41,9 @@ function n(t) {
   };
 }
 
+var net = require("../../common/config.default");
+
+
 Page({
 
   /**
@@ -184,7 +187,7 @@ Page({
     if (token) {
       wx.showLoading()
       wx.request({
-        url: n.apiUrl.testResult,
+        url: net.apiHost + net.apiUrl.testResult,
         method: "GET",
         header: {
           "token": token,

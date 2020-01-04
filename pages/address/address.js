@@ -130,7 +130,7 @@ Page({
                   break;
 
                 case 7:
-                  e.default.setStorageSync("reSelectAddress", JSON.stringify(r.currentTarget.dataset.item));
+                  e.default.setStorageSync("reSelectAddress", r.currentTarget.dataset.item);
 
                 case 8:
                   e.default.navigateBack({

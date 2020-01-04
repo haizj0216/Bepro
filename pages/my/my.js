@@ -139,61 +139,18 @@ Page({
     });
   },
   orderReload: function () {
-    var e = r(t.regeneratorRuntime.mark(function e(r) {
-      var n, a, o;
-      return t.regeneratorRuntime.wrap(function (e) {
-        for (; ;) switch (e.prev = e.next) {
-          case 0:
-            return console.log("orderReload", r), e.next = 3, t.default.request({
-              url: "orderDetail",
-              data: {
-                order_id: r.detail
-              }
-            });
-
-          case 3:
-            0 === (n = e.sent).code && (a = this.transData(n.data.order_info), o = this.data.orderList.map(function (t) {
-              return t.id === a.id ? a : t;
-            }), this.setData({
-              orderList: o
-            })), console.log("orderDetail", n);
-
-          case 6:
-          case "end":
-            return e.stop();
-        }
-      }, e, this);
-    }));
-    return function (t) {
-      return e.apply(this, arguments);
-    };
-  }(),
+    this.getOrderList()
+  },
   onReady: function () { },
   onHide: function () { },
   onUnload: function () { },
-  onPullDownRefresh: function () { },
+  onPullDownRefresh: function () { 
+    this.getOrderList()
+  },
   onReachBottom: function () {
   },
   onShareAppMessage: function () {
     
   },
-  mockdata:function(){
-    let list = [{
-      order_num:123456,
-      statusText:1,
-      price:100,
-      address:{
-        name:"VV",
-        phone:"1234567890"
-      },
-      orderTime:"2019-12-12",
-      order_num:10,
-      id:123,
-    }];
-    this.setData({
-      hasDoneQ:0,
-      loading:0,
-      orderList:list,
-    })
-  }
+
 });

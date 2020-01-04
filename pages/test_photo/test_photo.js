@@ -137,6 +137,7 @@ Page({
     wx.uploadFile({
       url: n.apiHost + n.apiUrl.fileUpload + "?token=" + token,
       filePath: filePath,
+
       name: 'file',
       success(res) {
         var result = JSON.parse(res.data)
@@ -167,7 +168,7 @@ Page({
     var result = JSON.stringify(that.data.analysis_result)
     var token = wx.getStorageSync("token")
     wx.request({
-      url: n.apiUrl.testSave + "?token=" + token,
+      url: n.apiHost + n.apiUrl.testSave + "?token=" + token,
       method: "POST",
       data: {
         name: that.data.question.name,

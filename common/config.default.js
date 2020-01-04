@@ -1,7 +1,7 @@
 module.exports = {
     cdn: "xxx",
-    // apiHost: "http://localhost:8888/",
-    apiHost:"https://vapi.thebepro.com/",
+    apiHost: "http://192.168.199.235:8080/",
+    // apiHost:"https://vapi.thebepro.com/",
     apiUrl: {
         login: "auth/login",
         testSave:"test/save",
@@ -19,9 +19,11 @@ module.exports = {
         addressUpdate:"address/update",
         addressDelete:"address/delete",
         updateCart:"cart/update",
+        addCardOne:"cart/addOne",
         saveOrder:"order/save",
         orderList:"order/list",
         orderExpress:"order/getExpress",
+        payWechat:"pay/wechat",
     },
     scene: {
         1001: "发现栏小程序主入口",

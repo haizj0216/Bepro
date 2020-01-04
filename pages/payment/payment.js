@@ -84,22 +84,23 @@ Page({
         };
     }(),
     onShow: function () {
-        this.computeTotal();
-        var addressStore = wx.getStorageSync("reSelectAddress")
+        this.computeTotal()
+        var addressStore = wx.getStorageSync('reSelectAddress')
+        
         if (addressStore) {
             this.setData({
-                hasDefaultAddress: !0,
-                orderPreview: addressStore,
+                orderPreview: addressStore
             })
         }
     },
     getOrderPerview: function () {
-        var token = wx.getStorageSync("token")
+        
         var t = r(e.regeneratorRuntime.mark(function t() {
             var r, a, s, n, i, o, d = this;
             return e.regeneratorRuntime.wrap(function (t) {
                 for (;;) switch (t.prev = t.next) {
                     case 0:
+                        var token = wx.getStorageSync("token")
                         return this.data.loading && e.default.showLoading(),
                             t.next = 12, e.default.request({
                                 url: net.apiUrl.addressDefault + "?token=" + token,
@@ -114,8 +115,9 @@ Page({
                         if (99999 === n.code && n.data) {
                             this.setData({
                                 orderPreview: n.data,
-                                hasDefaultAddress: n.data.isDefault,
+                                hasDefaultAddress: !0,
                             })
+                            wx.setStorageSync('reSelectAddress', n.data)
                         };
                     case 19:
                         console.log("orderPreview", a);
@@ -197,7 +199,7 @@ Page({
         });
     },
     payment: function () {
-        var token = wx.getStorageSync("token")
+        
         var t = r(e.regeneratorRuntime.mark(function t() {
             var r, a, s, n;
             return e.regeneratorRuntime.wrap(function (t) {
@@ -223,10 +225,11 @@ Page({
                             }
                         }
                         wx.showLoading()
+                        var token = wx.getStorageSync("token")
                         return a = {
                                 addressId: this.data.orderPreview.id,
                                 product: JSON.stringify(productList),
-                                price: this.data.displayPayPrice,
+                                payPrice: this.data.displayPayPrice,
                             },
                             t.next = 9, e.default.request({
                                 url: net.apiUrl.saveOrder + "?token=" + token,
@@ -242,20 +245,28 @@ Page({
                             wx.hideLoading();
                             break;
                         }
-                        if (!s.data.no_pay) {
-                            t.next = 15;
-                            break;
-                        }
-                        return this.orderId = s.data.order_id, this.zeroModalShow(), t.abrupt("return");
+                        t.next = 15;
+                        var token = wx.getStorageSync("token");
+                        return e.default.request({
+                            url: net.apiUrl.payWechat + "?token=" + token,
+                            data: {
+                                orderNumber: s.data.id
+                            }
+                        });
 
                     case 15:
+                        if (99999 !== (n = t.sent).code) {
+                            t.next = 20;
+                            wx.hideLoading();
+                            break;
+                        }
                         e.default.removeStorageSync("selectCouponId"), e.default.removeStorageSync("reSelectAddress"),
-                            e.default.removeStorageSync("delAddressId"), n = s.data.payParams, e.default.requestPayment({
-                                timeStamp: n.timeStamp + "",
-                                nonceStr: n.nonceStr,
-                                package: n.package,
-                                signType: n.signType,
-                                paySign: n.paySign,
+                            e.default.removeStorageSync("delAddressId"), e.default.requestPayment({
+                                timeStamp: n.data.timeStamp + "",
+                                nonceStr: n.data.nonceStr,
+                                package: n.data.payPackage,
+                                signType: n.data.signType,
+                                paySign: n.data.paySign,
                                 success: function (t) {
                                     console.log("payment success res", t), e.default.switchTab({
                                         url: "/pages/my/my"
@@ -272,6 +283,7 @@ Page({
                             });
 
                     case 20:
+                        wx.hideLoading()
                         console.log("data", s);
 
                     case 21:

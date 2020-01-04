@@ -158,7 +158,9 @@ Component({
                 url: n.apiUrl.login,
                 method: "POST",
                 data: {
-                  code: a.code
+                  code: a.code,
+                  name:o.userInfo.nickName,
+                  avatar:o.userInfo.avatarUrl
                 }
               });
 

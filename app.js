@@ -57,16 +57,11 @@ App({
             this.globalData.loginCode = c.code;
 
           case 22:
-            if (g = e.default.getStorageSync("hasStartQ"), a.setProfile({
-              if_fill_question: !!g
-            }), !(u = e.default.getStorageSync("token"))) {
+            if (g = e.default.getStorageSync("hasStartQ"),  !(u = e.default.getStorageSync("token"))) {
               t.next = 30;
               break;
             }
-            // return t.next = 28, e.default.request({
-            //   url: "recordDetail",
-            //   method: "POST"
-            // });
+            
 
           case 28:
             if (0 === (h = t.sent).code && h.data && h.data.content) {
@@ -74,10 +69,7 @@ App({
                 key: "hasDoneQ",
                 data: !0
               }), e.default.setStorageSync("qData", h.data.content);
-              // try {
-              //   (p = JSON.parse(h.data.content)) && p.exact && (y = ["几乎没有", "偶尔", "经常"].indexOf(p.q11) || 0,
-              //     m = ["基本无", "中度", "重度"], e.default.setStorageSync("exactTest", [p.q10, m[y]]));
-              // } catch (e) { }
+              
             }
 
           case 30:
@@ -125,6 +117,7 @@ App({
       }
     })
   }(),
+
   globalData: {
     systemInfo: {},
     userInfo: null,

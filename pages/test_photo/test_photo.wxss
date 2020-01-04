@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: center; 
-  /* border: 2rpx dashed #e6e2e2; */
+  border: 2rpx dashed #e6e2e2;
   /* background-image: ""; */
   /* position: fixed;
   z-index: -1;
@@ -134,7 +134,6 @@
 .uploader_image{
   width: 80rpx;
   height: 80rpx;
-  margin-left: 100rpx;
   background-color: white;
   opacity: 0.3;
   padding: 15rpx;

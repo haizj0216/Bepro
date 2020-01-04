@@ -185,7 +185,7 @@ Page({
                       t.next = 37;
                       break;
                   }
-                  if (this.setStorage && (e.default.setStorageSync("reSelectAddress", JSON.stringify(a))), 
+                  if (this.setStorage && (e.default.setStorageSync("reSelectAddress", a)), 
                   !this.changeDirect) {
                       t.next = 35;
                       break;

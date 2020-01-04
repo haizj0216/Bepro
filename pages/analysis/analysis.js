@@ -165,7 +165,7 @@ Page({
     var token = wx.getStorageSync("token")
     wx.showLoading()
     wx.request({
-      url:n.apiUrl.testResult + "?token=" + token,
+      url:n.apiHost + n.apiUrl.testResult + "?token=" + token,
       method: "GET",
       success(res){
         if(res.data.code == 99999){

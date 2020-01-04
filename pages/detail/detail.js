@@ -44,13 +44,22 @@ var a = getApp();
 
 Page({
     data: {
+        images:[],
+        productIds:{},
         product: {
         }
     },
     onLoad: function (options) {
         var productJson = JSON.parse(options.product)
+        var imageList = productJson.images.split(',')
+        
         this.setData({
-            product: productJson
+            product: productJson,
+            images: imageList,
+            productIds:{
+                productId: productJson.id,
+                count: 1,}
+            
         })
     },
 
@@ -62,17 +71,13 @@ Page({
                     case 0:
                         var token = wx.getStorageSync("token")
                         let that = this
-                        var products = [{
-                            productId: that.data.product.id,
-                            count: 1,
-                        }]
                         return e.next = 12, t.default.request({
-                            url: net.apiUrl.addCart + "?token=" + token,
+                            url: net.apiUrl.addCardOne + "?token=" + token,
                             method: "POST",
                             header:{
                                 "content-type": "application/json"
                             },
-                            data: products
+                            data: that.data.productIds
                         });
 
                     case 12:

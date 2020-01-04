@@ -5,13 +5,13 @@
   <view class="order-item-body" style="max-height: {{close?0:10000}}px">
     <view class="flex-space-between">
       <view class="order-no">
-        订单编号：{{data.orderNo}}
+        订单编号：{{data.number}}
         
         <text bindtap="copyOrderId" class="copyOrderId" data-order-id="{{data.order_num}}">复制订单号</text>
       </view>
       <view class="order-status">{{data.statusText}}</view>
     </view>
-    <view wx:for="{{data.products}}" wx:key="product_{{index}}">
+    <view wx:for="{{data.productList}}" wx:key="product_{{index}}">
       <view class="item-detail">
         <view class="item-image-item">
           <image class="item-image" src="{{item.thumb}}"></image>
@@ -30,7 +30,7 @@
     <el-order-product-item product="{{item}}" wx:for="{{data.productSnapshotList}}" wx:key="product_{{index}}"></el-order-product-item>
     <view class="flex-space-between">
       <view class="order-total-text">商品总额</view>
-      <view class="order-total">￥{{data.price}}</view>
+      <view class="order-total">￥{{data.payPrice}}</view>
     </view>
     <view class="order-company-address" wx:if="{{data.status===5&&data.after_sale_status===100}}">
      
@@ -46,7 +46,7 @@
       </view>
       <view class="order-address-line">
         <view class="order-address-line-key">下单时间</view>
-        <view class="order-address-line-value">{{data.orderTime}}</view>
+        <view class="order-address-line-value">{{data.createTime}}</view>
       </view>
       <view class="order-address-line">
         <view class="open-tick">如需开票，请联系客服</view>

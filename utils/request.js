@@ -8,7 +8,7 @@ function n() {
 
 module.exports = {
     request: function (a) {
-        var c = a.method || "POST",
+        var  c = a.method || "POST",
             o = "".concat(e.apiHost).concat(e.apiUrl[a.url] || a.url),
             i = Object.assign({}, a.data),
             r = n(),
@@ -31,15 +31,15 @@ module.exports = {
                         var c = a.code,
                             i = a.msg;
                         if( "101001" === "".concat(c)) {
+                            wx.setStorageSync('token', '')
                             wx.showModal({
                               title: '授权登录',
                               content:'授权失效，请重新授权',
                               cancelText:'取消',
                               confirmText:'确定',
                               success(res) {
-                                  if(res.confirm) {
-                                      
-                                  }
+                                  var app = getApp()
+                                  app.relaodToken();
                               }
                             })
                         } else {
@@ -59,6 +59,8 @@ module.exports = {
             });
         });
     },
+    
+   
     uploadFile: function (a) {
         var c = this,
             o = "".concat(e.apiHost.default).concat(a.url),
