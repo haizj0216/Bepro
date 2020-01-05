@@ -19,7 +19,6 @@
     "pages/question_3/question_3"
   ],
   "tabBar": {
-    "selecctedColor": "#676a71",
     "color": "#b3a7a2",
     "position": "bottom",
     "list": [
@@ -27,21 +26,29 @@
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/images/icon_home_n.png",
-        "selectedIconPath": "/images/icon_home_s.png"
+        "selectedIconPath": "/images/icon_home_s.png",
+        "selecctedColor": "#000000"
+
       },
       {
+        "selecctedColor": "#000000",
+
         "pagePath": "pages/test_record/record",
         "text": "档案",
         "iconPath": "/images/icon_record_n.png",
         "selectedIconPath": "/images/icon_record_s.png"
       },
       {
+        "selecctedColor": "#000000",
+
         "pagePath": "pages/cart/cart",
         "text": "购物车",
         "iconPath": "/images/icon_cart_n.png",
         "selectedIconPath": "/images/icon_cart_s.png"
       },
       {
+        "selecctedColor": "#000000",
+
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "/images/icon_me_n.png",

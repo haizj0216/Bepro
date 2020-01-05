@@ -191,7 +191,7 @@ Page({
 
   getdata: function () {
     let that = this
-    token = wx.getStorageSync("token")
+    var token = wx.getStorageSync("token")
     if (token) {
       wx.showLoading()
       wx.request({

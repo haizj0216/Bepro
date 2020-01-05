@@ -89,6 +89,10 @@ Page({
             
             var token = wx.getStorageSync("token")
             if(!token) {
+              e.next = 8
+              this.setData({
+                hasDoneQ:!1
+              })
               return
             }
             return e.next = 10,wx.showLoading(), t.default.request({
@@ -283,21 +287,29 @@ Page({
   },
   
   updateanalysis(result) {
-    wx.setStorageSync('hasDoneQuestion', 1)
-    let maokong = result.pores_left_cheek.confidence * 100;
-    let falingwen = result.nasolabial_fold.confidence * 100;
-    let heiyanquan = result.dark_circle.confidence * 100;
-    let yandai = result.eye_pouch.confidence * 100;
-    let seban = result.skin_spot.confidence * 100;
-    let doudou = result.acne.confidence * 100;
-    let xiwen = result.eye_finelines.confidence * 100;
-    let blackhead = result.blackhead.confidence * 100;
-    let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
-    console.log(score);
-    this.setData({
-      scores: score,
-    })
-    this.init_echarts();
+    if(result) {
+      wx.setStorageSync('hasDoneQuestion', 1)
+      let maokong = result.pores_left_cheek.confidence * 100;
+      let falingwen = result.nasolabial_fold.confidence * 100;
+      let heiyanquan = result.dark_circle.confidence * 100;
+      let yandai = result.eye_pouch.confidence * 100;
+      let seban = result.skin_spot.confidence * 100;
+      let doudou = result.acne.confidence * 100;
+      let xiwen = result.eye_finelines.confidence * 100;
+      let blackhead = result.blackhead.confidence * 100;
+      let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
+      console.log(score);
+      this.setData({
+        scores: score,
+        hasDoneQ:!0
+      })
+      this.init_echarts();
+    } else {
+      this.setData({
+        hasDoneQ:!1
+      })
+    }
+    
   },
 
   updateResult(res) {
