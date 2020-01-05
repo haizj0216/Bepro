@@ -292,11 +292,15 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original', 'compressed'],
+      sizeType: [ 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
         var tempFilePaths = res.tempFilePaths;
-        if (tempFilePaths.length > 0) {
+        if(tempFilePaths.length > 2000000) {
+          wx.showToast({
+            title: '上传图片不能大于2M！',
+          })
+        } else if (tempFilePaths.length > 0) {
           that.setData({
             image: tempFilePaths[0],
             showCamera: false,

@@ -14,12 +14,13 @@ Page({
     ec: {
       lazyLoad: true,
     },
-    
-    city:'',
-    age:'',
-    sex:'',
+
+    city: '',
+    age: '',
+    sex: '',
+    test_time: "",
     echartsComponnet: null,
-    analysis_result:{},
+    analysis_result: {},
     analysis_string: "",
     ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
   },
@@ -144,10 +145,10 @@ Page({
               value: this.data.scores,
               name: '皮肤'
             }],
-            label:{
-              normal:{
-                fontSize:20,
-                rich:{}
+            label: {
+              normal: {
+                fontSize: 20,
+                rich: {}
               }
             }
           }]
@@ -160,43 +161,48 @@ Page({
     )
   },
 
-  getdata:function(){
+  getdata: function () {
     let that = this
     var token = wx.getStorageSync("token")
     wx.showLoading()
     wx.request({
-      url:n.apiHost + n.apiUrl.testResult + "?token=" + token,
+      url: n.apiHost + n.apiUrl.testResult + "?token=" + token,
       method: "GET",
-      success(res){
-        if(res.data.code == 99999){
-          var age = that.data.ageRange[res.data.data.age -1]
+      success(res) {
+        if (res.data.code == 99999) {
+          var age = that.data.ageRange[res.data.data.age - 1]
           var sex = res.data.data.sex == 1 ? "女" : "男"
           var citys = res.data.data.city
           var city = citys.split(',')
           var result = JSON.parse(res.data.data.analysisResult)
+          var date = new Date(res.data.data.testTime);
+          const year = date.getFullYear()
+          const month = date.getMonth() + 1
+          const day = date.getDate()
+          var createTime = year + "-" + month + "-" + day
           that.setData({
-            age:age,
-            city:city[1],
-            sex:sex,
-            test_time:res.data.data.testTime,
-            analysis_result:result,
-            analysis_string:res.data.data.analysisString,
+            age: age,
+            city: city[1],
+            sex: sex,
+            test_time: createTime,
+            analysis_result: result,
+            analysis_string: res.data.data.analysisString,
           })
+          wx.setStorageSync('hasDoneQuestion', 1)
           that.updateanalysis(result)
         }
-        
       },
-      fail(res){
+      fail(res) {
 
       },
-      complete(res){
+      complete(res) {
         wx.hideLoading()
       }
     })
   },
 
-  updateanalysis:function(result) {
-    
+  updateanalysis: function (result) {
+
     if (result == null) {
       let score = [80, 58, 82, 36, 75, 57, 60, 46];
       console.log(score);
@@ -221,8 +227,8 @@ Page({
     this.init_echarts();
   },
 
-  recompute(value){
-    
+  recompute(value) {
+
   },
 
   updateAnalysis() {
@@ -251,9 +257,9 @@ Page({
     this.init_echarts();
   },
 
-  toRemommend:function() {
+  toRemommend: function () {
     wx.navigateTo({
-      url:"/pages/recommend/recommend"
+      url: "/pages/recommend/recommend"
     })
   }
 

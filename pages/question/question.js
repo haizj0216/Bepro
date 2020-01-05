@@ -57,7 +57,8 @@ Page({
   onLoad: function (options) {
     qqmapsdk = new QQMapWX({
       key: 'XITBZ-3SBLG-4R3QN-IXXPJ-TD5TE-QUFPR'
-    });
+    })
+    let that = this
     wx.getSetting({
       success: (res) => {
         console.log(JSON.stringify(res))
@@ -77,7 +78,7 @@ Page({
                 wx.openSetting({
                   success: function (dataAu) {
                     if (dataAu.authSetting["scope.userLocation"] == true) {
-                      this.gettitude();
+                      that.gettitude()
                       wx.showToast({
                         title: '授权成功',
                         icon: 'success',
@@ -198,6 +199,13 @@ Page({
     if (that.data.name == null) {
       wx.showToast({
         title: "请输入姓名",
+        duration: 1000
+      })
+      return
+    }
+    if(that.data.region && that.data.region[0] == '省') {
+      wx.showToast({
+        title: "请输入地址",
         duration: 1000
       })
       return

@@ -10,7 +10,7 @@
     <view class="title">
       您的私人肤质档案
     </view>
-    <view class="time_text">2019.12.13</view>
+    <view class="time_text">{{test_time}}</view>
   </view>
 </view>
 

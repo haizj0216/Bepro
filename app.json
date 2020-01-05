@@ -12,7 +12,6 @@
     "pages/newaddress/newaddress",
     "pages/payment/payment",
     "pages/question/question",
-    "pages/element/element",
     "pages/analysis/analysis",
     "pages/test_photo/test_photo",
     "pages/expressTail/expressTail",

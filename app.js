@@ -64,13 +64,13 @@ App({
             
 
           case 28:
-            if (0 === (h = t.sent).code && h.data && h.data.content) {
-              e.default.setStorage({
-                key: "hasDoneQ",
-                data: !0
-              }), e.default.setStorageSync("qData", h.data.content);
+            // if (0 === (h = t.sent).code && h.data && h.data.content) {
+            //   e.default.setStorage({
+            //     key: "hasDoneQuestion",
+            //     data: !0
+            //   }), e.default.setStorageSync("qData", h.data.content);
               
-            }
+            // }
 
           case 30:
             d || this.appLaunchFinish();

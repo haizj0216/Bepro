@@ -194,7 +194,7 @@ Component({
               }
               var hasDoneQ = i.data.analysisResult ? 1 : 0
               return e.default.setStorage({
-                key: "hasDoneQ",
+                key: "hasDoneQuestion",
                 data: hasDoneQ,
               }), this.triggerEvent("getUserInfo", !0), t.abrupt("return");
             case 22:

@@ -86,15 +86,7 @@ Page({
       return t.regeneratorRuntime.wrap(function (e) {
         for (;;) switch (e.prev = e.next) {
           case 0:
-            if (n = t.default.getStorageSync("hasDoneQ")) {
-              e.next = 4;
-              break;
-            }
-            return this.setData({
-              hasDoneQ: n
-            }), e.abrupt("return");
-
-          case 4:
+            
             var token = wx.getStorageSync("token")
             if(!token) {
               return
@@ -109,7 +101,6 @@ Page({
               recommendList: r.data.map(function (t) {
                 return t.selected = !0, t.quantity = 1, t;
               }),
-              hasDoneQ: n
             });
           case 10:
             var token = wx.getStorageSync("token")
@@ -292,6 +283,7 @@ Page({
   },
   
   updateanalysis(result) {
+    wx.setStorageSync('hasDoneQuestion', 1)
     let maokong = result.pores_left_cheek.confidence * 100;
     let falingwen = result.nasolabial_fold.confidence * 100;
     let heiyanquan = result.dark_circle.confidence * 100;

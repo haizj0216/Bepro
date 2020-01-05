@@ -98,7 +98,7 @@ Page({
                 for (;;) switch (e.prev = e.next) {
                     case 0:
                         var token = wx.getStorageSync("token")
-                        return t.default.showTabBar(), this.data.loading && t.default.showLoading(), n = t.default.getStorageSync("hasDoneQ"),
+                        return t.default.showTabBar(), this.data.loading && t.default.showLoading(), n = t.default.getStorageSync("hasDoneQuestion"),
                             a = {}, e.prev = 4, e.next = 7, t.default.request({
                                 url: net.apiUrl.cartList + "?token=" + token,
                                 method: "GET"

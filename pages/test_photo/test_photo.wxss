@@ -43,7 +43,6 @@
 
 .image {
   width: 604rpx;
-  height: 604rpx;
   display: flex;
   align-items: center;
   justify-content: center; 
@@ -58,8 +57,8 @@
   margin-top: 50rpx;
   margin-right: 20px;
   display: flex;
+  font-size: 14px;
   flex-direction: row-reverse;
-  color: #e6e2e2;
 }
 
 .next_arrow{
@@ -75,10 +74,9 @@
   display: row;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 50rpx;
+  margin-top: 200rpx;
   width: 100%;
-  z-index: 3;
+  padding-bottom: 50rpx;
 }
 
 .skinanalyze {
@@ -111,8 +109,22 @@
 .close{
   margin-top: 200rpx;
   display: row;
-  
+  font-size: 40rpx;
+  color: white;
+  opacity: 0.6;
   justify-content: center;
+  border-radius: 10rpx;
+  border:1px solid #ffffff;
+  width: 250rpx;
+  height: 60rpx;
+  text-align: center;
+}
+
+.desc{
+  font-size: 28rpx;
+  margin-top: 50rpx;
+  color: white;
+  opacity: 0.6;
 }
 
 .camera_uploader{

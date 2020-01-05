@@ -142,7 +142,7 @@ Page({
    */
   onLoad: function (options) {
     wx.hideTabBar();
-    if (wx.getStorageSync("hasDoneQ")) {
+    if (wx.getStorageSync("hasDoneQuestion")) {
       this.setData({
         hasDoneQ: 1
       })
@@ -152,7 +152,7 @@ Page({
   },
 
   onShow:function(){
-    if (wx.getStorageSync("hasDoneQ")) {
+    if (wx.getStorageSync("hasDoneQuestion")) {
       this.setData({
         hasDoneQ: 1
       })
@@ -176,7 +176,7 @@ Page({
   goQuestionnaire: function () {
     var token = wx.getStorageSync("token")
     if(token) {
-      if (wx.getStorageSync("hasDoneQ")) {
+      if (wx.getStorageSync("hasDoneQuestion")) {
         this.setData({
           hasDoneQ: 1
         })
@@ -206,7 +206,7 @@ Page({
             that.setData({
               hasDoneQ: 1
             })
-            wx.setStorageSync('hasDoneQ', 1)
+            wx.setStorageSync('hasDoneQuestion', 1)
           } else {
             that.setData({
               hasDoneQ: 0

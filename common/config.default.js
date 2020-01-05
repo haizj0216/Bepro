@@ -1,7 +1,7 @@
 module.exports = {
     cdn: "xxx",
-    apiHost: "http://192.168.199.235:8080/",
-    // apiHost:"https://vapi.thebepro.com/",
+    // apiHost: "http://192.168.199.235:8080/",
+    apiHost:"https://vapi.thebepro.com/",
     apiUrl: {
         login: "auth/login",
         testSave:"test/save",

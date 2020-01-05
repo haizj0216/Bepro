@@ -1,7 +1,0 @@
-<!--pages/element/element.wxml-->
-<view class="page">
-<view class="image">
-    <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576082830&di=fe45ba128a02a954f28ec324766f7d0f&imgtype=jpg&er=1&src=http%3A%2F%2Ffile05.16sucai.com%2F2015%2F0705%2Fd3b4b0be0b4f8608d4049b5ed651446a.jpg' mode='widthFix'></image>
-  </view>
-<text class="person">个人因素</text>
-</view>
