@@ -24,6 +24,7 @@ module.exports = {
         orderList:"order/list",
         orderExpress:"order/getExpress",
         payWechat:"pay/wechat",
+        orderInfo:"order/info",
     },
     scene: {
         1001: "发现栏小程序主入口",

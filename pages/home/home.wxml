@@ -44,7 +44,7 @@
   </swiper-item>
   <swiper-item key="3">
     <view class="item6-content">
-      <image class="item6-banner" src="https://vapi.thebepro.com/files/fbffa9eda627b83b36f2edb994de8dac.png" mode='widthFix'></image>
+      <image class="item6-banner" src="https://vapi.thebepro.com/files/edb1db15fb74c964f941dccdc5ecde18.png" mode='widthFix'></image>
       <view>
         <view class="item6-title">严选成分 不为赋予概念而复杂配方</view>
         <view class="item6-des">选用EWG值1-2等级原料</view>

@@ -35,7 +35,7 @@ function r(t) {
 
 var net = require("../../common/config.default");
 
-var n = require("../../utils/util"), a = getApp(), o = ["待支付", "待发货", "发货中", "待收货", "已完成", "已关闭", "已取消"];
+var n = require("../../utils/util"), a = getApp(), o = ["待支付", "待发货", "发货中", "待收货", "已完成", "已关闭", "已关闭","已退款", "已退款"];
 
 Page({
   showRequest: !1,
@@ -115,7 +115,25 @@ Page({
     };
   }(),
   transData: function (t) {
-    t.statusText = o[t.status - 1];
+    var text;
+    if(t.status == 1) {
+      text = "待支付"
+    } else if(t.status == 2) {
+      if(t.expressStatus == 1) {
+        text = "待发货"
+      } else if(t.expressStatus == 4) {
+        text = "已完成"
+      } else {
+        text = "待收货"
+      }
+    } else if(t.status == 3 || t.status == 4) {
+      text = "已取消"
+    } else if(t.status == 5 || t.status == 6) {
+      text = "已关闭"
+    } else{
+      text = "已完成"
+    }
+    t.statusText = text;
      return t;
   },
   goCoupon: function () {

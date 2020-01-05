@@ -151,6 +151,14 @@ Page({
     }
   },
 
+  onShow:function(){
+    if (wx.getStorageSync("hasDoneQ")) {
+      this.setData({
+        hasDoneQ: 1
+      })
+    } 
+  },
+
   /**
    * 用户点击右上角分享
    */

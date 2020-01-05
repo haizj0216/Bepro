@@ -24,13 +24,13 @@
           {{item.description}}</view>
           <view class="item_count">x{{item.quantity}}</view>
         </view>
-        <view class="item-bottom-price">￥{{item.price}}</view>
+        <view class="item-bottom-price">￥{{item.price/100}}</view>
       </view>
     </view>
     <el-order-product-item product="{{item}}" wx:for="{{data.productSnapshotList}}" wx:key="product_{{index}}"></el-order-product-item>
     <view class="flex-space-between">
       <view class="order-total-text">商品总额</view>
-      <view class="order-total">￥{{data.payPrice}}</view>
+      <view class="order-total">￥{{data.payPrice/100}}</view>
     </view>
     <view class="order-company-address" wx:if="{{data.status===5&&data.after_sale_status===100}}">
      
@@ -55,12 +55,12 @@
     <view class="order-btns">
       <el-button bindbtntap="payNow" data-order-id="{{data.id}}" myClass="order-btn" text="立即支付" wx:if="{{data.status===1}}"></el-button>
       <!-- <el-button bindbtntap="changeAddress" data-order-id="{{data.id}}" myClass="order-btn" text="修改地址" wx:if="{{data.status===2}}"></el-button> -->
-      <el-button bindbtntap="receiveModalShow" data-order-id="{{data.id}}" myClass="order-btn" text="确认收货" wx:if="{{data.status===4}}"></el-button>
-      <el-button bindbtntap="goExpress" data-address="{{data.address}}" data-order-id="{{data.id}}" data-order-num="{{data.order_num}}" data-expressNo="{{data.expressNo}}" myClass="order-btn" text="查看物流" wx:if="{{data.status===4}}"></el-button>
+      <!-- <el-button bindbtntap="receiveModalShow" data-order-id="{{data.id}}" myClass="order-btn" text="确认收货" wx:if="{{data.status===4}}"></el-button> -->
+      <el-button bindbtntap="goExpress" data-address="{{data.address}}" data-order-id="{{data.id}}" data-order-num="{{data.order_num}}" data-expressNo="{{data.expressNo}}" myClass="order-btn" text="查看物流" wx:if="{{data.status===2 && data.expressStatus!==1 && data.expressNo}}"></el-button>
       <!-- <el-button bindbtntap="goAfterUse" btnTip="10元代金券" data-order-id="{{data.id}}" myClass="order-btn-plain" text="用后反馈" wx:if="{{!!data.can_feedback}}"></el-button> -->
-      <el-button bindbtntap="goReturn" data-order-id="{{data.id}}" myClass="order-btn" text="申请售后" wx:if="{{!!data.can_after_sale}}"></el-button>
+      <!-- <el-button bindbtntap="goReturn" data-order-id="{{data.id}}" myClass="order-btn" text="申请售后" wx:if="{{!!data.can_after_sale}}"></el-button>
       <el-button bindbtntap="modalVisible" data-order-id="{{data.id}}" data-show="{{true}}" myClass="order-btn" text="填入邮寄单号" wx:if="{{data.status===5&&data.after_sale_status===100}}"></el-button>
-      <view class="sub-btn" wx:if="{{data.status===6}}">
+      <view class="sub-btn" wx:if="{{data.status===9}}">
         已退款
       </view>
       <view class="sub-btn" wx:if="{{data.after_sale_status===50||data.after_sale_status===75}}">
@@ -71,7 +71,7 @@
       </view>
       <view class="sub-btn" wx:if="{{data.after_sale_status===500&&data.final_status!==550}}">
         已{{data.after_sale_type===1?'退款':'换货'}}
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

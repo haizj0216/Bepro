@@ -148,16 +148,32 @@ Page({
           that.skinanalyze(result.data.url)
         } else {
           wx.hideLoading()
-          wx.showToast({
-            title: '图片识别失败，请重新拍照或者替换其他照片'
+          wx.showModal({
+            content:res.data,
+            success(res) {
+
+            }, fail(res) {
+
+            }
           })
+          // wx.showToast({
+          //   title: '图片上传失败，请重新拍照或者替换其他照片'
+          // })
         }
         console.log(res.data)
       },
       fail(res) {
         wx.hideLoading()
-        wx.showToast({
-          title: '图片识别失败，请重新拍照或者替换其他照片'
+        // wx.showToast({
+        //   title: '图片上传失败，请重新拍照或者替换其他照片'
+        // })
+        wx.showModal({
+          content:res.data,
+          success(res) {
+
+          }, fail(res) {
+            
+          }
         })
       }
     })
@@ -187,8 +203,16 @@ Page({
       },
       fail(res) {
         wx.hideLoading()
-        wx.showToast({
-          title: '图片识别失败，请重新拍照或者替换其他照片'
+        // wx.showToast({
+        //   title: '分析结果失败'
+        // })
+        wx.showModal({
+          content:'分析结果失败',
+          success(res) {
+
+          }, fail(res) {
+            
+          }
         })
       }
 
@@ -225,16 +249,32 @@ Page({
           that.doget();
         } else {
           wx.hideLoading()
-          wx.showToast({
-            title: '图片识别失败，请重新拍照或者替换其他照片'
+          // wx.showToast({
+          //   title: res.data
+          // })
+          wx.showModal({
+            content:res.data,
+            success(res) {
+  
+            }, fail(res) {
+              
+            }
           })
         }
 
       },
       fail(res) {
         wx.hideLoading()
-        wx.showToast({
-          title: '图片识别失败，请重新拍照或者替换其他照片'
+        // wx.showToast({
+        //   title: res.data
+        // })
+        wx.showModal({
+          content:res.data,
+          success(res) {
+
+          }, fail(res) {
+            
+          }
         })
       }
 
@@ -307,9 +347,7 @@ Page({
     this.setData({
       showPop: false,
     })
-    this.setData({
-      showCamera: true,
-    })
+    this.chooseimage()
   },
 
   updateAnalysis(result) {

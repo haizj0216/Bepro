@@ -102,7 +102,7 @@
   align-items: center;
   position: fixed;
   background-color: rgba(0, 0, 0, .5);
-  z-index: 2;
+  z-index: 100;
   top: 0;
   left: 0;
   flex-direction: column;
@@ -111,8 +111,7 @@
 .close{
   margin-top: 200rpx;
   display: row;
-  width: 50rpx;
-  height: 50rpx;
+  
   justify-content: center;
 }
 

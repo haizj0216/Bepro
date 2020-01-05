@@ -21,7 +21,7 @@
           <counter bindchange="onCounterChange" min="{{minQuantity}}" value="{{product.quantity}}"></counter>
           <view class="out-of-stock" wx:if="{{product.disable}}">缺货</view>
         </view>
-        <view class="item-bottom-price">￥{{product.price}}</view>
+        <view class="item-bottom-price">￥{{product.price/100}}</view>
         <view class="item-bottom-price" wx:if="{{showNum}}">x{{product.quantity}}</view>
       </view>
     </view>
@@ -52,7 +52,7 @@
             <counter bindchange="onCounterChange" max="{{maxQuantity}}" min="{{minQuantity}}" value="{{product.quantity}}"></counter>
             <view class="out-of-stock" wx:if="{{product.disable}}">缺货</view>
           </view>
-          <view class="item-bottom-price">￥{{product.price}}</view>
+          <view class="item-bottom-price">￥{{product.price/100}}</view>
           <view class="item-bottom-price" wx:if="{{showNum}}">x{{product.quantity}}</view>
         </view>
       </view>

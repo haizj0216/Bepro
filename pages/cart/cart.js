@@ -204,7 +204,7 @@ Page({
     computeTotal: function () {
         this.setData({
             total: this.data.list.reduce(function (t, e) {
-                return e.selected ? a.plus(t, a.times(e.price, e.quantity)) : t;
+                return e.selected ? a.plus(t, a.times(e.price/100, e.quantity)) : t;
             }, 0)
         });
     },

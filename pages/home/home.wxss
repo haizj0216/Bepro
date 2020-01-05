@@ -112,7 +112,7 @@ page {
 }
 
 .item3-body {
-  padding: 0 0 0 102rpx;
+  padding: 0 0 0 80rpx;
   box-sizing: border-box;
 }
 
@@ -128,7 +128,7 @@ page {
   display: flex;
   margin-top: 30rpx;
   margin-left: -36rpx;
-  padding-right: 100rpx;
+  padding-right: 80rpx;
 }
 
 .item3-body-item {
@@ -150,7 +150,6 @@ page {
 
 .item4-body-items {
   display: flex;
-  margin-top: 100rpx;
   margin-left: 60rpx;
   margin-right: 60rpx;
   flex-direction: row;
@@ -161,7 +160,7 @@ page {
 .item4-body-item {
   text-align: center;
   width: 33.3333333%;
-  margin-top: 80rpx;
+  margin-top: 30rpx;
 }
 
 .item4-body-item-image {
@@ -193,19 +192,17 @@ page {
 }
 
 .item6-title {
-  color: white;
+  color: black;
   font-size: 30rpx;
   font-family: SimHei;
-  text-align: right;
-  margin-right: 40rpx;
+  margin-left: 100rpx;
 }
 
 .item6-des {
-  color: white;
-  font-size: 20rpx;
+  color: black;
+  font-size: 24rpx;
   margin-top: 5rpx;
-  text-align: right;
-  margin-right: 40rpx;
+  margin-left: 100rpx;
 }
 
 

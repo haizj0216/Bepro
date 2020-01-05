@@ -89,6 +89,7 @@ Page({
         
         if (addressStore) {
             this.setData({
+                hasDefaultAddress:!0,
                 orderPreview: addressStore
             })
         }
@@ -221,7 +222,7 @@ Page({
                             productList[i] = {
                                 productId: list[i].id,
                                 count: list[i].quantity,
-                                price:list[i].price
+                                price:list[i].price/100
                             }
                         }
                         wx.showLoading()
@@ -345,7 +346,7 @@ Page({
     computeTotal: function () {
         this.setData({
             displayPayPrice: this.data.products.reduce(function (t, e) {
-                return math.plus(t, math.times(e.price, e.quantity));
+                return math.plus(t, math.times(e.price/100, e.quantity));
             }, 0)
         });
     },

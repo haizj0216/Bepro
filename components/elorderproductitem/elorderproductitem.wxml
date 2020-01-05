@@ -9,5 +9,5 @@
             <counter bindchange="onCounterChange" max="{{product.quantity}}" min="{{1}}" value="{{product.num}}"></counter>
         </view>
     </view>
-    <view class="order-item-product-item-price">￥{{product.price}}</view>
+    <view class="order-item-product-item-price">￥{{product.price/100}}</view>
 </view>

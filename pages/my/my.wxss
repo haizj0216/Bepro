@@ -2,7 +2,9 @@
 page {
     background-color: rgb(243, 244, 244);
 }
-
+.contact::after{
+    border: 0;
+}
 .no-order-list {
     text-align: center;
     margin-top: 234rpx;

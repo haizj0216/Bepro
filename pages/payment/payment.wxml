@@ -48,7 +48,7 @@
           {{item.description}}</view>
           <view class="item_count">x{{item.quantity}}</view>
         </view>
-        <view class="item-bottom-price">￥{{item.price}}</view>
+        <view class="item-bottom-price">￥{{item.price/100}}</view>
       </view>
     </view>
     <view style="margin-left: 20rpx; margin-right: -20rpx;" wx:for="{{list}}" wx:key="product_{{index}}_{{item.quantity}}"></view>
