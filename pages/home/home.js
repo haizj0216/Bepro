@@ -189,6 +189,21 @@ Page({
     
   },
 
+  loginReload:function(){
+    var token = wx.getStorageSync("token")
+    if(token) {
+      if (wx.getStorageSync("hasDoneQuestion")) {
+        this.setData({
+          hasDoneQ: 1
+        })
+      }
+      wx.navigateTo({
+        url: '/pages/question/question',
+      })
+
+    }
+  },
+
   getdata: function () {
     let that = this
     var token = wx.getStorageSync("token")

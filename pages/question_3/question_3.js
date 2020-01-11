@@ -147,9 +147,9 @@ Page({
       sex:question.sex,
       name:question.name,
       zone:question.zone,
-      sleep_time:question.sleep_time,
-      shine_time:question.shine_time,
-      electronics_time:question.electronics_time
+      sleepValue:question.sleep_time,
+      sunValue:question.shine_time,
+      phoneValue:question.electronics_time
     })
   },
 

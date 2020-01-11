@@ -326,9 +326,8 @@ page {
 .userinfo {
     color: rgb(170, 165, 165);
     font-size: 25rpx;
-    margin-right: 30rpx;
     display: flex;
-    margin-left: 250rpx;
+    margin-left: 200rpx;
     align-items: center;
 }
 .radar{

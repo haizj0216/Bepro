@@ -189,13 +189,13 @@ Page({
       data: {
         name: that.data.question.name,
         sex: that.data.question.sex,
-        age: that.data.question.age,
+        age: that.data.question.age + 1,
         zone: that.data.question.zone,
         photo: that.data.imageUrl,
         skinQuestion: that.data.question.skin_question,
-        sleepTime: that.data.question.sleep_time,
-        shineTime: that.data.question.shine_time,
-        electronicsTime: that.data.question.electronics_time,
+        sleepTime: that.data.question.sleep_time + 1,
+        shineTime: that.data.question.shine_time + 1,
+        electronicsTime: that.data.question.electronics_time + 1,
         analysisResult: result,
       },
       success(res) {

@@ -37,14 +37,14 @@
         </view>
       </block>
     </view>
-    <el-button wx:if="{{!hasDoneQ}}" bindbtntap="goQuestionnaire" openType="getUserInfo" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
+    <el-button wx:if="{{!hasDoneQ}}" bindbtntap="goQuestionnaire" openType="getUserInfo" bindonlogin="loginReload" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
     <view class="arrow-container arrow-container-mini">
       <image class="array" src="/images/down_arrow.png"></image>
     </view>
   </swiper-item>
   <swiper-item key="3">
     <view class="item6-content">
-      <image class="item6-banner" src="https://vapi.thebepro.com/files/1d1ee1758cb373cec1f83857d6c4158e.png" mode='widthFix'></image>
+      <image class="item6-banner" src="https://vapi.thebepro.com/files/dd1526925f71cc8b47b02a60f078de05.png" mode='widthFix'></image>
       <view>
         <view class="item6-title">严选成分 不为赋予概念而复杂配方</view>
         <view class="item6-des">选用EWG值1-2等级原料</view>
@@ -57,6 +57,6 @@
         <view class="item4-body-item-text">{{iconItem.name}}</view>
       </view>
     </view>
-    <el-button wx:if="{{!hasDoneQ}}" bindbtntap="goQuestionnaire" openType="getUserInfo" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
+    <el-button wx:if="{{!hasDoneQ}}" bindbtntap="goQuestionnaire" bindonlogin="loginReload" openType="getUserInfo" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
   </swiper-item>
 </swiper>

@@ -185,18 +185,19 @@ Component({
               });
 
             case 18:
-              return e.default.hideLoading(), e.default.showToast({
+              return this.triggerEvent("onlogin", !1) ,e.default.hideLoading(), e.default.showToast({
                 title: "授权失败，请重试"
-              }), this.triggerEvent("getUserInfo", !1), t.abrupt("return");
+              }), t.abrupt("return");
             case 19:
               if (99999 !== (i = t.sent).code) {
                 break;
               }
               var hasDoneQ = i.data.analysisResult ? 1 : 0
-              return e.default.setStorage({
+              
+              return this.triggerEvent("onlogin", !0),e.default.setStorage({
                 key: "hasDoneQuestion",
                 data: hasDoneQ,
-              }), this.triggerEvent("getUserInfo", !0), t.abrupt("return");
+              }), t.abrupt("return");
             case 22:
             case "end":
               return t.stop();
