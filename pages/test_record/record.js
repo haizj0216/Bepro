@@ -72,7 +72,7 @@ Page({
     analysis_string:""
   },
   onLoad: function (options) {
-    this.echartsComponnet = this.selectComponent('#mychart-dom-graph-record');
+    
     this.init();
   },
   onShow: function () {
@@ -343,6 +343,9 @@ Page({
   },
 
   init_echarts: function () {
+    if(this.echartsComponnet == null) {
+      this.echartsComponnet = this.selectComponent('#mychart-dom-graph-record');
+    }
     this.echartsComponnet.init((canvas, width, height) => {
       const chart = echarts.init(canvas, null, {
         width: width,

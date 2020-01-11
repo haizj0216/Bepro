@@ -28,7 +28,7 @@
   color: #fff;
   border-radius: 0;
   width: 618rpx;
-  margin-top: 80rpx;
+  margin-top: 30rpx;
   margin-bottom: 36rpx;
   font-size: 28rpx;
   padding: 26rpx 0;
