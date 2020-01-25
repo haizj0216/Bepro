@@ -4,13 +4,13 @@
 <body></body>
 <view class="imageSize">
 	<!-- <image class="image" mode="aspectFit" src="{{image}}"></image> -->
-		<view class="camera_layout">
-			<!-- <camera class='camera_show' device-position="front" flash="off" binderror="error"> -->
-				<view class="image">
-					<image style="width:100%, margin-top:100rpx" mode="widthFix" src="{{image}}"></image>
-				</view>
-			<!-- </camera> -->
+	<view class="camera_layout">
+		<!-- <camera class='camera_show' device-position="front" flash="off" binderror="error"> -->
+		<view class="image">
+			<image style="width:100%, margin-top:100rpx" mode="widthFix" src="{{image}}"></image>
 		</view>
+		<!-- </camera> -->
+	</view>
 	<view class='{{!showPop?"bottom":"pop_hide"}}'>
 		<view class="camera_uploader">
 			<!-- <image class="camera_image" bindtap="takePhoto" src="/images/icon_camera.png"></image> -->
@@ -20,9 +20,15 @@
 	</view>
 </view>
 <view class='{{showPop?"pop_show":"pop_hide"}}'>
-  <view class="pop">
-    <image class="cover_image" src="https://vapi.thebepro.com/files/1f054d1047fc8622d6981f2db963e88d.gif"></image>
+	<view class="pop">
+		<image class="cover_image" src='{{image_gif}}'></image>
 		<view class="desc">上传照片AI测肤</view>
-    <view class="close" bindtap="hidePop">立即开始</view>
-  </view>
+		<view class="close" bindtap="hidePop">立即开始</view>
+	</view>
+</view>
+<view class='{{showloading?"pop_show":"pop_hide"}}'>
+	<view class="loading">
+		<image class="loading_iamge" src="/images/analysing.gif"></image>
+	</view>
+
 </view>

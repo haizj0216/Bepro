@@ -2,6 +2,8 @@
 <header showBack="{{true}}"></header>
 <body></body>
 <view>
+<view class="title">3/肌肤问题</view>
+
   <view class="question_1">h.以下哪些肌肤问题正在困扰您</view>
   <view class="home_grids">
     <view wx:for="{{images}}" wx:key="item.name" class='home_grid' data-id='{{item.id}}' bindtap="setChecked">
@@ -12,4 +14,3 @@
   <!-- <view class="question_1">i.洁面后，如果不能使用任何护肤品，2-3小时候您的肌肤状态</view><view class="home_grids"><view wx:for="{{texts}}" class='{{item.checked ? "text_grid_selected" : "text_grid"}}' data-id='{{item.id}}' bindtap="setSelected"><view class="text2">{{item.name}}</view></view></view> -->
 </view>
 <view class="next" bindtap="toNext">下一步></view>
-<view class="span"></view>

@@ -1,9 +1,10 @@
 <!--pages/question/question.wxml-->
 <header showBack="{{true}}"></header>
 <body></body>
+<view class="title">1/基本信息</view>
 <view class="name">a.您的姓名或昵称
 </view>
-<input class="name_input" bindinput="getName"></input>
+<input class="name_input" bindinput="getName" value="{{name}}"></input>
 <view class="name">b.您的性别
 </view>
 <view class="radio_group">
@@ -31,4 +32,3 @@
 
 
 <view class="next" bindtap="toNext">下一步></view>
-<view class="span"></view>

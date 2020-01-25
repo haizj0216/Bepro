@@ -1,37 +1,42 @@
 <!--pages/test_record/record.wxml-->
 <header showBack="{{false}}"></header>
+
 <body></body>
 <view wx:if="{{!hasDoneQ}}">
-  <no-data pageName="空档案页"></no-data>
+	<no-data pageName="空档案页"></no-data>
 </view>
 <block wx:else>
-  <view>
-    <view class="head_layout">
-      <view class="head">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <view class="username">
-        <open-data type="userNickName"></open-data>
-        <text style="font-size:30rpx">皮肤档案</text>
-      </view>
-      <view class="userinfo">{{sex}} | {{age}} | {{city}}</view>
-    </view>
-    <view class="analysis">
-      <view class="radar">
-        <ec-canvas id="mychart-dom-graph-record" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
-      </view>
-      <view class="analysis_result">
-        <view>测试分析</view>
-        <view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
-        <view class="analysis_text">{{analysis_string}}</view>
-      </view>
+	<view>
+		<view class="head_layout">
+			<view class="head">
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+			<view class="username">{{userName}}
+				<!-- <open-data type="userNickName"></open-data> -->
+			</view>
 
-      <el-button bindbtntap="goQuestionnaire" myClass="question" text="更新皮肤状态"></el-button>
-    </view>
-    
-  </view>
-  <view class="recommend-container">
-    <recommend-list allSelect="{{allSelect}}" bindquantitychange="onQuantityChange" bindselectallchange="onAllSelectChange" bindselectchange="onProductSelectChange" from="档案产品推荐页" list="{{recommendList}}" solution="{{solution}}"></recommend-list>
-    <el-button bindbtntap="addToCart" myClass="add-to-cart" openType="getUserInfo" text="加入购物车"></el-button>
-  </view>
+			<view class="score_layout">
+				<view class="score_title">肌肤得分</view>
+				<circle id='circle-wewle' draw='circwewle' per='{{totalScore}}' r='60' />
+			</view>
+
+		</view>
+		<view class="analysis">
+			<view class="radar">
+				<ec-canvas id="mychart-dom-graph-record" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
+			</view>
+			<view class="analysis_result">
+				<view>测试分析</view>
+				<view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
+				<view class="analysis_text">{{analysis_string}}</view>
+			</view>
+
+			<el-button bindbtntap="goQuestionnaire" myClass="question" text="更新皮肤状态"></el-button>
+		</view>
+
+	</view>
+	<view class="recommend-container">
+		<recommend-list allSelect="{{allSelect}}" bindquantitychange="onQuantityChange" bindselectallchange="onAllSelectChange" bindselectchange="onProductSelectChange" from="档案产品推荐页" list="{{recommendList}}" solution="{{solution}}"></recommend-list>
+		<el-button bindbtntap="addToCart" myClass="add-to-cart" openType="getUserInfo" text="加入购物车"></el-button>
+	</view>
 </block>

@@ -5,10 +5,29 @@
 }
 
 .title_layout {
-  margin-top: 55rpx;
   font-size: 30rpx;
   text-align: right;
-  margin-left: 200rpx;
+  margin-left: 350rpx;
+}
+
+.score_title{
+  font-size: 20rpx;
+  color: grey;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.score_layout{
+  position: fixed;
+  right: 30rpx;
+}
+
+.username {
+  margin-left: 20rpx;
+  flex-direction: column;
+  display: flex;
+  margin-top: 70rpx;
 }
 
 .time_text {
@@ -19,16 +38,19 @@
 .head_layout {
   display: flex;
   flex-direction: row;
-  margin-top: 50rpx;
-  margin-left: 80rpx;
-  margin-right: 80rpx;
+  width: 100%;
+  height: 200rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-color: rgb(243, 244, 244);
 }
 
 .head {
-  width: 150rpx;
-  height: 150rpx;
+  width: 100rpx;
+  height: 100rpx;
   overflow: hidden;
   border-radius: 50%;
+  margin-top: 50rpx;
 }
 
 .item-body-items {
@@ -74,7 +96,7 @@
   width: 600rpx;
   height: 90rxx;
   font-size: 26rpx;
-  margin-top: 200rpx;
+  margin-top: 50rpx;
   margin-bottom: 50rpx;
 }
 

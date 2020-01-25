@@ -3,21 +3,24 @@
 
 <body></body>
 <view class="head_layout">
-  <view class="head">
-    <open-data type="userAvatarUrl"></open-data>
-  </view>
-  <view class="title_layout">
-    <view class="title">
-      您的私人肤质档案
-    </view>
-    <view class="time_text">{{test_time}}</view>
-  </view>
+	<view class="head">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<view class="username">{{userName}}
+		<!-- <open-data type="userNickName"></open-data> -->
+	</view>
+
+	<view class="score_layout">
+		<view class="score_title">肌肤得分</view>
+		<circle  id='circle-wewle' draw='circwewle' per='{{totalScore}}' r='60' />
+	</view>
+
 </view>
 
 
 
 <view class="radar">
-  <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
+	<ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
 </view>
 
 <!-- <block wx:for="{{faceresult}}" wx:for-item="itemresult">
@@ -30,11 +33,15 @@
   </view>
 </block> -->
 <view class="analysis_result">
-  <view>测试分析</view>
-  <view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
+	<!-- <view>综合分数</view>
+  <view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view> -->
 
-  <view class="analysis_text">{{analysis_string}}</view>
 
+
+	<view>测试分析</view>
+	<view style="width: 140rpx; height: 4rpx; background-color: rgb(179, 167, 162); margin-top: 5rpx;"></view>
+
+	<view class="analysis_text">{{analysis_string}}</view>
 </view>
 
 <button class="qu-button" bindtap="toRemommend">获取您的私人护肤解决方案</button>

@@ -1,6 +1,8 @@
 <!--pages/question_2/question_2.wxml-->
 <header showBack="{{true}}"></header>
 <body></body>
+<view class="title">2/生活方式</view>
+
 <view class="name">e.您每日的日晒时长</view>
 <!-- <slider class="slider" max="3" step="1" selected-color="#000000" backgroundColor="#000000" blockSize="10px"></slider><view class="age"><view class="age_text">小于0.5小时</view><view class="age_text">0.5-1小时</view><view class="age_text">1-3小时</view><view class="age_text">大于3小时</view></view> -->
 <view class="slider-view">
@@ -17,4 +19,3 @@
   <el-agelider bindchange="onPhoneChange" max="{{phoneRange.length-1}}" value="{{phoneValue}}" values="{{phoneRange}}"></el-agelider>
 </view>
 <view class="next" bindtap="toNext">下一步></view>
-<view class="span"></view>

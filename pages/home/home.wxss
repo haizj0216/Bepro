@@ -112,7 +112,6 @@ page {
 }
 
 .item3-body {
-  padding: 0 0 0 80rpx;
   box-sizing: border-box;
 }
 
@@ -122,13 +121,14 @@ page {
   letter-spacing: 4rpx;
   margin-top: 30rpx;
   font-weight: bold;
+  margin-left: 80rpx;
 }
 
 .item3-body-items {
   display: flex;
   margin-top: 30rpx;
-  margin-left: -36rpx;
-  padding-right: 80rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
 }
 
 .item3-body-item {

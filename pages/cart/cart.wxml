@@ -23,7 +23,7 @@
     <view class="empty" wx:if="{{list.length===0}}">
       <image class="empty-image" src="https://vapi.thebepro.com/files/cart-empty.png"></image>
       <view class="empty-text">您的购物袋空空如也</view>
-      <view class="empty-des">健康生活从头开始，Bepro给您带来惊喜！</view>
+      <view class="empty-des">健康生活从头开始，PrintNature给您带来惊喜！</view>
       <el-button bindbtntap="goRecommendPage" myClass="check-product-btn" text="查看适合我的产品" open-type="getUserInfo"></el-button>
     </view>
   </block>

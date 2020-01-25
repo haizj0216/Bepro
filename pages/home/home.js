@@ -149,6 +149,7 @@ Page({
     } else {
       this.getdata()
     }
+    this.dowloadgif();
   },
 
   onShow:function(){
@@ -222,6 +223,7 @@ Page({
               hasDoneQ: 1
             })
             wx.setStorageSync('hasDoneQuestion', 1)
+            wx.setStorageSync('testName', res.data.data.testName)
           } else {
             that.setData({
               hasDoneQ: 0
@@ -239,5 +241,25 @@ Page({
     }
 
   },
+
+  dowloadgif:function() {
+    if(!wx.getStorageSync('guide_gif')){
+      wx.downloadFile({
+        url: 'https://vapi.thebepro.com/files/8d53f2c8239e97415009141db87358ca.gif',
+        success(res) {
+          if(res.statusCode == 200) {
+            const fs = wx.getFileSystemManager()
+            fs.saveFile({
+              tempFilePath: res.tempFilePath,
+              success(res){
+                wx.setStorageSync('guide_gif', res.savedFilePath)
+              }
+            })
+          }
+        }
+      })
+    }
+    
+  }
 
 })

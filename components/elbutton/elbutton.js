@@ -197,6 +197,9 @@ Component({
               return this.triggerEvent("onlogin", !0),e.default.setStorage({
                 key: "hasDoneQuestion",
                 data: hasDoneQ,
+              }),e.default.setStorage({
+                key:"testName",
+                data:i.data.testName,
               }), t.abrupt("return");
             case 22:
             case "end":

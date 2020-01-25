@@ -33,7 +33,7 @@
     <view class="no-order-list" wx:if="{{!orderList.length}}">
       <image class="no-order-image" src="https://vapi.thebepro.com/files/order-empty.png"></image>
       <view class="no-order-text">没有任何订单信息</view>
-      <view class="no-order-des">健康生活从头开始，Bepro给您带来惊喜！</view>
+      <view class="no-order-des">健康生活从头开始，PrintNature给您带来惊喜！</view>
       <el-button bindbtntap="goRecommendProduct" myClass="check-out-products" text="查看适合我的产品"></el-button>
     </view>
     <view class="order-list" wx:else>

@@ -1,6 +1,6 @@
 module.exports = {
     cdn: "xxx",
-    // apiHost: "http://localhost:8888/",
+    // apiHost: "http://localhost:8899/",
     apiHost:"https://vapi.thebepro.com/",
     apiUrl: {
         login: "auth/login",

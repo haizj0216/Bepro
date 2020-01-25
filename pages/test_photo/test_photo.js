@@ -15,6 +15,8 @@ Page({
     showPop: true,
     question: {},
     analysis_result: {},
+    showloading:false,
+    image_gif:''
   },
 
   /**
@@ -31,6 +33,15 @@ Page({
         console.log(res.data)
       }
     })
+    if(wx.getStorageSync('guide_gif')){
+      that.setData({
+        image_gif:wx.getStorageSync('guide_gif')
+      })
+    } else{
+      that.setData({
+        image_gif:'https://vapi.thebepro.com/files/0de6b68f13847c42ac7c1144dde889c7.gif'
+      })
+    }
   },
 
   /**
@@ -130,9 +141,12 @@ Page({
   },
 
   douploader: function () {
-    wx.showLoading()
-    var token = wx.getStorageSync("token")
+    // wx.showLoading()
     let that = this
+    that.setData({
+      showloading:true,
+    })
+    var token = wx.getStorageSync("token")
     var filePath = that.data.image
     wx.uploadFile({
       url: n.apiHost + n.apiUrl.fileUpload + "?token=" + token,
@@ -147,7 +161,10 @@ Page({
           })
           that.skinanalyze(result.data.url)
         } else {
-          wx.hideLoading()
+          // wx.hideLoading()
+          that.setData({
+            showloading:false,
+          })
           wx.showModal({
             content:res.data,
             success(res) {
@@ -163,10 +180,13 @@ Page({
         console.log(res.data)
       },
       fail(res) {
-        wx.hideLoading()
+        // wx.hideLoading()
         // wx.showToast({
         //   title: '图片上传失败，请重新拍照或者替换其他照片'
         // })
+        that.setData({
+          showloading:false,
+        })
         wx.showModal({
           content:res.data,
           success(res) {
@@ -202,10 +222,13 @@ Page({
         that.toTest2();
       },
       fail(res) {
-        wx.hideLoading()
+        // wx.hideLoading()
         // wx.showToast({
         //   title: '分析结果失败'
         // })
+        that.setData({
+          showloading:false,
+        })
         wx.showModal({
           content:'分析结果失败',
           success(res) {
@@ -220,7 +243,10 @@ Page({
   },
 
   toTest2: function () {
-    wx.hideLoading();
+    // wx.hideLoading();
+    this.setData({
+      showloading:false,
+    })
     wx.navigateTo({
       url: '../analysis/analysis'
     })
@@ -248,10 +274,13 @@ Page({
           that.updateAnalysis(res.data.result);
           that.doget();
         } else {
-          wx.hideLoading()
+          // wx.hideLoading()
           // wx.showToast({
           //   title: res.data
           // })
+          that.setData({
+            showloading:false,
+          })
           wx.showModal({
             content:res.data,
             success(res) {
@@ -264,10 +293,13 @@ Page({
 
       },
       fail(res) {
-        wx.hideLoading()
+        // wx.hideLoading()
         // wx.showToast({
         //   title: res.data
         // })
+        that.setData({
+          showloading:false,
+        })
         wx.showModal({
           content:res.data,
           success(res) {

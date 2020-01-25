@@ -28,6 +28,7 @@ Page({
     phoneValue: 0,
     sleepRange: ['<6小时', '6~8小时', '>8小时'],
     sleepValue: 0,
+    name:"",
     
 
     sleeps: [{
@@ -57,6 +58,9 @@ Page({
   onLoad: function (options) {
     qqmapsdk = new QQMapWX({
       key: 'XITBZ-3SBLG-4R3QN-IXXPJ-TD5TE-QUFPR'
+    })
+    this.setData({
+        name:wx.getStorageSync('testName')
     })
     let that = this
     wx.getSetting({

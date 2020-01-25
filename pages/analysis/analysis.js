@@ -20,9 +20,12 @@ Page({
     sex: '',
     test_time: "",
     echartsComponnet: null,
+    circleComponnet:null,
     analysis_result: {},
     analysis_string: "",
     ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
+    totalScore:0,
+    userName:"",
   },
 
   /**
@@ -30,8 +33,7 @@ Page({
    */
   onLoad: function (options) {
     this.echartsComponnet = this.selectComponent('#mychart-dom-graph');
-
-    // this.updateAnalysis()
+    this.circleComponnet = this.selectComponent('#circle-wewle');
     this.getdata()
   },
 
@@ -102,6 +104,15 @@ Page({
           yAxis: {
             show: false
           },
+          label: {
+            normal: {
+              
+              show:true,
+              formatter:function(params) {
+                return params.value;
+              }
+            }
+          },
           radar: {
             // shape: 'circle',
             indicator: [{
@@ -136,7 +147,15 @@ Page({
                 name: '法令纹',
                 max: 100
               }
-            ]
+            ],
+          //   axisLabel: {
+          //     show: true,
+          //     fontSize: 12,
+          //     color: '#838D9E',
+          //     showMaxLabel: false, //不显示最大值，即外圈不显示数字30
+          //     showMinLabel: false, //显示最小数字，即中心点显示0
+          // },            
+
           },
           series: [{
             name: '皮肤',
@@ -148,8 +167,9 @@ Page({
             label: {
               normal: {
                 fontSize: 20,
-                rich: {}
-              }
+                rich: {},
+              },
+              
             }
           }]
         };
@@ -187,8 +207,10 @@ Page({
             test_time: createTime,
             analysis_result: result,
             analysis_string: res.data.data.analysisString,
+            userName:res.data.data.testName,
           })
           wx.setStorageSync('hasDoneQuestion', 1)
+          wx.setStorageSync('testName', res.data.data.testName)
           that.updateanalysis(result)
         }
       },
@@ -211,51 +233,30 @@ Page({
       })
     } else {
       let maokong = result.pores_left_cheek.confidence * 100;
-      let falingwen = result.nasolabial_fold.confidence * 100;
+      let falingwen = 100- result.nasolabial_fold.confidence * 100;
       let heiyanquan = result.dark_circle.confidence * 100;
       let yandai = result.eye_pouch.confidence * 100;
       let seban = result.skin_spot.confidence * 100;
       let doudou = result.acne.confidence * 100;
-      let xiwen = result.eye_finelines.confidence * 100;
-      let blackhead = result.blackhead.confidence * 100;
-      let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
+      let xiwen = 100- result.eye_finelines.confidence * 100;
+      let blackhead = 100- result.blackhead.confidence * 100;
+      let score = [parseInt(maokong), parseInt(blackhead), parseInt(xiwen), parseInt(doudou), parseInt(seban), parseInt(yandai), parseInt(heiyanquan), parseInt(falingwen)];
+      let finalScore = (parseInt(maokong)+parseInt(blackhead)+parseInt(xiwen)+ parseInt(doudou)+ parseInt(seban)+ parseInt(yandai)+ parseInt(heiyanquan)+ parseInt(falingwen)) / 8
       console.log(score);
       this.setData({
-        scores: score
+        scores: score,
+        totalScore:parseInt(finalScore),
       })
     }
     this.init_echarts();
+    this.circleComponnet.initCircle();
   },
 
   recompute(value) {
 
   },
 
-  updateAnalysis() {
-    var result = app.globalData.analysis;
-    if (result == null) {
-      let score = [80, 58, 82, 36, 75, 57, 60, 46];
-      console.log(score);
-      this.setData({
-        scores: score
-      })
-    } else {
-      let maokong = result.pores_left_cheek.confidence * 100;
-      let falingwen = result.nasolabial_fold.confidence * 100;
-      let heiyanquan = result.dark_circle.confidence * 100;
-      let yandai = result.eye_pouch.confidence * 100;
-      let seban = result.skin_spot.confidence * 100;
-      let doudou = result.acne.confidence * 100;
-      let xiwen = result.eye_finelines.confidence * 100;
-      let blackhead = result.blackhead.confidence * 100;
-      let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
-      console.log(score);
-      this.setData({
-        scores: score
-      })
-    }
-    this.init_echarts();
-  },
+  
 
   toRemommend: function () {
     wx.navigateTo({

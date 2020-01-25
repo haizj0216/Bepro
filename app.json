@@ -16,7 +16,8 @@
     "pages/test_photo/test_photo",
     "pages/expressTail/expressTail",
     "pages/question_2/question_2",
-    "pages/question_3/question_3"
+    "pages/question_3/question_3",
+    "pages/circle/circle"
   ],
   "tabBar": {
     "color": "#b3a7a2",
@@ -28,11 +29,9 @@
         "iconPath": "/images/icon_home_n.png",
         "selectedIconPath": "/images/icon_home_s.png",
         "selecctedColor": "#000000"
-
       },
       {
         "selecctedColor": "#000000",
-
         "pagePath": "pages/test_record/record",
         "text": "档案",
         "iconPath": "/images/icon_record_n.png",
@@ -40,7 +39,6 @@
       },
       {
         "selecctedColor": "#000000",
-
         "pagePath": "pages/cart/cart",
         "text": "购物车",
         "iconPath": "/images/icon_cart_n.png",
@@ -48,7 +46,6 @@
       },
       {
         "selecctedColor": "#000000",
-
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "/images/icon_me_n.png",
@@ -59,7 +56,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "BEPRO",
+    "navigationBarTitleText": "PrintNature",
     "navigationBarTextStyle": "white",
     "navigationStyle": "custom"
   },

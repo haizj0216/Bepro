@@ -100,10 +100,23 @@
   align-items: center;
   position: fixed;
   background-color: rgba(0, 0, 0, .5);
-  z-index: 100;
+  z-index: 80;
   top: 0;
   left: 0;
   flex-direction: column;
+}
+
+.loading{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  justify-content: center;
 }
 
 .close{
@@ -160,3 +173,4 @@
 .desc{
   text-align: center;
 }
+

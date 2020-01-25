@@ -69,7 +69,9 @@ Page({
     echartsComponnet: null,
     analysisresult: "",
     ageRange: ['<20', '21~35', '36~45', '46~55', '>55'],
-    analysis_string:""
+    analysis_string:"",
+    totalScore:0,
+    userName:"",
   },
   onLoad: function (options) {
     
@@ -290,20 +292,23 @@ Page({
     if(result) {
       wx.setStorageSync('hasDoneQuestion', 1)
       let maokong = result.pores_left_cheek.confidence * 100;
-      let falingwen = result.nasolabial_fold.confidence * 100;
+      let falingwen = 100- result.nasolabial_fold.confidence * 100;
       let heiyanquan = result.dark_circle.confidence * 100;
       let yandai = result.eye_pouch.confidence * 100;
       let seban = result.skin_spot.confidence * 100;
       let doudou = result.acne.confidence * 100;
-      let xiwen = result.eye_finelines.confidence * 100;
-      let blackhead = result.blackhead.confidence * 100;
-      let score = [maokong, blackhead, xiwen, doudou, seban, yandai, heiyanquan, falingwen];
+      let xiwen = 100- result.eye_finelines.confidence * 100;
+      let blackhead = 100- result.blackhead.confidence * 100;
+      let score = [parseInt(maokong), parseInt(blackhead), parseInt(xiwen), parseInt(doudou), parseInt(seban), parseInt(yandai), parseInt(heiyanquan), parseInt(falingwen)];
+      let finalScore = (parseInt(maokong)+parseInt(blackhead)+parseInt(xiwen)+ parseInt(doudou)+ parseInt(seban)+ parseInt(yandai)+ parseInt(heiyanquan)+ parseInt(falingwen)) / 8
       console.log(score);
       this.setData({
         scores: score,
-        hasDoneQ:!0
+        hasDoneQ:!0,
+        totalScore:parseInt(finalScore)
       })
       this.init_echarts();
+      this.circleComponnet.initCircle();
     } else {
       this.setData({
         hasDoneQ:!1
@@ -332,6 +337,7 @@ Page({
         solution: createTime,
         analysis_result: result,
         analysis_string: res.data.analysisString,
+        userName:res.data.testName,
       })
       that.updateanalysis(result)
     } else {
@@ -346,6 +352,11 @@ Page({
     if(this.echartsComponnet == null) {
       this.echartsComponnet = this.selectComponent('#mychart-dom-graph-record');
     }
+    if(this.circleComponnet == null) {
+      this.circleComponnet = this.selectComponent('#circle-wewle');
+
+    }
+
     this.echartsComponnet.init((canvas, width, height) => {
       const chart = echarts.init(canvas, null, {
         width: width,

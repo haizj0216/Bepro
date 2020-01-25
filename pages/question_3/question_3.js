@@ -91,7 +91,7 @@ Page({
       checked: false,
     }, {
       id: 11,
-      name: "松弛",
+      name: "刺痒",
       img: "../../images/icon_question_songchi.png",
       img_s:"../../images/icon_question_songchi_s.png",
       checked: false,
