@@ -37,7 +37,7 @@
         </view>
       </block>
     </view>
-    <el-button wx:if="{{!hasDoneQ}}" bindbtntap="goQuestionnaire" openType="getUserInfo" bindonlogin="loginReload" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
+    <el-button bindbtntap="goQuestionnaire" openType="getUserInfo" bindonlogin="loginReload" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
     <view class="arrow-container arrow-container-mini">
       <image class="array" src="/images/down_arrow.png"></image>
     </view>
@@ -57,6 +57,6 @@
         <view class="item4-body-item-text">{{iconItem.name}}</view>
       </view>
     </view>
-    <el-button wx:if="{{!hasDoneQ}}" bindbtntap="goQuestionnaire" bindonlogin="loginReload" openType="getUserInfo" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
+    <el-button  bindbtntap="goQuestionnaire" bindonlogin="loginReload" openType="getUserInfo" class="qu-button qu-button-mini" text="填写诊断问卷，即刻获取精准推荐"></el-button>
   </swiper-item>
 </swiper>
